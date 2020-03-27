@@ -1,0 +1,5 @@
+.gcloudignore
+.gitignore
+
+*.out
+*.test
