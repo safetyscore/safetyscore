@@ -5,6 +5,8 @@ import { childAnchors } from 'emotion-styled-utils'
 
 const Container = styled.div`
   background-color: ${({ theme }) => theme.sidebarBgColor};
+  border-radius: 5px;
+  font-size: 1.5rem;
 `
 
 const MenuList = styled.ul`

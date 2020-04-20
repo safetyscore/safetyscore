@@ -38,8 +38,8 @@ export default {
   buttonHoverBorderColor: 'transparent',
   buttonShadowColor: black,
   pageBottomNavBorderColor: lightGrey,
-  sidebarBgColor: color1Dark,
-  sidebarAnchorTextColor: color2EggWhite,
+  sidebarBgColor: color5Cyan,
+  sidebarAnchorTextColor: black,
   sidebarAnchorHoverBgColor: color4DarkCyan,
 }
 

@@ -1,13 +1,18 @@
 import React, { useState, useCallback, useEffect } from "react"
 import styled from '@emotion/styled'
 import { Link, graphql } from "gatsby"
-import { boxShadow } from 'emotion-styled-utils'
+import { flex, boxShadow } from 'emotion-styled-utils'
 
-import Layout from "../components/layout"
+import Layout from "../components/Layout"
 import { headerHeight } from '../components/Header'
 import Seo from "../components/Seo"
 import SidebarMenu from '../components/SidebarMenu'
 import Button from '../components/Button'
+
+const Container = styled.div`
+  ${flex({ direction: 'row', align: 'flex-start', justify: 'flex-start' })}
+  padding: 2rem;
+`
 
 const sidebarWidth = '200px'
 
@@ -15,6 +20,8 @@ const StyledSidebarMenu = styled(SidebarMenu)`
   display: block;
   width: auto;
   font-size: 0.9rem;
+  padding: 1rem;
+
   ${({ theme }) => theme.media.when({ minW: 'mobile' })} {
     width: ${sidebarWidth};
     margin-right: 1rem;
@@ -52,6 +59,7 @@ const DesktopSidebar = styled.div`
 const MobileSidebarButton = styled(Button)`
   padding: 0.1rem 0.2rem;
   font-size: 1.5rem;
+  border-radius: 0;
 `
 
 const BottomNav = styled.div`
@@ -120,19 +128,21 @@ const Page = ({ current, ...nav }) => {
   return (
     <Layout>
       <Seo title={title} />
-      <MobileSidebar>
-        <MobileSidebarButton onClick={toggleMenu}>{menuOpen ? '«' : '»'}</MobileSidebarButton>
-        {menuOpen ? (
-          <MobileSidebarMenu />
-        ) : null}
-      </MobileSidebar>
-      <DesktopSidebar>
-        <DesktopSidebarMenu />
-      </DesktopSidebar>
-      <div>
-        <h1>{title}</h1>
-        <div dangerouslySetInnerHTML={{ __html: html }} />
-      </div>
+      <Container>
+        <MobileSidebar>
+          <MobileSidebarButton onClick={toggleMenu}>{menuOpen ? '«' : '»'}</MobileSidebarButton>
+          {menuOpen ? (
+            <MobileSidebarMenu />
+          ) : null}
+        </MobileSidebar>
+        <DesktopSidebar>
+          <DesktopSidebarMenu />
+        </DesktopSidebar>
+        <div>
+          <h1>{title}</h1>
+          <div dangerouslySetInnerHTML={{ __html: html }} />
+        </div>
+      </Container>
       <PageBottomNav {...nav} />
     </Layout>
   )
