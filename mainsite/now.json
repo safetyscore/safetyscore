@@ -12,13 +12,17 @@
   "env": {
     "NODE_ENV": "production",
     "APP_MODE": "live",
-    "SLACK_TOKEN": "@slack_token"
+    "SLACK_TOKEN": "@slack_token",
+    "STRIPE_PRIVATE_KEY": "@stripe_private_key",
+    "STRIPE_PUBLIC_KEY": "@stripe_public_key"
   },
   "build": {
     "env": {
       "NODE_ENV": "production",
       "APP_MODE": "live",
-      "SLACK_TOKEN": "@slack_token"
+      "SLACK_TOKEN": "@slack_token",
+      "STRIPE_PRIVATE_KEY": "@stripe_private_key",
+      "STRIPE_PUBLIC_KEY": "@stripe_public_key"
     }
   }
 }
