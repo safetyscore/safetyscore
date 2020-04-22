@@ -8,6 +8,7 @@ import Layout from '../src/frontend/components/Layout'
 import Seo from '../src/frontend/components/Seo'
 import ContentWrapper from '../src/frontend/components/ContentWrapper'
 import DownloadAppBlock from '../src/frontend/components/DownloadAppBlock'
+import FundUs from '../src/frontend/components/FundUs'
 import HowItWorks from '../src/frontend/components/page/home/HowItWorks'
 import MaxContentWidth from '../src/frontend/components/MaxContentWidth'
 
@@ -90,6 +91,7 @@ const HomePage = () => {
         </TagLine>
         <FirstDownloadAppBlock />
       </TopBlock>
+      <FundUs />
       <ContentBlock>
         <h2>How it works</h2>
         <ItemList>

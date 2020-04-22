@@ -1,4 +1,5 @@
 import validator from 'validator'
+import setupStripe from 'stripe'
 import _ from 'lodash'
 import bent from 'bent'
 import formUrlEncoded from 'form-urlencoded'
@@ -18,9 +19,11 @@ const _call = fn => async (root, params, ctx) => {
 
 
 export default ({ config }) => {
-  const callSlackApi = bent('https://slack.com/api', 'POST', 'json', 200, {
+  const slackApi = bent('https://slack.com/api', 'POST', 'json', 200, {
     'Content-Type': 'application/x-www-form-urlencoded'
   })
+
+  const stripe = setupStripe(config.STRIPE_PRIVATE_KEY)
 
   return {
     Query: {
@@ -29,12 +32,34 @@ export default ({ config }) => {
       })
     },
     Mutation: {
+      createStripePaymentIntent: _call(async (_ignore, { payment }) => {
+        const amount = _.get(payment, 'amount')
+
+        try {
+          if (!amount) {
+            return createErrorResponse(INVALID_INPUT, 'Invalid amount')
+          }
+
+          const { client_secret: clientSecret } = await stripe.paymentIntents.create({
+            amount: amount * 100,
+            currency: 'usd',
+            description: 'SafetyScore - Getting the World out of Lockdown.',
+            receipt_email: payment.email,
+          })
+
+          return {
+            clientSecret
+          }
+        } catch (err) {
+          return createErrorResponse(UNKNOWN, err.message)
+        }
+      }),
       requestSlackInvite: _call(async (_ignore, { email }) => {
         if (!validator.isEmail(email)) {
           return createErrorResponse(INVALID_INPUT, 'Email invalid')
         }
 
-        const ret = await callSlackApi('/users.admin.invite', formUrlEncoded({
+        const ret = await slackApi('/users.admin.invite', formUrlEncoded({
           token: config.SLACK_TOKEN,
           email,
           resend: true,

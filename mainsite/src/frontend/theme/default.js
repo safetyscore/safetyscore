@@ -92,6 +92,8 @@ export default {
   inputPlaceholderTextColor: lightGrey,
   // queryResult component
   queryResultLoadingTextColor: white,
+  // fund ut component
+  fundUsBgColor: color3,
   // error page
   errorPageExplanationTextColor: darkGrey,
   errorPageStackBgColor: lightGrey,
@@ -99,4 +101,7 @@ export default {
   homePageHowItWorksNumberBorderColor: black,
   homePageHowItWorksSubDetailsBgColor: lighterGrey,
   homePageHowItWorksSubDetailsTextColor: grey,
+  // fund page
+  fundPagePaymentDisclaimerTextColor: lightGrey,
+  fundPageCardEntryBgColor: lighterGrey,
 }

@@ -10,14 +10,22 @@ Install pre-requisites:
 npm install
 ```
 
-Run dev server:
+You will need to create a `.env` file with the following content:
+
+```
+SLACK_TOKEN=...
+STRIPE_PUBLIC_KEY=...
+STRIPE_PRIVATE_KEY=...
+```
+
+Now run the dev server:
 
 ```shell
 npm run dev
 ```
 
-Build production output:
+Build and deploy production:
 
 ```shell
-npm run build
+npm run deploy
 ```

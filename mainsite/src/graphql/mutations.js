@@ -1,16 +1,27 @@
 import gql from 'graphql-tag'
 
 import {
-  RequestSlackInviteFragment,
+  RequestSlackInviteResultFragment,
+  CreateStripePaymentIntentFragment,
 } from './fragments'
 
 
 export const RequestSlackInviteMutation = gql`
-  ${RequestSlackInviteFragment}
+  ${RequestSlackInviteResultFragment}
 
   mutation RequestSlackInvite ($email: String!) {
     result: requestSlackInvite (email: $email) {
-      ...RequestSlackInviteFragment
+      ...RequestSlackInviteResultFragment
+    }
+  }
+`
+
+export const CreateStripePaymentIntent = gql`
+  ${CreateStripePaymentIntentFragment}
+
+  mutation CreateStripePaymentIntent ($payment: StripePaymentInput!) {
+    result: createStripePaymentIntent (payment: $payment) {
+      ...CreateStripePaymentIntentFragment
     }
   }
 `

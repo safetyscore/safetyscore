@@ -9,6 +9,7 @@ import { useSafeMutation } from '../src/frontend/hooks'
 import Layout from '../src/frontend/components/Layout'
 import Image from '../src/frontend/components/Image'
 import Seo from '../src/frontend/components/Seo'
+import FundUs from '../src/frontend/components/FundUs'
 import ContentWrapper from '../src/frontend/components/ContentWrapper'
 import QueryResult from '../src/frontend/components/QueryResult'
 import TextInput from '../src/frontend/components/TextInput'
@@ -22,7 +23,7 @@ const Container = styled.div`
 const SlackLogoImage = styled(Image)`
   width: 128px;
   height: auto;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 `
 
 const H1 = styled.h1`
@@ -84,6 +85,7 @@ const SlackPage = () => {
   return (
     <Layout>
       <Seo title='Join our Slack' />
+      <FundUs />
       <ContentWrapper>
         <Container>
           <SlackLogoImage name='slack' />

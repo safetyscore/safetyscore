@@ -43,3 +43,10 @@ export const JoinLink = ({ children }) => (
     {wrapInAnchor(children)}
   </DefaultLink>
 )
+
+
+export const FundLink = ({ children }) => (
+  <DefaultLink href='/fund' scroll={true}>
+    {wrapInAnchor(children)}
+  </DefaultLink>
+)

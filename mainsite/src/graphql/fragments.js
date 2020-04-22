@@ -17,13 +17,35 @@ export const SuccessFragment = gql`
 `
 
 
-export const RequestSlackInviteFragment = gql`
+export const RequestSlackInviteResultFragment = gql`
   ${SuccessFragment}
   ${ErrorFragment}
 
-  fragment RequestSlackInviteFragment on RequestSlackInviteResult {
+  fragment RequestSlackInviteResultFragment on RequestSlackInviteResult {
     ...on Success {
       ...SuccessFragment
+    }
+    ...on Error {
+      ...ErrorFragment
+    }
+  }
+`
+
+
+export const StripePaymentIntentFragment = gql`
+  fragment StripePaymentIntentFragment on StripePaymentIntent {
+    clientSecret
+  }
+`
+
+
+export const CreateStripePaymentIntentFragment = gql`
+  ${StripePaymentIntentFragment}
+  ${ErrorFragment}
+
+  fragment CreateStripePaymentIntentFragment on CreateStripePaymentIntentResult {
+    ...on StripePaymentIntent {
+      ...StripePaymentIntentFragment
     }
     ...on Error {
       ...ErrorFragment
