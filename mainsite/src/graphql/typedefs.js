@@ -19,10 +19,20 @@ export const getTypeDefs = () => gql`
     success: Boolean
   }
 
+  type StripePaymentIntent {
+    clientSecret: String!
+  }
+
+  input StripePaymentInput {
+    amount: Int!
+  }
+
   union RequestSlackInviteResult = Success | Error
+  union CreateStripePaymentIntentResult = StripePaymentIntent | Error
 
   type Mutation {
     requestSlackInvite (email: String!): RequestSlackInviteResult!
+    createStripePaymentIntent (payment: StripePaymentInput!): CreateStripePaymentIntentResult!
   }
 
   type Query {
@@ -32,6 +42,7 @@ export const getTypeDefs = () => gql`
 
 const UNIONS = [
   [ 'RequestSlackInviteResult', 'Success' ],
+  [ 'CreateStripePaymentIntentResult', 'StripePaymentIntent' ],
 ]
 
 export const getFragmentMatcherConfig = () => ({

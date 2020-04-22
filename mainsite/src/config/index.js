@@ -5,7 +5,8 @@ const { str, num, bool } = envalid
 const VARS = {
   APP_MODE: str({ default: 'development' }),
   SUPPORT_EMAIL: str({ default: 'support@safetyscore.app' }),
-  SLACK_TOKEN: str({ }),
+  STRIPE_PRIVATE_KEY: str(),
+  SLACK_TOKEN: str(),
 }
 
 const allEnv = envalid.cleanEnv(process.env, VARS)

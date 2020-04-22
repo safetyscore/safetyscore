@@ -44,7 +44,7 @@ const GlobalStyles = () => {
 
         h1 {
           font-size: 2.1rem;
-          margin: 1rem 0;
+          margin: 0 0 1rem;
         }
 
         h2 {
