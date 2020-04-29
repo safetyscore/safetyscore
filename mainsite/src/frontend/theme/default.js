@@ -92,8 +92,9 @@ export default {
   inputPlaceholderTextColor: lightGrey,
   // queryResult component
   queryResultLoadingTextColor: white,
-  // fund ut component
+  // fund us component
   fundUsBgColor: color3,
+  fundUsProgressBarProgressColor: color2,
   // error page
   errorPageExplanationTextColor: darkGrey,
   errorPageStackBgColor: lightGrey,

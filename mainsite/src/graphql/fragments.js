@@ -17,6 +17,30 @@ export const SuccessFragment = gql`
 `
 
 
+export const FundBalanceFragment = gql`
+  fragment FundBalanceFragment on FundBalance {
+    amount
+  }
+`
+
+
+
+export const FundBalanceResultFragment = gql`
+  ${FundBalanceFragment}
+  ${ErrorFragment}
+
+  fragment FundBalanceResultFragment on FundBalanceResult {
+    ...on FundBalance {
+      ...FundBalanceFragment
+    }
+    ...on Error {
+      ...ErrorFragment
+    }
+  }
+`
+
+
+
 export const RequestSlackInviteResultFragment = gql`
   ${SuccessFragment}
   ${ErrorFragment}

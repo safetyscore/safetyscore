@@ -6,7 +6,7 @@ import formUrlEncoded from 'form-urlencoded'
 
 import { getDefaultResolvers } from './typedefs'
 import { createErrorResponse } from './errors'
-import { UNKNOWN, SLACK_ERROR, INVALID_INPUT } from './errorCodes'
+import { UNKNOWN, SLACK_ERROR, INVALID_INPUT, STRIPE_ERROR } from './errorCodes'
 
 
 const _call = fn => async (root, params, ctx) => {
@@ -27,8 +27,10 @@ export default ({ config }) => {
 
   return {
     Query: {
-      dummy: _call(async () => {
-        return true
+      getFundBalance: _call(async () => {
+        return {
+          amount: 1000
+        }
       })
     },
     Mutation: {
@@ -51,7 +53,7 @@ export default ({ config }) => {
             clientSecret
           }
         } catch (err) {
-          return createErrorResponse(UNKNOWN, err.message)
+          return createErrorResponse(STRIPE_ERROR, err.message)
         }
       }),
       requestSlackInvite: _call(async (_ignore, { email }) => {

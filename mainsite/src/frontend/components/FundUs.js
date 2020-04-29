@@ -1,7 +1,12 @@
-import React from 'react'
+import React, { useMemo } from 'react'
+import _ from 'lodash'
+import { Line as ProgressLine } from 'rc-progress'
 import styled from '@emotion/styled'
+import { useTheme } from 'emotion-theming'
 import { flex } from 'emotion-styled-utils'
 
+import { useSafeQuery } from '../hooks'
+import { GetFundBalanceQuery } from '../../graphql/queries'
 import Button from './Button'
 import { FundLink } from './Link'
 
@@ -11,11 +16,19 @@ const Container = styled.div`
   width: 100%;
   min-height: 60px;
   padding: 1rem 0;
+`
 
+const ProgressContainer = styled.div`
+  ${flex({ direction: 'column', justify: 'space-between', align: 'flex-start', basis: 0 })};
+  margin-right: 2rem;
   p {
-    font-size: 1.5rem;
-    margin-right: 1rem;
+    margin-top: 20px;
   }
+`
+
+const StyledProgressLine = styled(ProgressLine)`
+  width: 200px;
+  height: 10px;
 `
 
 const StyledButton = styled(Button)`
@@ -23,11 +36,25 @@ const StyledButton = styled(Button)`
   padding: 0.6rem 0.8rem;
 `
 
+const currencyFormatter = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' })
+
 const FundUs = ({ className }) => {
+  const theme = useTheme()
+  const query = useSafeQuery(GetFundBalanceQuery, { fetchPolicy: 'cache-and-network' })
+  const raised = useMemo(() => _.get(query, 'data.result.amount'), [ _.get(query, 'data.result.amount') ])
+  const formattedUsd = useMemo(() => currencyFormatter.format(raised / 100), [ raised ])
+
   return (
     <Container className={className}>
-      <p>You can help to fund our efforts!</p>
-      <FundLink><StyledButton>Donate</StyledButton></FundLink>
+      <ProgressContainer>
+        <StyledProgressLine
+          percent={~~(raised / 360000000 /* 3.6m USD */ * 100)}
+          strokeWidth="2"
+          strokeColor={theme.fundUsProgressBarProgressColor}
+        />
+        <p>{formattedUsd} raised</p>
+      </ProgressContainer>
+      <FundLink><StyledButton>Fund Us</StyledButton></FundLink>
     </Container>
   )
 }

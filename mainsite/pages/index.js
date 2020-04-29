@@ -7,7 +7,6 @@ import { headerHeight } from '../src/frontend/components/Header'
 import Layout from '../src/frontend/components/Layout'
 import Seo from '../src/frontend/components/Seo'
 import ContentWrapper from '../src/frontend/components/ContentWrapper'
-import DownloadAppBlock from '../src/frontend/components/DownloadAppBlock'
 import FundUs from '../src/frontend/components/FundUs'
 import HowItWorks from '../src/frontend/components/page/home/HowItWorks'
 import MaxContentWidth from '../src/frontend/components/MaxContentWidth'
@@ -22,19 +21,11 @@ const TagLine = styled.p`
   font-size: 3.5rem;
   text-align: center;
   line-height: 1.2em;
+  padding: 0 2rem;
 
   ${({ theme }) => theme.media.when({ minW: 'mobile' })} {
     font-size: 4rem;
   }
-`
-
-const StyledDownloadAppBlock = styled(DownloadAppBlock)`
-  margin: 0 auto;
-`
-
-const FirstDownloadAppBlock = styled(StyledDownloadAppBlock)`
-  width: 80%;
-  margin: 4rem auto 0;
 `
 
 const ContentBlock = styled(ContentWrapper)`
@@ -89,7 +80,6 @@ const HomePage = () => {
         <TagLine>
           Getting the World out of Lockdown.
         </TagLine>
-        <FirstDownloadAppBlock />
       </TopBlock>
       <FundUs />
       <ContentBlock>
@@ -112,12 +102,6 @@ const HomePage = () => {
           />
         </ItemList>
       </ContentBlock>
-      <InterimBlock>
-        <InterimBlockInner>
-          <h2>Download the app</h2>
-          <StyledDownloadAppBlock />
-        </InterimBlockInner>
-      </InterimBlock>
     </Layout>
   )
 }
