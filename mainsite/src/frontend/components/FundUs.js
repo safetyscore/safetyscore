@@ -27,8 +27,12 @@ const ProgressContainer = styled.div`
 `
 
 const StyledProgressLine = styled(ProgressLine)`
-  width: 200px;
+  width: 150px;
   height: 10px;
+
+  ${({ theme }) => theme.media.when({ minW: 'mobile' })} {
+    width: 300px;
+  }
 `
 
 const StyledButton = styled(Button)`

@@ -10,7 +10,7 @@ import Footer from './Footer'
 export const maxContentWidth = '1024px'
 
 const Layout = styled.div`
-  min-height: 200vh;
+  min-height: 120vh;
   ${font('body')};
   background: ${({ theme }) => theme.layoutBgColor};
   color: ${({ theme }) => theme.layoutTextColor};

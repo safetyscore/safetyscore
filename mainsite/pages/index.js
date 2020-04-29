@@ -11,7 +11,7 @@ import FundUs from '../src/frontend/components/FundUs'
 import TeamMember from '../src/frontend/components/page/home/TeamMember'
 
 const TopBlock = styled.div`
-  height: calc(100vh - ${headerHeight});
+  height: calc(80vh - ${headerHeight});
   ${flex({ direction: 'column', justify: 'center', align: 'center' })};
   padding: 1rem;
 `
@@ -41,6 +41,7 @@ const ItemList = styled.div`
 
 const StyledTeamMember = styled(TeamMember)`
   margin-top: 1rem;
+  width: 40%;
 `
 
 // const StyledHowItWorks = styled(HowItWorks)`
