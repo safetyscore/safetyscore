@@ -8,8 +8,7 @@ import Layout from '../src/frontend/components/Layout'
 import Seo from '../src/frontend/components/Seo'
 import ContentWrapper from '../src/frontend/components/ContentWrapper'
 import FundUs from '../src/frontend/components/FundUs'
-import HowItWorks from '../src/frontend/components/page/home/HowItWorks'
-import MaxContentWidth from '../src/frontend/components/MaxContentWidth'
+import TeamMember from '../src/frontend/components/page/home/TeamMember'
 
 const TopBlock = styled.div`
   height: calc(100vh - ${headerHeight});
@@ -29,48 +28,42 @@ const TagLine = styled.p`
 `
 
 const ContentBlock = styled(ContentWrapper)`
-  min-height: 100vh;
-
   h2 {
     text-align: center;
     margin: 1rem 0 2rem;
     font-size: 3rem;
   }
-
-  ${({ theme }) => theme.media.when({ minW: 'mobile' })} {
-    min-height: auto;
-  }
 `
 
 const ItemList = styled.div`
-  ${flex({ direction: 'column', justify: 'flex-start', align: 'center' })};
-
-  ${({ theme }) => theme.media.when({ minW: 'mobile' })} {
-    ${flex({ direction: 'row', justify: 'space-around', align: 'flex-start' })};
-  }
+  ${flex({ direction: 'row', justify: 'space-around', align: 'flex-start', wrap: 'wrap' })};
 `
 
-const StyledHowItWorks = styled(HowItWorks)`
-  margin: 2rem 0;
-  width: 80%;
-
-  ${({ theme }) => theme.media.when({ minW: 'mobile' })} {
-    margin: 2rem 1rem;
-    max-width: 300px;
-  }
+const StyledTeamMember = styled(TeamMember)`
+  margin-top: 1rem;
 `
 
-const InterimBlock = styled(MaxContentWidth)``
-const InterimBlockInner = styled.div`
-  width: 80%;
-  margin: 0 auto;
-  text-align: center;
-  padding: 2rem 0;
+// const StyledHowItWorks = styled(HowItWorks)`
+//   margin: 2rem 0;
+//   width: 80%;
 
-  h2 {
-    margin-top: 0;
-  }
-`
+//   ${({ theme }) => theme.media.when({ minW: 'mobile' })} {
+//     margin: 2rem 1rem;
+//     max-width: 300px;
+//   }
+// `
+
+// const InterimBlock = styled(MaxContentWidth)``
+// const InterimBlockInner = styled.div`
+//   width: 80%;
+//   margin: 0 auto;
+//   text-align: center;
+//   padding: 2rem 0;
+
+//   h2 {
+//     margin-top: 0;
+//   }
+// `
 
 const HomePage = () => {
   return (
@@ -83,22 +76,19 @@ const HomePage = () => {
       </TopBlock>
       <FundUs />
       <ContentBlock>
-        <h2>How it works</h2>
+        <h2>Team</h2>
         <ItemList>
-          <StyledHowItWorks
-            number={1}
-            details='Coming soon...'
-            subdetails='Coming soon...'
+          <StyledTeamMember
+            name="Tav"
+            pic="https://pbs.twimg.com/profile_images/1200123014119071744/QUPogTli_400x400.jpg"
+            title="Project lead"
+            twitter="tav"
           />
-          <StyledHowItWorks
-            number={2}
-            details='Coming soon...'
-            subdetails='Coming soon...'
-          />
-          <StyledHowItWorks
-            number={3}
-            details='Coming soon...'
-            subdetails='Coming soon...'
+          <StyledTeamMember
+            name="Ram"
+            pic="https://pbs.twimg.com/profile_images/708314532678995970/8dI12aDO_400x400.jpg"
+            title="Developer"
+            twitter="hiddentao"
           />
         </ItemList>
       </ContentBlock>

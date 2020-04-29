@@ -54,6 +54,10 @@ export default {
   // content wrapper component
   contentWrapperBgColor: white,
   contentWrapperTextColor: black,
+  contentWrapperAnchorTextColor: anchorPrimaryColor,
+  contentWrapperAnchorHoverTextColor: white,
+  contentWrapperAnchorHoverBgColor: anchorPrimaryColor,
+  contentWrapperAnchorBorderBottomColor: transparent,
   // errorBox component
   errorBoxBgColor: red,
   errorBoxTextColor: white,
@@ -102,6 +106,7 @@ export default {
   homePageHowItWorksNumberBorderColor: black,
   homePageHowItWorksSubDetailsBgColor: lighterGrey,
   homePageHowItWorksSubDetailsTextColor: grey,
+  homePageTeamMemberPicBorderColor: grey,
   // fund page
   fundPagePaymentDisclaimerTextColor: lightGrey,
   fundPageCardEntryBgColor: lighterGrey,
