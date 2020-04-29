@@ -40,7 +40,7 @@ const StyledButton = styled(Button)`
   padding: 0.6rem 0.8rem;
 `
 
-const currencyFormatter = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' })
+const currencyFormatter = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumSignificantDigits: 3 })
 
 const FundUs = ({ className }) => {
   const theme = useTheme()

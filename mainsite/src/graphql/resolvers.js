@@ -29,7 +29,7 @@ export default ({ config }) => {
     Query: {
       getFundBalance: _call(async () => {
         return {
-          amount: 1000
+          amount: 210000
         }
       })
     },

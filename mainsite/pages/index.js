@@ -69,10 +69,10 @@ const StyledTeamMember = styled(TeamMember)`
 const HomePage = () => {
   return (
     <Layout>
-      <Seo title='Home' />
+      <Seo />
       <TopBlock>
         <TagLine>
-          Getting the World out of Lockdown.
+          A Permanent Solution to Pandemics.
         </TagLine>
       </TopBlock>
       <FundUs />
