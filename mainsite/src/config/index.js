@@ -10,7 +10,9 @@ const VARS = {
   SLACK_TOKEN: str(),
 }
 
-const allEnv = envalid.cleanEnv(process.env, VARS)
+const allEnv = envalid.cleanEnv(process.env, VARS, {
+  dotEnvPath: (process.env.NODE_ENV === 'production' ? '.env.live' : '.env')
+})
 
 const env = Object.keys(VARS).reduce((m, k) => {
   m[k] = allEnv[k]

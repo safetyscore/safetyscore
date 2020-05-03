@@ -76,3 +76,19 @@ export const CreateStripePaymentIntentFragment = gql`
     }
   }
 `
+
+
+
+export const RecordPaymentResultFragment = gql`
+  ${SuccessFragment}
+  ${ErrorFragment}
+
+  fragment RecordPaymentResultFragment on RecordPaymentResult {
+    ...on Success {
+      ...SuccessFragment
+    }
+    ...on Error {
+      ...ErrorFragment
+    }
+  }
+`

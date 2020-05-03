@@ -3,12 +3,13 @@ import { convertNodeHttpToRequest, runHttpQuery } from 'apollo-server-core'
 import _ from 'lodash'
 
 import { createSchema } from '../../src/graphql'
+import { createResolvers } from '../../src/graphql/resolvers'
 import { doBootstrap } from '../../src/bootstrap'
 
 const { wrapMiddleware, ...server } = doBootstrap()
 
 const graphqlOptions = {
-  schema: createSchema(server),
+  schema: createSchema(createResolvers(server)),
 }
 
 const endpoint = async (req, res) => {

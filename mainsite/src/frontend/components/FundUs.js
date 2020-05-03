@@ -40,13 +40,17 @@ const StyledButton = styled(Button)`
   padding: 0.6rem 0.8rem;
 `
 
-const currencyFormatter = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumSignificantDigits: 3 })
+const currencyFormatter = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' })
+const formatCurrency = v => {
+  const r = currencyFormatter.format(v)
+  return r.substr(0, r.length - 3)
+}
 
 const FundUs = ({ className }) => {
   const theme = useTheme()
   const query = useSafeQuery(GetFundBalanceQuery, { fetchPolicy: 'cache-and-network' })
-  const raised = useMemo(() => _.get(query, 'data.result.amount'), [ _.get(query, 'data.result.amount') ])
-  const formattedUsd = useMemo(() => currencyFormatter.format(raised / 100), [ raised ])
+  const raised = useMemo(() => _.get(query, 'data.result.amount', 0), [ _.get(query, 'data.result.amount') ])
+  const formattedUsd = useMemo(() => formatCurrency(raised / 100), [ raised ])
 
   return (
     <Container className={className}>

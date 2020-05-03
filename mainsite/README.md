@@ -10,12 +10,16 @@ Install pre-requisites:
 npm install
 ```
 
-You will need to create a `.env` file with the following content:
+Now, ensure you [authenticate with Google APIs](https://cloud.google.com/docs/authentication/getting-started):
 
+```shell
+gcloud auth application-default login
 ```
-SLACK_TOKEN=...
-STRIPE_PUBLIC_KEY=...
-STRIPE_PRIVATE_KEY=...
+
+Now fetch the dev secrets:
+
+```shell
+gcloud secrets versions access latest --secret="mainsite-dev" > .env
 ```
 
 Now run the dev server:
@@ -28,4 +32,26 @@ Build and deploy production:
 
 ```shell
 npm run deploy
+```
+
+## Deploy to production
+
+```shell
+npm run deploy
+```
+
+## Storing secrets
+
+We store API keys using [Google Cloud Secrets manager](https://cloud.google.com/secret-manager).
+
+To view dev environment secrets:
+
+```shell
+gcloud secrets versions access latest --secret="mainsite-dev"
+```
+
+For live env:
+
+```shell
+gcloud secrets versions access latest --secret="mainsite-live"
 ```

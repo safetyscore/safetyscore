@@ -11,7 +11,7 @@ import {
 } from '@stripe/react-stripe-js'
 
 import { getAppConfig } from '../src/frontend/appConfig'
-import { CreateStripePaymentIntent } from '../src/graphql/mutations'
+import { CreateStripePaymentIntentMutation, RecordPaymentMutation } from '../src/graphql/mutations'
 import { withApollo } from '../src/frontend/hoc'
 import { useSafeMutation } from '../src/frontend/hooks'
 import Layout from '../src/frontend/components/Layout'
@@ -117,7 +117,8 @@ const FundPageContent = () => {
   const [amount, setAmount] = useState(AMOUNTS[AMOUNTS.length - 1])
   const [customValue, setCustomValue] = useState('')
   const [email, setEmail] = useState('')
-  const [doRequest, result] = useSafeMutation(CreateStripePaymentIntent)
+  const [createStripePaymentIntent, paymentIntentResult] = useSafeMutation(CreateStripePaymentIntentMutation)
+  const [recordPayment, recordPaymentResult] = useSafeMutation(RecordPaymentMutation)
 
   const resetResults = useCallback(() => {
     setFinished(false)
@@ -163,7 +164,7 @@ const FundPageContent = () => {
     setLoading(true)
 
     try {
-      const ret1 = await doRequest({
+      const ret1 = await createStripePaymentIntent({
         variables: {
           payment: {
             email,
@@ -188,7 +189,13 @@ const FundPageContent = () => {
       if (ret2.error) {
         throw ret2.error
       } else {
-        setFinished(true)
+        const ret3 = await recordPayment({ variables: { paymentIntentId: ret2.paymentIntent.id } })
+
+        if (ret3.error) {
+          throw ret3.error
+        } else {
+          setFinished(true)
+        }
       }
     } catch (err) {
       setStripeError(err)
@@ -238,7 +245,8 @@ const FundPageContent = () => {
             <Finished>Thank you for funding us! You wil shortly receive a payment confirmation by email.</Finished>
           ) : null}
           {stripeError ? <ErrorBox error={stripeError} /> : null}
-          <StyledQueryResult {...result} hideLoading={true} />
+          <StyledQueryResult {...paymentIntentResult} hideLoading={true} />
+          <StyledQueryResult {...recordPaymentResult} hideLoading={true} />
           <PaymentDisclaimer>Payments are handled by <a href="https://stripe.com">Stripe</a>. We never see or store your card info.</PaymentDisclaimer>
         </Container>
       </ContentWrapper>

@@ -34,11 +34,13 @@ export const getTypeDefs = () => gql`
 
   union RequestSlackInviteResult = Success | Error
   union CreateStripePaymentIntentResult = StripePaymentIntent | Error
+  union RecordPaymentResult = Success | Error
   union FundBalanceResult = FundBalance | Error
 
   type Mutation {
     requestSlackInvite (email: String!): RequestSlackInviteResult!
     createStripePaymentIntent (payment: StripePaymentInput!): CreateStripePaymentIntentResult!
+    recordPayment (paymentIntentId: String!): RecordPaymentResult!
   }
 
   type Query {
@@ -50,6 +52,7 @@ const UNIONS = [
   [ 'RequestSlackInviteResult', 'Success' ],
   [ 'CreateStripePaymentIntentResult', 'StripePaymentIntent' ],
   [ 'FundBalanceResult', 'FundBalance' ],
+  [ 'RecordPaymentResult', 'Success' ],
 ]
 
 export const getFragmentMatcherConfig = () => ({

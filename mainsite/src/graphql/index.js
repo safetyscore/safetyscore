@@ -4,16 +4,15 @@ import { makeExecutableSchema } from 'graphql-tools'
 
 import { getTypeDefs, getFragmentMatcherConfig } from './typedefs'
 import createLinks from './links'
-import createResolvers from './resolvers'
 
 const fragmentMatcher = new IntrospectionFragmentMatcher({
   introspectionQueryResultData: getFragmentMatcherConfig()
 })
 
-export const createSchema = args => {
+export const createSchema = resolvers => {
   return makeExecutableSchema({
     typeDefs: getTypeDefs(),
-    resolvers: createResolvers(args),
+    resolvers,
   })
 }
 

@@ -13,13 +13,11 @@
   },
   "scripts": {
     "build": "next build",
-    "start": "next start --port 3002",
+    "start": "next start --port 8080",
     "dev": "next dev --port 3002",
     "lint": "eslint .",
-    "now-cli": "now --token $NOW_TOKEN --scope safetyscore",
-    "deploy-to-zeit": "npm run now-cli -- --prod -f --public",
-    "deploy": "npm run build && npm run deploy-to-zeit",
-    "clean-old-deploys": "npm run now-cli -- rm safetyscore-web --safe --yes"
+    "gcp-build": "npm run build",
+    "deploy": "gcloud secrets versions access latest --secret='mainsite-live' > .env.live && gcloud app deploy"
   },
   "scarfSettings": {
     "enabled": false
