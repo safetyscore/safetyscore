@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 export const isBrowser = !!process.browser
 
 export const getAppConfig = () => ({

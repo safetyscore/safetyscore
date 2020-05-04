@@ -1,5 +1,7 @@
+/* eslint-disable no-undef */
 const envalid = require('envalid')
 
+// eslint-disable-next-line no-unused-vars
 const { str, num, bool } = envalid
 
 const VARS = {
@@ -19,7 +21,6 @@ const env = Object.keys(VARS).reduce((m, k) => {
   return m
 }, {})
 
-// eslint-disable-next-line import/no-dynamic-require
 const modeConfig = require(`./${env.APP_MODE}`)
 
 module.exports = Object.freeze({

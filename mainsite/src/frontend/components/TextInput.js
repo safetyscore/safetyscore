@@ -1,4 +1,3 @@
-/* eslint-disable-next-line import/no-extraneous-dependencies */
 import React, { forwardRef, useCallback } from 'react'
 import styled from '@emotion/styled'
 import { font } from 'emotion-styled-utils'
