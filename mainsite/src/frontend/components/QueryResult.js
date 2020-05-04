@@ -1,4 +1,3 @@
-/* eslint-disable-next-line import/no-extraneous-dependencies */
 import React from 'react'
 import styled from '@emotion/styled'
 import { font, flex } from 'emotion-styled-utils'

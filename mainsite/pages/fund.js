@@ -22,6 +22,7 @@ import TextInput from '../src/frontend/components/TextInput'
 import ErrorBox from '../src/frontend/components/ErrorBox'
 import AlertBox from '../src/frontend/components/AlertBox'
 import Button from '../src/frontend/components/Button'
+import _ from 'lodash'
 
 
 const Container = styled.div`

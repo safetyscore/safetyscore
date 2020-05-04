@@ -1,6 +1,5 @@
 import { renderPlaygroundPage } from '@apollographql/graphql-playground-html'
 import { convertNodeHttpToRequest, runHttpQuery } from 'apollo-server-core'
-import _ from 'lodash'
 
 import { createSchema } from '../../src/graphql'
 import { createResolvers } from '../../src/graphql/resolvers'

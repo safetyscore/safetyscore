@@ -1,0 +1,23 @@
+env:
+  browser: true
+  es6: true
+  node: false
+extends:
+  - 'plugin:react/recommended'
+globals:
+  Atomics: readonly
+  SharedArrayBuffer: readonly
+  React: writable
+parserOptions:
+  ecmaFeatures:
+    jsx: true
+  ecmaVersion: 2018
+  sourceType: module
+plugins:
+  - react
+  - jsx-a11y
+rules:
+  react/react-in-jsx-scope: off
+  react/prop-types: warn
+  no-unused-vars: warn
+  react/display-name: warn
