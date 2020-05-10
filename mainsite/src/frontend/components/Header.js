@@ -96,15 +96,16 @@ const NavLi = styled.li`
 `
 
 const MobileNavButton = styled(Button)`
-  display: block;
-  background-color: transparent;
-  padding: 0.5em;
-  color: ${({ theme }) => theme.navAnchorTextColor};
-  border-color: ${({ theme }) => theme.navAnchorTextColor};
-  transform: rotate(${({ open }) => open ? '90' : '0'}deg);
+  && { display: block;
+    background-color: transparent !important;
+    padding: 0.5em;
+    color: ${({ theme }) => theme.navAnchorTextColor};
+    border-color: ${({ theme }) => theme.navAnchorTextColor};
+    transform: rotate(${({ open }) => open ? '90' : '0'}deg);
 
-  ${({ theme }) => theme.media.when({ minW: 'mobile' })} {
-    display: none;
+    ${({ theme }) => theme.media.when({ minW: 'mobile' })} {
+      display: none;
+    }
   }
 `
 

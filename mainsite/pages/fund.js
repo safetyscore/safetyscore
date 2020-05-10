@@ -88,8 +88,9 @@ const EmailContainer = styled.div`
 `
 
 const PayButton = styled(Button)`
-  align-self: flex-start;
-  margin: 1rem 0 0;
+  && {  align-self: flex-start;
+        margin: 1rem 0 0;
+      }
 `
 
 
