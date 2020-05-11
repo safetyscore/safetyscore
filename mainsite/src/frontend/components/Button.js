@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react'
 import styled from '@emotion/styled'
 import { buttonStyles } from 'emotion-styled-utils'
-import MuiButton from '@material-ui/core/Button'
+import MuiButton from '@material-ui/core/ButtonBase'
 
 import LoadingIcon from './LoadingIcon'
 
