@@ -233,9 +233,10 @@ const FundPageContent = () => {
               <CardElement />
             </CardContainer>
             <EmailContainer>
-              <p>Your email address:</p>
+              <p id="lblEmail">Your email address:</p>
               <TextInput
                 type="email"
+                aria-labelledby="lblEmail"
                 value={email}
                 onChange={setEmail}
                 placeholder='Enter your email...'
