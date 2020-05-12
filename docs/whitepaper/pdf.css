@@ -1,0 +1,204 @@
+@charset "UTF-8";
+
+@page {
+  margin: 1in 1.5in 1in 1.5in;
+  padding: 0;
+  size: letter;
+  @bottom-center {
+    content: counter(page);
+  }
+}
+
+@page frontpage {
+  @bottom-center {
+    content: none;
+  }
+}
+
+html,
+body {
+  font-family: Baskerville;
+  font-size: 13pt;
+  line-height: 1.3em;
+}
+
+code {
+  font-family: Inconsolata;
+  font-size: 12pt;
+}
+
+figcaption {
+  counter-increment: figure;
+  font-size: 12pt;
+  margin: 0 50px 30px 50px;
+  text-align: center;
+}
+
+figcaption::before {
+  content: "Fig. " counter(figure) ": ";
+}
+
+h1 {
+  counter-reset: page 1;
+  font-size: 22pt;
+  font-weight: normal;
+  line-height: 28pt;
+  text-align: center;
+}
+
+h2 {
+  counter-increment: section;
+  counter-reset: subsection;
+  margin: 30px 0 30px 0;
+}
+
+h2::before {
+  content: counter(section);
+  padding-right: 15px;
+}
+
+h3 {
+  counter-increment: subsection;
+}
+
+h3::before {
+  content: counter(section) "." counter(subsection);
+  padding-right: 10px;
+}
+
+hr {
+  display: none;
+}
+
+img {
+  max-height: 8in;
+}
+
+li em {
+  font-style: normal;
+  font-variant: small-caps;
+  padding-right: 10px;
+}
+
+pre {
+  font-family: Inconsolata;
+  font-size: 12pt;
+  padding-left: 50px;
+}
+
+sup[id] {
+  font-size: 13pt;
+  vertical-align: baseline;
+}
+
+sup[id]::after {
+  content: "]";
+}
+
+sup[id]::before {
+  content: "[";
+}
+
+sup[id] a {
+  color: #000;
+  text-decoration: none;
+}
+
+ul {
+  margin-left: 20px;
+}
+
+.authors {
+  padding: 5px 0 5px 0;
+  text-align: center;
+}
+
+.blank {
+  break-after: page;
+}
+
+.contact {
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.contact a {
+  color: #000;
+  text-decoration: none;
+}
+
+.footnote-backref {
+  display: none;
+}
+
+.footnotes a {
+  color: #000;
+}
+
+.footnotes li {
+  counter-increment: reference;
+}
+
+.footnotes li em {
+  font-style: italic;
+  font-variant: normal;
+  padding-right: 0px;
+}
+
+.footnotes li p::before {
+  content: "[" counter(reference) "]";
+  display: block;
+  float: left;
+  margin-left: -45px;
+}
+
+.footnotes ol {
+  list-style-type: none;
+}
+
+.no-subsection::before {
+  content: none;
+}
+
+#abstract,
+#acknowledgements {
+  display: inline;
+  font-size: 13pt;
+}
+
+#abstract::after,
+#acknowledgements::after {
+  content: ".";
+  padding-right: 10px;
+}
+
+#abstract::before,
+#acknowledgements::before {
+  content: none;
+}
+
+#abstract + p,
+#acknowledgements + p {
+  display: inline;
+}
+
+#abstract-container {
+  padding: 0 16px 0 16px;
+}
+
+#frontpage {
+  page: frontpage;
+}
+
+#motivation {
+  break-before: page;
+  counter-reset: section;
+}
+
+#references {
+  break-before: page;
+}
+
+#references::before {
+  content: none;
+}
