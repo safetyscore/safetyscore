@@ -7,5 +7,5 @@
 # KEEP THIS FILE SORTED. Order is important. Last match takes precedence.
 
 *                                      @tav
-mainsite                                  @hiddentao
-devsite                                   @hiddentao
+mainsite/*                             @hiddentao
+devsite/*                              @hiddentao
