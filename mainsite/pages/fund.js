@@ -18,10 +18,10 @@ import Layout from '../src/frontend/components/Layout'
 import Seo from '../src/frontend/components/Seo'
 import ContentWrapper from '../src/frontend/components/ContentWrapper'
 import QueryResult from '../src/frontend/components/QueryResult'
-import TextInput from '../src/frontend/components/TextInput'
 import ErrorBox from '../src/frontend/components/ErrorBox'
 import AlertBox from '../src/frontend/components/AlertBox'
 import Button from '../src/frontend/components/Button'
+import { FormControl, RadioGroup, FormControlLabel, Radio, InputLabel, OutlinedInput, InputAdornment } from '@material-ui/core';
 import _ from 'lodash'
 
 
@@ -50,26 +50,6 @@ const PaymentDisclaimer = styled.div`
   }
 `
 
-const Amounts = styled.ul`
-  ${flex({ direction: 'column', justify: 'flex-start', align: 'flex-start' })};
-`
-
-const Amount = styled.li`
-  ${flex({ direction: 'row', justify: 'flex-start', align: 'center' })};
-  margin: 1rem 0;
-  font-size: 1.2rem;
-`
-
-const CustomAmountContainer = styled.div`
-  ${flex({ direction: 'row', justify: 'flex-start', align: 'center' })};
-
-  input {
-    margin-left: 0.3em;
-    font-size: 90%;
-    padding: 0.2em;
-  }
-`
-
 const Form = styled.form`
   ${flex({ direction: 'column', justify: 'flex-start', align: 'stretch' })};
   width: 90%;
@@ -77,14 +57,26 @@ const Form = styled.form`
   margin-top: 1rem;
 `
 
-const CardContainer = styled.div`
-  background: ${({ theme }) => theme.fundPageCardEntryBgColor};
-  padding: 1rem;
-  border-radius: 5px;
+const CustomAmountFormControl = styled(FormControl)`
+  ${flex({ direction: 'column', justify: 'flex-start', align: 'stretch' })};
+  && {  max-width: 500px;
+        margin-top: 1rem;
+  }
 `
 
-const EmailContainer = styled.div`
-  margin: 0.5rem 0;
+const CardFormControl = styled(FormControl)`
+  ${flex({ direction: 'column', justify: 'flex-start', align: 'stretch' })};
+  && {  max-width: 500px;
+        margin-top: 1rem;
+        background: ${({ theme }) => theme.fundPageCardEntryBgColor};
+  }
+`
+
+const EmailFormControl = styled(FormControl)`
+  ${flex({ direction: 'column', justify: 'flex-start', align: 'stretch' })};
+  && {  max-width: 500px;
+        margin-top: 1rem;
+  }
 `
 
 const PayButton = styled(Button)`
@@ -92,7 +84,6 @@ const PayButton = styled(Button)`
         margin: 1rem 0 0;
       }
 `
-
 
 const StyledQueryResult = styled(QueryResult)`
   width: 80%;
@@ -127,9 +118,13 @@ const FundPageContent = () => {
     setStripeError(false)
   }, [])
 
-  const onChangeCustomValue = useCallback(v => {
+  const onChangeCustomValue = useCallback(e => {
     setAmount('custom')
-    setCustomValue(v)
+    setCustomValue(e.target.value)
+  }, [])
+
+  const onChangeEmail = useCallback(e => {
+    setEmail(e.target.value)
   }, [])
 
   const allAmounts = useMemo(() => [...AMOUNTS, 'custom'], [])
@@ -213,35 +208,45 @@ const FundPageContent = () => {
         <Container>
           <H1>Fund us</H1>
           <p>By funding us you will help us to get the app out sooner.</p>
-          <Amounts>
-            {allAmounts.map((a, idx) => (
-              <Amount key={a}>
-                <input type="radio" name="amount" checked={amount === a} onClick={selectAmount[idx]} />
-                {a === 'custom' ? (
-                  <CustomAmountContainer>
-                    $<TextInput onChange={onChangeCustomValue} value={customValue} placeholder='Enter an amount' />
-                  </CustomAmountContainer>
-                ) : (
-                  <span>${a}</span>
-                )}
-              </Amount>
-            ))}
-          </Amounts>
           <Form onSubmit={handleSubmit}>
-            <p>Your card details:</p>
-            <CardContainer>
-              <CardElement />
-            </CardContainer>
-            <EmailContainer>
-              <p id="lblEmail">Your email address:</p>
-              <TextInput
-                type="email"
-                aria-labelledby="lblEmail"
-                value={email}
-                onChange={setEmail}
-                placeholder='Enter your email...'
+          <RadioGroup aria-label='Amounts' value={amount}>
+            {allAmounts.map((a, idx) => (
+            <FormControlLabel key={a} value={a} control={<Radio />} label={!!isNaN(a) ? a : `$${a}`} onClick={selectAmount[idx]} />
+            ))}
+          </RadioGroup>
+          <CustomAmountFormControl fullWidth variant='outlined'>
+            <InputLabel htmlFor="outlined-adornment-amount">Custom Amount</InputLabel>
+            <OutlinedInput
+              disabled={amount !== 'custom'}
+              type='number'
+              min='0'
+              id='outlined-adornment-amount'
+              value={customValue}
+              onChange={onChangeCustomValue}
+              placeholder='Enter an amount'
+              startAdornment={<InputAdornment position='start'>$</InputAdornment>}
+              labelWidth={120}
+            />
+          </CustomAmountFormControl>
+          <CardFormControl fullWidth variant='outlined'>
+              <InputLabel htmlFor="outlined-adornment-card">Your card details</InputLabel>
+              <OutlinedInput
+                id='outlined-adornment-card'
+                labelWidth={160}
+                inputComponent={CardElement}
               />
-            </EmailContainer>
+            </CardFormControl>
+            <EmailFormControl fullWidth variant='outlined'>
+              <InputLabel htmlFor="outlined-adornment-email">Your email address</InputLabel>
+              <OutlinedInput
+                id='outlined-adornment-email'
+                type='email'
+                value={email}
+                onChange={onChangeEmail}
+                placeholder='Enter your email...'
+                labelWidth={160}
+              />
+            </EmailFormControl>
             <PayButton type="submit" disabled={!isValid} loading={loading}>Pay</PayButton>
           </Form>
           {finished ? (
