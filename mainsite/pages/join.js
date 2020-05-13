@@ -12,9 +12,9 @@ import Seo from '../src/frontend/components/Seo'
 import FundUs from '../src/frontend/components/FundUs'
 import ContentWrapper from '../src/frontend/components/ContentWrapper'
 import QueryResult from '../src/frontend/components/QueryResult'
-import TextInput from '../src/frontend/components/TextInput'
 import AlertBox from '../src/frontend/components/AlertBox'
 import Button from '../src/frontend/components/Button'
+import { OutlinedInput, FormControl, InputLabel } from '@material-ui/core'
 
 const Container = styled.div`
   ${flex({ direction: 'column', justify: 'flex-start', align: 'center' })};
@@ -39,6 +39,12 @@ const Form = styled.form`
   }
 `
 
+const EmailFormControl = styled(FormControl)`
+  ${flex({ direction: 'column', justify: 'flex-start', align: 'stretch' })};
+  && { margin: 0 1rem;
+  }
+`
+
 const StyledQueryResult = styled(QueryResult)`
   width: 80%;
 
@@ -56,7 +62,8 @@ const SlackPage = () => {
   const [isValid, setIsValid] = useState(false)
   const [doRequest, result] = useSafeMutation(RequestSlackInviteMutation)
 
-  const updateEmail = useCallback(newEmail => {
+  const updateEmail = useCallback(e => {
+    const newEmail = e.target.value;
     if (newEmail !== email) {
       setEmail(newEmail)
       setIsValid(validator.isEmail(newEmail))
@@ -95,12 +102,17 @@ const SlackPage = () => {
           ) : (
             <React.Fragment>
                 <Form onSubmit={submitForm}>
-                  <TextInput
-                    type="email"
+                <EmailFormControl fullWidth variant='outlined'>
+                  <InputLabel htmlFor="outlined-adornment-email">Your email address</InputLabel>
+                  <OutlinedInput
+                    id='outlined-adornment-email'
+                    type='email'
                     value={email}
                     onChange={updateEmail}
                     placeholder='Enter your email...'
+                    labelWidth={150}
                   />
+                  </EmailFormControl>
                   <Button
                     loading={result.loading}
                     disabled={!isValid}

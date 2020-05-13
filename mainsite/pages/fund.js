@@ -59,23 +59,20 @@ const Form = styled.form`
 
 const CustomAmountFormControl = styled(FormControl)`
   ${flex({ direction: 'column', justify: 'flex-start', align: 'stretch' })};
-  && {  max-width: 500px;
-        margin-top: 1rem;
+  && {  margin: 1rem 0;
   }
 `
 
 const CardFormControl = styled(FormControl)`
   ${flex({ direction: 'column', justify: 'flex-start', align: 'stretch' })};
-  && {  max-width: 500px;
-        margin-top: 1rem;
+  && {  margin: 1rem 0;
         background: ${({ theme }) => theme.fundPageCardEntryBgColor};
   }
 `
 
 const EmailFormControl = styled(FormControl)`
   ${flex({ direction: 'column', justify: 'flex-start', align: 'stretch' })};
-  && {  max-width: 500px;
-        margin-top: 1rem;
+  && { margin: 1rem 0;
   }
 `
 
@@ -211,7 +208,7 @@ const FundPageContent = () => {
           <Form onSubmit={handleSubmit}>
           <RadioGroup aria-label='Amounts' value={amount}>
             {allAmounts.map((a, idx) => (
-            <FormControlLabel key={a} value={a} control={<Radio />} label={!!isNaN(a) ? a : `$${a}`} onClick={selectAmount[idx]} />
+            <FormControlLabel key={a} value={a} control={<Radio />} label={!!isNaN(a) ? _.startCase(a) : `$${a}`} onClick={selectAmount[idx]} />
             ))}
           </RadioGroup>
           <CustomAmountFormControl fullWidth variant='outlined'>
@@ -229,10 +226,12 @@ const FundPageContent = () => {
             />
           </CustomAmountFormControl>
           <CardFormControl fullWidth variant='outlined'>
-              <InputLabel htmlFor="outlined-adornment-card">Your card details</InputLabel>
+              <InputLabel shrink htmlFor="outlined-adornment-card">Your card details</InputLabel>
               <OutlinedInput
+                error={stripeError}
+                notched
                 id='outlined-adornment-card'
-                labelWidth={160}
+                labelWidth={125}
                 inputComponent={CardElement}
               />
             </CardFormControl>
@@ -244,7 +243,7 @@ const FundPageContent = () => {
                 value={email}
                 onChange={onChangeEmail}
                 placeholder='Enter your email...'
-                labelWidth={160}
+                labelWidth={150}
               />
             </EmailFormControl>
             <PayButton type="submit" disabled={!isValid} loading={loading}>Pay</PayButton>

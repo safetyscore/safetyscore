@@ -3,7 +3,7 @@ import { opacify } from 'emotion-styled-utils'
 const logoBlue = '#00A8FF'
 
 // pallette: https://coolors.co/ff8abe-ffffff-0053b0-d4975f-00a8ff
-const color1 = '#D7263D' // Crimson
+const color1 = '#E01E5A' // Raspberry
 const color2 = '#FFFFFF' // white
 const color3 = '#0053B0' // sapphire
 const color4 = '#D4975F'  // tan (crayola)
