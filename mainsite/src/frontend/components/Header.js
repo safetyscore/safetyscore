@@ -52,7 +52,6 @@ const MobileNav = styled.ul`
 
 const DesktopNav = styled.ul`
   display: none;
-
   ${({ theme }) => childAnchors({
     textColor: theme.navAnchorTextColor,
     hoverTextColor: theme.navAnchorHoverTextColor,
@@ -82,6 +81,7 @@ const NavLi = styled.li`
     font-size: 0.9rem;
     padding: 0.7rem 1rem;
     white-space: nowrap;
+    border-radius: 5px;
   }
 
   ${({ theme }) => theme.media.when({ minW: 'mobile' })} {
@@ -94,7 +94,8 @@ const NavLi = styled.li`
     }
   }
 `
-
+// && {...} is required to ensure these css styles are applied 
+// with greater specificity
 const MobileNavButton = styled(Button)`
   && { display: block;
     background-color: transparent !important;

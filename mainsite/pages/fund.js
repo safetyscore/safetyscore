@@ -59,27 +59,23 @@ const Form = styled.form`
 
 const CustomAmountFormControl = styled(FormControl)`
   ${flex({ direction: 'column', justify: 'flex-start', align: 'stretch' })};
-  && {  margin: 1rem 0;
-  }
+  margin: 1rem 0;
 `
 
 const CardFormControl = styled(FormControl)`
   ${flex({ direction: 'column', justify: 'flex-start', align: 'stretch' })};
-  && {  margin: 1rem 0;
-        background: ${({ theme }) => theme.fundPageCardEntryBgColor};
-  }
+  margin: 1rem 0;
+  background: ${({ theme }) => theme.fundPageCardEntryBgColor};
 `
 
 const EmailFormControl = styled(FormControl)`
   ${flex({ direction: 'column', justify: 'flex-start', align: 'stretch' })};
-  && { margin: 1rem 0;
-  }
+  margin: 1rem 0;
 `
 
 const PayButton = styled(Button)`
-  && {  align-self: flex-start;
-        margin: 1rem 0 0;
-      }
+  align-self: flex-start;
+  margin: 1rem 0 0;
 `
 
 const StyledQueryResult = styled(QueryResult)`
