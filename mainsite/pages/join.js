@@ -38,10 +38,12 @@ const Form = styled.form`
     margin-right: 1rem;
   }
 `
-
+// && { } is required to override styles inherited from material-ui
 const EmailFormControl = styled(FormControl)`
-  ${flex({ direction: 'column', justify: 'flex-start', align: 'stretch' })};
-  margin: 0 1rem;
+  && {
+    ${flex({ direction: 'column', justify: 'flex-start', align: 'stretch' })};
+    margin: 0 1rem;
+  }
 `
 
 const StyledQueryResult = styled(QueryResult)`
