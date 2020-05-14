@@ -34,10 +34,12 @@ const StyledProgressLine = styled(ProgressLine)`
     width: 300px;
   }
 `
-
+// && { } is required to override styles inherited from material-ui
 const StyledButton = styled(Button)`
+ && {
   font-size: 1.6rem;  
   padding: 0.6rem 0.8rem;
+ }
 `
 
 const currencyFormatter = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' })

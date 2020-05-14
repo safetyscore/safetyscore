@@ -5,7 +5,9 @@ import ButtonBase from '@material-ui/core/ButtonBase'
 
 import LoadingIcon from './LoadingIcon'
 
+// && { } is required to override styles inherited from material-ui
 const StyledButton = styled(ButtonBase)`
+  && {
     border-radius: 5px;
     ${({ theme, disabled }) => buttonStyles({
       disabled,
@@ -16,6 +18,7 @@ const StyledButton = styled(ButtonBase)`
       buttonHoverBgColor: theme.buttonHoverBgColor,
       buttonHoverTextColor: theme.buttonHoverTextColor,
     })};
+  }
 `
 
 const StyledLoadingIcon = styled(LoadingIcon)`
