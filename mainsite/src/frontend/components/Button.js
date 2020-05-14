@@ -1,12 +1,12 @@
 import React, { forwardRef } from 'react'
 import styled from '@emotion/styled'
 import { buttonStyles } from 'emotion-styled-utils'
-import MuiButton from '@material-ui/core/ButtonBase'
+import ButtonBase from '@material-ui/core/ButtonBase'
 
 import LoadingIcon from './LoadingIcon'
 
-const StyledButton = styled(MuiButton)`
-  && { border-radius: 5px;
+const StyledButton = styled(ButtonBase)`
+    border-radius: 5px;
     ${({ theme, disabled }) => buttonStyles({
       disabled,
       buttonDisabledBgColor: theme.buttonDisabledBgColor,
@@ -16,7 +16,6 @@ const StyledButton = styled(MuiButton)`
       buttonHoverBgColor: theme.buttonHoverBgColor,
       buttonHoverTextColor: theme.buttonHoverTextColor,
     })};
-  }
 `
 
 const StyledLoadingIcon = styled(LoadingIcon)`

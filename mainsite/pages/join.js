@@ -1,7 +1,7 @@
 import React, { useState, useCallback } from 'react'
 import validator from 'validator'
 import styled from '@emotion/styled'
-import { flex, font } from 'emotion-styled-utils'
+import { flex } from 'emotion-styled-utils'
 
 import { RequestSlackInviteMutation } from '../src/graphql/mutations'
 import { withApollo } from '../src/frontend/hoc'
@@ -41,8 +41,7 @@ const Form = styled.form`
 
 const EmailFormControl = styled(FormControl)`
   ${flex({ direction: 'column', justify: 'flex-start', align: 'stretch' })};
-  && { margin: 0 1rem;
-  }
+  margin: 0 1rem;
 `
 
 const StyledQueryResult = styled(QueryResult)`

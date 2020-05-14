@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import { flex, font } from 'emotion-styled-utils'
+import { flex } from 'emotion-styled-utils'
 
 import { withApollo } from '../src/frontend/hoc'
 import { headerHeight } from '../src/frontend/components/Header'
