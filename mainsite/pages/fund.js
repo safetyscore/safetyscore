@@ -204,7 +204,7 @@ const FundPageContent = () => {
           <Form onSubmit={handleSubmit}>
           <RadioGroup aria-label='Amounts' value={amount}>
             {allAmounts.map((a, idx) => (
-            <FormControlLabel key={a} value={a} control={<Radio />} label={!!isNaN(a) ? _.startCase(a) : `$${a}`} onClick={selectAmount[idx]} />
+            <FormControlLabel key={a} value={a} control={<Radio />} label={isNaN(a) ? _.startCase(a) : `$${a}`} onClick={selectAmount[idx]} />
             ))}
           </RadioGroup>
           <CustomAmountFormControl fullWidth variant='outlined'>
