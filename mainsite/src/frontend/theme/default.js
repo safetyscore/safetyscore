@@ -1,26 +1,20 @@
 import { opacify } from 'emotion-styled-utils'
-
-const logoBlue = '#00A8FF'
-
-// pallette: https://coolors.co/ff8abe-ffffff-0053b0-d4975f-00a8ff
-const color1 = '#E01E5A' // Raspberry
-const color2 = '#FFFFFF' // white
-const color3 = '#0053B0' // sapphire
-const color4 = '#D4975F'  // tan (crayola)
-const color5 = '#00A8FF' // blue jeans
-
-const anchorPrimaryColor = color1
-
-// standard colours
-const white = '#fff'
-const black = '#000'
-const darkGrey = '#666'
-const red = '#f00'
-const yellow = 'yellow'
-const grey = '#999'
-const lightGrey = '#ccc'
-const lighterGrey = '#eee'
-const transparent = 'transparent'
+import {
+color2,
+color3,
+color4,
+color5,
+anchorPrimaryColor,
+white,
+black,
+darkGrey,
+red,
+yellow,
+grey,
+lightGrey,
+lighterGrey,
+transparent,
+} from './palette'
 
 /**
  * Default theme.

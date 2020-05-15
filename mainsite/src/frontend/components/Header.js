@@ -94,19 +94,19 @@ const NavLi = styled.li`
     }
   }
 `
-// && {...} is required to ensure these css styles are applied 
-// with greater specificity
 const MobileNavButton = styled(Button)`
-  && { display: block;
-    background-color: transparent !important;
-    padding: 0.5em;
-    color: ${({ theme }) => theme.navAnchorTextColor};
-    border-color: ${({ theme }) => theme.navAnchorTextColor};
-    transform: rotate(${({ open }) => open ? '90' : '0'}deg);
+  display: block;
+  background-color: transparent !important;
+  padding: 0.5em;
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  color: ${({ theme }) => theme.navAnchorTextColor};
+  border-color: ${({ theme }) => theme.navAnchorTextColor};
+  transform: rotate(${({ open }) => open ? '90' : '0'}deg);
 
-    ${({ theme }) => theme.media.when({ minW: 'mobile' })} {
-      display: none;
-    }
+  ${({ theme }) => theme.media.when({ minW: 'mobile' })} {
+    display: none;
   }
 `
 

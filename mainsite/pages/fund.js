@@ -56,34 +56,22 @@ const Form = styled.form`
   max-width: 500px;
   margin-top: 1rem;
 `
-// && { } is required to override styles inherited from material-ui
 const CustomAmountFormControl = styled(FormControl)`
-  && {
-    ${flex({ direction: 'column', justify: 'flex-start', align: 'stretch' })};
-    margin: 1rem 0;
-  }
+  ${flex({ direction: 'column', justify: 'flex-start', align: 'stretch' })};
+  margin: 1rem 0;
 `
-// && { } is required to override styles inherited from material-ui
 const CardFormControl = styled(FormControl)`
-  && {  
-    ${flex({ direction: 'column', justify: 'flex-start', align: 'stretch' })};
-    margin: 1rem 0;
-    background: ${({ theme }) => theme.fundPageCardEntryBgColor};
-  }
+  ${flex({ direction: 'column', justify: 'flex-start', align: 'stretch' })};
+  margin: 1rem 0;
+  background: ${({ theme }) => theme.fundPageCardEntryBgColor};
 `
-// && { } is required to override styles inherited from material-ui
 const EmailFormControl = styled(FormControl)`
-  && {  
-    ${flex({ direction: 'column', justify: 'flex-start', align: 'stretch' })};
-    margin: 1rem 0;
-  }
+  ${flex({ direction: 'column', justify: 'flex-start', align: 'stretch' })};
+  margin: 1rem 0;
 `
-// && { } is required to override styles inherited from material-ui
 const PayButton = styled(Button)`
-  && {  
-    align-self: flex-start;
-    margin: 1rem 0 0;
-  }
+  align-self: flex-start;
+  margin: 1rem 0 0;
 `
 
 const StyledQueryResult = styled(QueryResult)`
