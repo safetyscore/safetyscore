@@ -9,6 +9,7 @@ import 'react-toastify/dist/ReactToastify.css'
 
 import { isProduction } from '../src/frontend/appConfig'
 import GlobalStyles from '../src/frontend/components/GlobalStyles'
+import { MuiThemeProvider, StylesProvider } from '@material-ui/core/styles'
 import { setupThemes } from '../src/frontend/theme'
 
 // always scroll to top on route change
@@ -29,19 +30,23 @@ export default class MyApp extends App {
     const { Component, pageProps } = this.props
 
     return (
-      <ThemeProvider theme={themes.get('default')}>
-        <GlobalStyles />
-        <ToastContainer
-          autoClose={3000}
-          closeButton={false}
-          draggable={false}
-          hideProgressBar={true}
-          pauseOnFocusLoss={false}
-          newestOnTop={true}
-          closeOnClick={true}
-        />
-        <Component {...pageProps} />
-      </ThemeProvider>
+      <StylesProvider injectFirst>
+        <MuiThemeProvider theme={themes.get('muiTheme')}>
+          <ThemeProvider theme={themes.get('default')}>
+            <GlobalStyles />
+            <ToastContainer
+              autoClose={3000}
+              closeButton={false}
+              draggable={false}
+              hideProgressBar={true}
+              pauseOnFocusLoss={false}
+              newestOnTop={true}
+              closeOnClick={true}
+            />
+            <Component {...pageProps} />
+          </ThemeProvider>
+        </MuiThemeProvider>
+      </StylesProvider>
     )
   }
 }
