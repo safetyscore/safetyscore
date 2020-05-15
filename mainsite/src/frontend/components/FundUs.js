@@ -35,7 +35,7 @@ const StyledProgressLine = styled(ProgressLine)`
   }
 `
 const StyledButton = styled(Button)`
-  font-size: 1.6rem;  
+  font-size: 1.6rem;
   padding: 0.6rem 0.8rem;
 `
 

@@ -82,13 +82,11 @@ const HomePage = () => {
           <StyledTeamMember
             name="Tav"
             pic="https://pbs.twimg.com/profile_images/1200123014119071744/QUPogTli_400x400.jpg"
-            title="Project lead"
             twitter="tav"
           />
           <StyledTeamMember
             name="Ram"
             pic="https://pbs.twimg.com/profile_images/708314532678995970/8dI12aDO_400x400.jpg"
-            title="Developer"
             twitter="hiddentao"
           />
         </ItemList>

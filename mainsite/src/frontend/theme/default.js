@@ -60,6 +60,8 @@ export default {
   alertBoxBgColor: opacify(color4, 0.3),
   alertBoxTextColor: black,
   alertBoxIconColor: color4,
+  // markdown component
+  markdownContentImageBorderColor: darkGrey,
   // button component
   buttonDisabledBgColor: grey,
   buttonDisabledTextColor: darkGrey,
