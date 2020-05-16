@@ -24,13 +24,12 @@ const StyledButton = styled(Button)`
 `
 
 const FundUs = ({ className }) => {
-  const theme = useTheme()
   const query = useSafeQuery(GetFundBalanceQuery, { fetchPolicy: 'cache-and-network' })
   const raised = useMemo(() => _.get(query, 'data.result.amount', 0), [ _.get(query, 'data.result.amount') ])
 
   return (
     <Container className={className}>
-      <FundProgressBar current={raised} target={1000000}/>
+      <FundProgressBar current={raised} target={3600000}/>
       <FundLink><StyledButton>FUND US</StyledButton></FundLink>
     </Container>
   )
