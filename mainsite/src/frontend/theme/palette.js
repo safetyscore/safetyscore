@@ -13,7 +13,7 @@ export const anchorPrimaryColor = color1
 // standard colours
 export const white = '#fff'
 export const black = '#000'
-export const darkGrey = '#666'
+export const darkGrey = '#666666'
 export const red = '#f00'
 export const yellow = 'yellow'
 export const grey = '#999'
