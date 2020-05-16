@@ -13,7 +13,7 @@
   },
   "scripts": {
     "prepare-docs": "node .\"/scripts/prepare-docs.js\"",
-    "build": "npm run prepare-docs && next build",
+    "build": "next build",
     "dev": "npm run prepare-docs && next dev --port 3002",
     "start": "next start --port 8080",
     "lint": "eslint .",

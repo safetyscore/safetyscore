@@ -149,6 +149,24 @@ const RenderListItem = props => {
 }
 
 
+const sanitizeHeadingTitle = c => {
+  return c.map(child => {
+    if (typeof child === 'string') {
+      const metaPos = child.indexOf('{.no-subsection}')
+
+      if (metaPos) {
+        child = child.substr(0, metaPos)
+      }
+    }
+    return child
+  })
+}
+
+const RenderH1 = ({ children, ...props }) => <h1 {...props}>{sanitizeHeadingTitle(children)}</h1>
+const RenderH2 = ({ children, ...props }) => <h2 {...props}>{sanitizeHeadingTitle(children)}</h2>
+const RenderH3 = ({ children, ...props }) => <h3 {...props}>{sanitizeHeadingTitle(children)}</h3>
+const RenderH4 = ({ children, ...props }) => <h4 {...props}>{sanitizeHeadingTitle(children)}</h4>
+
 const Markdown = ({ children: markdown, className, getImage, transformLink }) => {
   const { content, meta } = useMemo(() => {
     return {
@@ -164,6 +182,10 @@ const Markdown = ({ children: markdown, className, getImage, transformLink }) =>
             a: generateRenderAnchor(transformLink),
             code: RenderCode,
             li: RenderListItem,
+            h1: RenderH1,
+            h2: RenderH2,
+            h3: RenderH3,
+            h4: RenderH4,
           }
         })
         .processSync(markdown).result
