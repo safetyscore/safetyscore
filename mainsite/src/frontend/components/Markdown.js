@@ -1,7 +1,8 @@
-import React, { useMemo } from 'react'
+import React, { useMemo, useState, useCallback } from 'react'
+import slugify from 'slugify'
 import styled from '@emotion/styled'
 import _ from 'lodash'
-import { font } from 'emotion-styled-utils'
+import { flex, font, childAnchors } from 'emotion-styled-utils'
 import parse from 'remark-parse'
 import unified from 'unified'
 import frontmatter from 'remark-frontmatter'
@@ -19,6 +20,19 @@ const Container = styled.div`
   h2 {
     ${font('header')};
     margin-top: 2.5rem;
+  }
+
+  h1, h2, h3, h4 {
+    ${childAnchors({
+      textColor: 'inherit',
+      hoverTextColor: 'inherit',
+      hoverBgColor: 'inherit',
+      borderBottomColor: 'transparent'
+    })};
+
+    a {
+      border-bottom: none;
+    }
   }
 
   strong, b {
@@ -149,23 +163,56 @@ const RenderListItem = props => {
 }
 
 
-const sanitizeHeadingTitle = c => {
-  return c.map(child => {
+const HeadingAnchor = styled.a`
+  display: block;
+  ${flex({ direction: 'row', justify: 'flex-start', align: 'center' })};
+`
+
+const PermalinkSymbol = styled.span`
+  font-size: 0.8rem;
+  margin-left: 0.5rem;
+  color: ${({ theme }) => theme.permalinkSymbolTextColor};
+`
+
+const Heading = ({ type, children, ...props }) => {
+  const [ showPermalink, setShowPermalink ] = useState(false)
+  const togglePermalink = useCallback(() => setShowPermalink(!showPermalink), [ showPermalink ])
+
+  let title = ''
+
+  const sanitizedKids = children.map(child => {
     if (typeof child === 'string') {
       const metaPos = child.indexOf('{.no-subsection}')
 
-      if (metaPos) {
+      if (0 < metaPos) {
         child = child.substr(0, metaPos)
       }
+
+      title = `${title} ${child}`
     }
     return child
   })
+
+  const slug = slugify(title.toLowerCase())
+
+  const content = (
+    <HeadingAnchor href={`#${slug}`} onMouseOver={togglePermalink} onMouseOut={togglePermalink}>
+      {sanitizedKids}
+      {showPermalink ? <PermalinkSymbol>¶</PermalinkSymbol> : null}
+    </HeadingAnchor>
+  )
+
+  return React.createElement(
+    type,
+    { ...props, id: slug },
+    content,
+  )
 }
 
-const RenderH1 = ({ children, ...props }) => <h1 {...props}>{sanitizeHeadingTitle(children)}</h1>
-const RenderH2 = ({ children, ...props }) => <h2 {...props}>{sanitizeHeadingTitle(children)}</h2>
-const RenderH3 = ({ children, ...props }) => <h3 {...props}>{sanitizeHeadingTitle(children)}</h3>
-const RenderH4 = ({ children, ...props }) => <h4 {...props}>{sanitizeHeadingTitle(children)}</h4>
+const RenderH1 = props => <Heading type='h1' {...props} />
+const RenderH2 = props => <Heading type='h2' {...props} />
+const RenderH3 = props => <Heading type='h3' {...props} />
+const RenderH4 = props => <Heading type='h4' {...props} />
 
 const Markdown = ({ children: markdown, className, getImage, transformLink }) => {
   const { content, meta } = useMemo(() => {
