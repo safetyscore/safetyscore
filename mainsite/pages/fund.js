@@ -238,7 +238,7 @@ const FundPageContent = () => {
                 labelWidth={150}
               />
             </EmailFormControl>
-            <PayButton type="submit" disabled={!isValid} loading={loading}>Pay</PayButton>
+            <PayButton type="submit" disabled={!isValid} loading={loading}>PAY</PayButton>
           </Form>
           {finished ? (
             <Finished>Thank you for funding us! You wil shortly receive a payment confirmation by email.</Finished>
