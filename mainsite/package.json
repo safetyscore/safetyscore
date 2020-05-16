@@ -103,6 +103,7 @@
     "remark-parse": "^8.0.2",
     "remark-react": "^7.0.1",
     "remark-stringify": "^8.0.0",
+    "slugify": "^1.4.0",
     "stripe": "^8.46.0",
     "to-vfile": "^6.1.0",
     "unified": "^9.0.0",
