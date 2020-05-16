@@ -23,6 +23,7 @@ export default class MyDocument extends Document {
             name="viewport"
             content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1, user-scalable=no"
           />
+          <meta name="theme-color" content="#00A8FF"/>
           <link rel='stylesheet' href='https://unpkg.com/@fortawesome/fontawesome-svg-core@1.2.28/styles.css' crossOrigin='anonymous'></link>
           <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"></link>
           <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"></link>
