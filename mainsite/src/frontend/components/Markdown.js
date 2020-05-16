@@ -4,6 +4,9 @@ import _ from 'lodash'
 import { font } from 'emotion-styled-utils'
 import parse from 'remark-parse'
 import unified from 'unified'
+import frontmatter from 'remark-frontmatter'
+import parseFrontmatter from 'front-matter'
+import footnotes from 'remark-footnotes'
 import remark2react from 'remark-react'
 
 import { Link } from './Link'
@@ -20,6 +23,13 @@ const Container = styled.div`
 
   strong, b {
     font-weight: bolder;
+  }
+
+  sup {
+    display: inline-block;
+    font-size: 70%;
+    vertical-align: top;
+    margin-top: -0.3em;
   }
 
   em, i {
@@ -105,35 +115,67 @@ const RenderImage = getImage => arg => {
   return <img src={finalSrc} alt={alt} title={title} />
 }
 
-const generateRenderAnchor = transformLink => ({ href, title, children }) => {
+
+
+const generateRenderAnchor = transformLink => anchor => {
+  const { href, title, children } = anchor
+
   const c = (Array.isArray(children) ? children.join(', ') : children)
 
-  // external image links should be rendered using normal anchor tag
-  if (!href || href.startsWith('http')) {
+  // footnoes and external image links should be rendered using normal anchor tag
+  if (!href || href.startsWith('http') || href.startsWith('#')) {
     return <a href={href} title={title}>{c}</a>
-  } else {
+  }
+  // internal links to elsewhere in website
+  else {
     const attrs = (transformLink ? transformLink({ href, title }) : { href, title })
     return <Link {...attrs}><a>{c}</a></Link>
   }
 }
 
+const RenderListItem = props => {
+  const { id, children, ...otherProps } = props
+
+  if (id) {
+    const fnPos = id.indexOf('-fn-')
+
+    if (fnPos) {
+      const footnoteId = id.substr(fnPos + 1) // e.g. fn-ssl16
+      return <li id={footnoteId} {...otherProps}>{children}</li>
+    }
+  }
+
+  return <li {...props} />
+}
+
+
 const Markdown = ({ children: markdown, className, getImage, transformLink }) => {
-  const output = useMemo(() => {
-    return unified()
-      .use(parse)
-      .use(remark2react, {
-        remarkReactComponents: {
-          p: RenderParagraph,
-          img: RenderImage(getImage),
-          a: generateRenderAnchor(transformLink),
-          code: RenderCode,
-        }
-      })
-      .processSync(markdown).result
+  const { content, meta } = useMemo(() => {
+    return {
+      meta: _.get(parseFrontmatter(markdown), 'attributes', {}),
+      content: unified()
+        .use(parse)
+        .use(frontmatter, ['yaml'])
+        .use(footnotes, { inlineNotes: true })
+        .use(remark2react, {
+          remarkReactComponents: {
+            p: RenderParagraph,
+            img: RenderImage(getImage),
+            a: generateRenderAnchor(transformLink),
+            code: RenderCode,
+            li: RenderListItem,
+          }
+        })
+        .processSync(markdown).result
+    }
   }, [markdown, getImage, transformLink])
 
   return (
-    <Container className={className}>{output}</Container>
+    <Container className={className}>
+      {meta.title ? <h1>{meta.title}</h1> : null}
+      {meta.authors ? <em>Authors: {meta.authors}</em> : null}
+      {content}
+    </Container>
   )
 }
 
