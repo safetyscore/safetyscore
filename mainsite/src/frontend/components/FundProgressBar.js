@@ -5,14 +5,15 @@ import styled from '@emotion/styled'
 
 const Main = styled.div`
     position: relative;
-    width: 300px;
+    width: 50%;
+    max-width: 300px;
     height: 48px;
     background: ${({ theme }) => theme.fundUsProgressBarProgressBackgroundColor};
     cursor: pointer;
     border-radius: 5px;
     border: 1px solid white;
     overflow: hidden;
-    margin: 0 2rem;
+    margin-right: 1rem;
   `
   
   const Fill = styled(animated.div)`
