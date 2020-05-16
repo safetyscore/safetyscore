@@ -2,12 +2,10 @@ import React from 'react'
 import App from 'next/app'
 import Router from 'next/router'
 import { ThemeProvider } from 'emotion-theming'
-import { loadFonts } from 'emotion-styled-utils'
 
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
-import { isProduction } from '../src/frontend/appConfig'
 import GlobalStyles from '../src/frontend/components/GlobalStyles'
 import { MuiThemeProvider, StylesProvider } from '@material-ui/core/styles'
 import { setupThemes } from '../src/frontend/theme'

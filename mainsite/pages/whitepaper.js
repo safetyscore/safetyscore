@@ -1,6 +1,4 @@
 import React, { useCallback } from 'react'
-import styled from '@emotion/styled'
-import { flex } from 'emotion-styled-utils'
 
 import { content, images } from '../docs/whitepaper'
 import { withApollo } from '../src/frontend/hoc'
