@@ -30,23 +30,13 @@ export const Link = ({ href, as, query = {}, children }) => {
   )
 }
 
-
-export const HomeLink = ({ children }) => (
-  <DefaultLink href='/' scroll={true}>
+const NamedLink = ({ href, children }) => (
+  <DefaultLink href={href} scroll={true}>
     {wrapInAnchor(children)}
   </DefaultLink>
 )
 
-
-export const JoinLink = ({ children }) => (
-  <DefaultLink href='/join' scroll={true}>
-    {wrapInAnchor(children)}
-  </DefaultLink>
-)
-
-
-export const FundLink = ({ children }) => (
-  <DefaultLink href='/fund' scroll={true}>
-    {wrapInAnchor(children)}
-  </DefaultLink>
-)
+export const HomeLink = props => <NamedLink href='/' {...props} />
+export const WhitepaperLink = props => <NamedLink href='/whitepaper' {...props} />
+export const JoinLink = props => <NamedLink href='/join' {...props} />
+export const FundLink = props => <NamedLink href='/fund' {...props} />

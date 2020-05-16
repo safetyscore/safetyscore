@@ -2,7 +2,7 @@ import React, { useState, useCallback } from 'react'
 import styled from '@emotion/styled'
 import { flex, font, childAnchors, boxShadow } from 'emotion-styled-utils'
 
-import { HomeLink, JoinLink } from './Link'
+import { HomeLink, WhitepaperLink, JoinLink } from './Link'
 import Image from './Image'
 import Button from './Button'
 import Icon from './Icon'
@@ -122,6 +122,7 @@ const Header = ({ className, onClickHome }) => {
   const toggleMobileMenu = useCallback(() => setMobileNavOpen(!mobileNavOpen), [mobileNavOpen])
 
   const navLinks = [
+    <NavLi key='whitepaper'><WhitepaperLink>Whitepaper</WhitepaperLink></NavLi>,
     <NavLi key='slack'><JoinLink>Join us</JoinLink></NavLi>,
   ]
 

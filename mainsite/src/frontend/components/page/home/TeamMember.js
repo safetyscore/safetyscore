@@ -20,13 +20,6 @@ const Name = styled.div`
   margin-top: 1rem;
 `
 
-const Title = styled.div`
-  ${font('body')};
-  font-size: 1.2rem;
-  line-height: 1.2em;
-  margin-top: 0.2rem;
-`
-
 const TwitterLink = styled.a`
   display: block;
   margin-top: 0.5rem;
@@ -38,7 +31,6 @@ const HowItWorks = ({ className, name, pic, title, twitter }) => {
     <Container className={className}>
       <Pic src={pic} />
       <Name>{name}</Name>
-      <Title>{title}</Title>
       <TwitterLink href={`https://twitter.com/${twitter}`}>@{twitter}</TwitterLink>
     </Container>
   )

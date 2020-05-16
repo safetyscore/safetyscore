@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import { flex, font, childAnchors } from 'emotion-styled-utils'
+import { flex, childAnchors } from 'emotion-styled-utils'
 
 import {
   HomeLink,
