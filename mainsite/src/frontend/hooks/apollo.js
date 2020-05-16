@@ -1,5 +1,5 @@
 import { useCallback, useState } from 'react'
-import { useApolloClient, useQuery, useLazyQuery } from '@apollo/react-hooks'
+import { useApolloClient, useQuery } from '@apollo/react-hooks'
 
 import { stringifyError, resolveError } from '../../graphql/errors'
 

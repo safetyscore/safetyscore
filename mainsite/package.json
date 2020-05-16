@@ -12,7 +12,7 @@
     "url": "git+https://github.com/safetyscore/safetyscore.git"
   },
   "scripts": {
-    "prepare-docs": ".\"/scripts/prepare-docs.js\"",
+    "prepare-docs": "node .\"/scripts/prepare-docs.js\"",
     "build": "npm run prepare-docs && next build",
     "dev": "npm run prepare-docs && next dev --port 3002",
     "start": "next start --port 8080",
