@@ -16,6 +16,8 @@ const Container = styled.div`
   ${font('body')};
   font-size: 1rem;
   line-height: 1.5em;
+  max-width: 100%;
+  overflow-y: scroll;
 
   h2 {
     ${font('header')};
@@ -70,6 +72,8 @@ const Container = styled.div`
 
   pre {
     font-size: 1em;
+    max-width: 100%;
+    overflow-y: scroll;
   }
 `
 
