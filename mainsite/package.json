@@ -13,11 +13,11 @@
   },
   "scripts": {
     "prepare-docs": "node .\"/scripts/prepare-docs.js\"",
-    "build": "next build",
+    "build": "npm run prepare-docs && next build",
     "dev": "npm run prepare-docs && next dev --port 3002",
     "start": "next start --port 8080",
     "lint": "eslint .",
-    "gcp-build": "npm run build",
+    "gcp-build": "next build",
     "deploy": "npm run prepare-docs && gcloud secrets versions access latest --secret='mainsite-live' > .env.live && gcloud app deploy"
   },
   "scarfSettings": {
@@ -103,7 +103,6 @@
     "remark-parse": "^8.0.2",
     "remark-react": "^7.0.1",
     "remark-stringify": "^8.0.0",
-    "slugify": "^1.4.0",
     "stripe": "^8.46.0",
     "to-vfile": "^6.1.0",
     "unified": "^9.0.0",
