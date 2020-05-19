@@ -39,7 +39,6 @@ figcaption::before {
 }
 
 h1 {
-  counter-reset: page 1;
   font-size: 22pt;
   font-weight: normal;
   line-height: 28pt;
@@ -72,6 +71,7 @@ hr {
 
 img {
   max-height: 8in;
+  padding-top: 20px;
 }
 
 li em {
@@ -82,7 +82,7 @@ li em {
 
 pre {
   font-family: Inconsolata;
-  font-size: 12pt;
+  font-size: 11pt;
   padding-left: 50px;
 }
 
@@ -192,7 +192,7 @@ ul {
 
 #motivation {
   break-before: page;
-  counter-reset: section;
+  counter-reset: page 1 section;
 }
 
 #references {
@@ -201,4 +201,34 @@ ul {
 
 #references::before {
   content: none;
+}
+
+#toc {
+  break-before: page;
+}
+
+#toc a {
+  color: #000;
+  text-decoration: none;
+}
+
+#toc a::after {
+  content: leader(".") target-counter(attr(href), page);
+}
+
+#toc h1 {
+  font-size: 18pt;
+}
+
+#toc ul {
+  list-style-type: none;
+}
+
+#toc ul li {
+  margin: 15px 0;
+}
+
+#toc ul li ol {
+  list-style-type: none;
+  margin-left: 25px;
 }

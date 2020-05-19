@@ -1,7 +1,8 @@
 #! /usr/bin/env bash
 
-FILENAME=safetyscore-draft-v0.0.6.pdf
+FILENAME=safetyscore-draft-`date "+%Y-%m-%d"`.pdf
 
 go run whitepaper.go
-prince -s pdf.css pdf.html -o ${FILENAME}
+prince --javascript --script toc.js --style pdf.css pdf.html -o ${FILENAME}
 pdfcpu pages remove -pages 1 ${FILENAME}
+open $FILENAME

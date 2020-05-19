@@ -20,7 +20,7 @@ var tmpl = template.Must(template.New("pdf.html").Parse(`<!doctype html>
 <div class="blank"></div>
 <div id="whitepaper">
 <div id="frontpage">
-<h1>SafetyScore: {{.Title}}</h1>
+<h1>{{.Title}}</h1>
 <div class="authors">{{.Authors}}</div>
 <div class="contact"><a href="mailto:{{.Contact}}">{{.Contact}}</a></div>
 {{.Content}}
