@@ -116,7 +116,7 @@ const SlackPage = () => {
                     disabled={!isValid}
                     onClick={submitForm}
                   >
-                    Start
+                    JOIN
                 </Button>
               </Form>
               <StyledQueryResult {...result} hideLoading={true} />

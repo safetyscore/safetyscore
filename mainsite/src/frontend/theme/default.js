@@ -1,6 +1,5 @@
 import { opacify } from 'emotion-styled-utils'
 import {
-color2,
 color3,
 color4,
 color5,
@@ -95,7 +94,8 @@ export default {
   queryResultLoadingTextColor: white,
   // fund us component
   fundUsBgColor: color3,
-  fundUsProgressBarProgressColor: color2,
+  fundUsProgressBarProgressColor: color5,
+  fundUsProgressBarProgressBackgroundColor: transparent,
   // error page
   errorPageExplanationTextColor: darkGrey,
   errorPageStackBgColor: lightGrey,
