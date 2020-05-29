@@ -60,7 +60,6 @@ export default {
   alertBoxTextColor: black,
   alertBoxIconColor: color4,
   // markdown component
-  markdownContentImageBorderColor: darkGrey,
   permalinkSymbolTextColor: grey,
   // button component
   buttonDisabledBgColor: grey,

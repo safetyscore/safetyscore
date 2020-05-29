@@ -66,8 +66,13 @@ const Container = styled.div`
   }
 
   img {
+    display: block;
     max-width: 100%;
-    border: 1px solid ${({ theme }) => theme.markdownContentImageBorderColor};
+    margin: 2rem auto;
+
+    ${({ theme }) => theme.media.when({ minW: 'mobile' })} {
+      max-width: 800px;
+    }
   }
 
   pre {
