@@ -53,7 +53,7 @@ const Container = styled.div`
   }
 
   ol, ul {
-    margin: 1rem 0 1.5rem 1rem;
+    margin: 1rem 0 1.5rem 2rem;
     list-style-type: disc;
 
     li {
@@ -135,14 +135,25 @@ const RenderImage = getImage => arg => {
 
 
 
-const generateRenderAnchor = transformLink => anchor => {
+const RenderAnchor = ({ transformLink, footnoteStats }) => anchor => {
   const { href, title, children } = anchor
 
-  const c = (Array.isArray(children) ? children.join(', ') : children)
+  let c = (Array.isArray(children) ? children.join(', ') : children)
 
-  // footnoes and external image links should be rendered using normal anchor tag
+  // footnotes and external image links should be rendered using normal anchor tag
   if (!href || href.startsWith('http') || href.startsWith('#')) {
-    return <a href={href} title={title}>{c}</a>
+    const extraProps = {}
+
+    // if in-page link (i.e. footnote link or the return link from the footnote back to the content point)
+    if (href.startsWith('#')) {
+      // name the forward link so that the return link in the footnote works
+      if (c !== '↩') {
+        extraProps.name = href.substr(1).replace('fn-', 'fnref-')
+        c = footnoteStats.nextIndex++ // show numbers for footnotes intead of the original text
+      }
+    }
+
+    return <a href={href} title={title} {...extraProps}>{c}</a>
   }
   // internal links to elsewhere in website
   else {
@@ -178,48 +189,75 @@ const PermalinkSymbol = styled.span`
   color: ${({ theme }) => theme.permalinkSymbolTextColor};
 `
 
-const Heading = ({ type, children, ...props }) => {
+const Heading = ({ level, children, numberedSubHeadings, ...props }) => {
   const [ showPermalink, setShowPermalink ] = useState(false)
   const togglePermalink = useCallback(() => setShowPermalink(!showPermalink), [ showPermalink ])
 
-  let title = ''
+  const { title, sanitizedKids } = useMemo(() => {
+    let title = ''
 
-  const sanitizedKids = children.map(child => {
-    if (typeof child === 'string') {
-      const metaPos = child.indexOf('{.no-subsection}')
+    const sanitizedKids = children.map(child => {
+      if (typeof child === 'string') {
+        const metaPos = child.indexOf('{.no-subsection}')
 
-      if (0 < metaPos) {
-        child = child.substr(0, metaPos)
+        if (0 < metaPos) {
+          child = child.substr(0, metaPos)
+        }
+
+        title = `${title} ${child}`
       }
+      return child
+    })
 
-      title = `${title} ${child}`
+    // add numbering if level > 1 (i.e. for headings smaller than <H1 />)
+    if (numberedSubHeadings && 1 < level) {
+      const levelIdx = level - 2
+      numberedSubHeadings[levelIdx]++
+      sanitizedKids.unshift(`${numberedSubHeadings.slice(0, levelIdx + 1).join('.')} `)
+      // reset numbering for all smaller headings
+      for (let i = levelIdx + 1; numberedSubHeadings.length > i; i += 1) {
+        numberedSubHeadings[i] = 0
+      }
     }
-    return child
-  })
 
-  const slug = slugify(title.toLowerCase())
+    return { title, sanitizedKids }
+  }, [level, children, numberedSubHeadings])
 
-  const content = (
+  const slug = useMemo(() => slugify(title.toLowerCase()), [title])
+
+  const content = useMemo(() => (
     <HeadingAnchor href={`#${slug}`} onMouseOver={togglePermalink} onMouseOut={togglePermalink}>
       {sanitizedKids}
       {showPermalink ? <PermalinkSymbol>¶</PermalinkSymbol> : null}
     </HeadingAnchor>
-  )
+  ), [ slug, sanitizedKids, showPermalink ])
 
   return React.createElement(
-    type,
+    `h${level}`,
     { ...props, id: slug },
     content,
   )
 }
 
-const RenderH1 = props => <Heading type='h1' {...props} />
-const RenderH2 = props => <Heading type='h2' {...props} />
-const RenderH3 = props => <Heading type='h3' {...props} />
-const RenderH4 = props => <Heading type='h4' {...props} />
+const RenderH1 = options => props => <Heading level={1} {...props} {...options} />
+const RenderH2 = options => props => <Heading level={2} {...props} {...options} />
+const RenderH3 = options => props => <Heading level={3} {...props} {...options} />
+const RenderH4 = options => props => <Heading level={4} {...props} {...options} />
 
-const Markdown = ({ children: markdown, className, getImage, transformLink }) => {
+const Markdown = ({
+  children: markdown,
+  className,
+  getImage,
+  transformLink,
+  enableNumberedSubHeadings,
+}) => {
   const { content, meta } = useMemo(() => {
+    const numberedSubHeadings = enableNumberedSubHeadings
+      ? [0, 0, 0, 0, 0]
+      : null
+
+    const footnoteStats = { nextIndex: 1 }
+
     return {
       meta: _.get(parseFrontmatter(markdown), 'attributes', {}),
       content: unified()
@@ -230,18 +268,18 @@ const Markdown = ({ children: markdown, className, getImage, transformLink }) =>
           remarkReactComponents: {
             p: RenderParagraph,
             img: RenderImage(getImage),
-            a: generateRenderAnchor(transformLink),
+            a: RenderAnchor({ transformLink, footnoteStats }),
             code: RenderCode,
             li: RenderListItem,
-            h1: RenderH1,
-            h2: RenderH2,
-            h3: RenderH3,
-            h4: RenderH4,
+            h1: RenderH1(),
+            h2: RenderH2({ numberedSubHeadings }),
+            h3: RenderH3({ numberedSubHeadings }),
+            h4: RenderH4({ numberedSubHeadings }),
           }
         })
         .processSync(markdown).result
     }
-  }, [markdown, getImage, transformLink])
+  }, [markdown, getImage, transformLink, enableNumberedSubHeadings])
 
   return (
     <Container className={className}>

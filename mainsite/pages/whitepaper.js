@@ -18,10 +18,15 @@ const WhitepaperPage = () => {
 
   return (
     <Layout>
-      <Seo title='Whitepaper'/>
+      <Seo title='SafetyScore: Containing Epidemics through Privacy-Preserving Network-Level Tracing'/>
       <FundUs />
       <ContentWrapper>
-        <Markdown getImage={getImage}>{content}</Markdown>
+        <Markdown
+          getImage={getImage}
+          enableNumberedSubHeadings={true}
+        >
+          {content}
+        </Markdown>
       </ContentWrapper>
     </Layout>
   )
