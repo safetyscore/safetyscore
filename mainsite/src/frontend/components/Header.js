@@ -2,7 +2,7 @@ import React, { useState, useCallback } from 'react'
 import styled from '@emotion/styled'
 import { flex, font, childAnchors, boxShadow } from 'emotion-styled-utils'
 
-import { HomeLink, WhitepaperLink, JoinLink } from './Link'
+import { HomeLink, WhitepaperLink, SimulationLink, JoinLink } from './Link'
 import Image from './Image'
 import Button from './Button'
 import Icon from './Icon'
@@ -123,6 +123,7 @@ const Header = ({ className, onClickHome }) => {
 
   const navLinks = [
     <NavLi key='whitepaper'><WhitepaperLink>Whitepaper</WhitepaperLink></NavLi>,
+    <NavLi key='sim'><SimulationLink>Simulation</SimulationLink></NavLi>,
     <NavLi key='slack'><JoinLink>Join us</JoinLink></NavLi>,
   ]
 

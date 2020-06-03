@@ -14,7 +14,7 @@ const wrapInAnchor = children => {
   return (gotAnchor ? children : <a>{children}</a>)
 }
 
-export const Link = ({ href, as, query = {}, children }) => {
+const Link = ({ href, as, query = {}, children, ...props }) => {
   const finalHref = useMemo(() => url.format({ pathname: href, query }), [ href, query ])
   const external = useMemo(() => !!href.startsWith('http'), [ href ])
 
@@ -23,7 +23,7 @@ export const Link = ({ href, as, query = {}, children }) => {
       href={finalHref}
       {...(as ? { as } : null)}
       {...(external ? { prefetch: false } : null)}
-      scroll={true}
+      {...props}
     >
       {wrapInAnchor(children)}
     </DefaultLink>
@@ -31,12 +31,11 @@ export const Link = ({ href, as, query = {}, children }) => {
 }
 
 const NamedLink = ({ href, children }) => (
-  <DefaultLink href={href} scroll={true}>
-    {wrapInAnchor(children)}
-  </DefaultLink>
+  <Link href={href} scroll={true}>{children}</Link>
 )
 
 export const HomeLink = props => <NamedLink href='/' {...props} />
 export const WhitepaperLink = props => <NamedLink href='/whitepaper' {...props} />
 export const JoinLink = props => <NamedLink href='/join' {...props} />
 export const FundLink = props => <NamedLink href='/fund' {...props} />
+export const SimulationLink = props => <NamedLink href='https://simulation.safetyscore.app' {...props} />
