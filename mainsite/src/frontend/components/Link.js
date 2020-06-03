@@ -14,7 +14,7 @@ const wrapInAnchor = children => {
   return (gotAnchor ? children : <a>{children}</a>)
 }
 
-const Link = ({ href, as, query = {}, children, ...props }) => {
+export const Link = ({ href, as, query = {}, children, ...props }) => {
   const finalHref = useMemo(() => url.format({ pathname: href, query }), [ href, query ])
   const external = useMemo(() => !!href.startsWith('http'), [ href ])
 

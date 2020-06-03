@@ -11,6 +11,7 @@ import footnotes from 'remark-footnotes'
 import remark2react from 'remark-react'
 
 import { Link } from './Link'
+import SyntaxHighlighter from './SyntaxHighlighter'
 
 const Container = styled.div`
   ${font('body')};
@@ -111,6 +112,35 @@ const ImgDiv = styled.div`
 
 const RenderCode = ({ children }) => {
   return <CodeSpan>{children}</CodeSpan>
+}
+
+const RenderPre = bodyMarkdown => args => {
+  // hack to get the code fence language
+  const codeSrc = _.get(args, 'children.0.props.children.0')
+
+  /*
+  Structure is usually:
+  ```<lang>
+  <codeSrc>
+  ```
+   */
+  let lang = ''
+  let m
+  const regex = /```\w+\s*\n/gm
+  while ((m = regex.exec(bodyMarkdown)) !== null) {
+    // to avoid infinite looping
+    if (m.index === regex.lastIndex) {
+      regex.lastIndex++
+    }
+    if (bodyMarkdown.substring(m.index + m[0].length).startsWith(codeSrc)) {
+      lang = m[0].substring(3).trim()
+      break
+    }
+  }
+
+  return (
+    <SyntaxHighlighter language={lang}>{codeSrc}</SyntaxHighlighter>
+  )
 }
 
 const RenderParagraph = ({ children }) => {
@@ -275,6 +305,7 @@ const Markdown = ({
             img: RenderImage(getImage),
             a: RenderAnchor({ transformLink, footnoteStats }),
             code: RenderCode,
+            pre: RenderPre(markdown),
             li: RenderListItem,
             h1: RenderH1(),
             h2: RenderH2({ numberedSubHeadings }),
