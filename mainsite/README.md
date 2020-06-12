@@ -14,6 +14,7 @@ Now, ensure you [authenticate with Google APIs](https://cloud.google.com/docs/au
 
 ```shell
 gcloud auth login
+gcloud config set project safetyscore-website
 ```
 
 Now fetch the dev secrets:
