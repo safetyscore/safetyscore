@@ -13,7 +13,7 @@ npm install
 Now, ensure you [authenticate with Google APIs](https://cloud.google.com/docs/authentication/getting-started):
 
 ```shell
-gcloud auth application-default login
+gcloud auth login
 ```
 
 Now fetch the dev secrets:
