@@ -12,17 +12,16 @@ SafetyScore combines proximity-based contact tracing with distributed ledger
 technologies to provide a compelling "exit strategy" for coronavirus and future
 epidemics without compromising on privacy.
 
-We present a novel decentralised protocol that disseminates measures of risk
+We present a novel decentralized protocol that disseminates measures of risk
 amongst the population based on their interactions. This is then aggregated
 together with the user's activity profile and any recent certifications of
 immunity to provide a time-specific, verifiable, personal SafetyScore for
 individuals.
 
-Potential for fraud is minimised by mutual contacts policing adherence to
+Potential for fraud is minimized by mutual contacts policing adherence to
 protocol, and we frustrate efforts at mass surveillance through the use of
-multiple layers of indirection. Adoption of SafetyScore could be incentivised by
-using it to gate-keep safe access to public premises and workplaces during
-epidemics.
+multiple layers of indirection. Adoption of SafetyScore could be incentivized by
+using it to safeguard access to public premises and workplaces during epidemics.
 
 Due to tracing of second-degree contacts and higher, SafetyScore is able to
 reflect a person's risk more accurately and dynamically than existing
@@ -79,7 +78,7 @@ with low connectivity to the rest of the world and where fast case isolation of
 foreigners could be easily enforced.
 
 For the rest of us, we need a systemic solution that will enable us to get back
-to our lives and minimise the ongoing economic impact. One that can be readily
+to our lives and minimize the ongoing economic impact. One that can be readily
 adopted at an international level, and can contain epidemics even in the face of
 high reinfection risk.
 
@@ -115,7 +114,7 @@ Unfortunately, these first-generation efforts suffer from various limitations.
 Many countries such as South Korea, UK, and efforts like PEPP-PT have taken an
 approach where the central government has access to all of your information.
 
-* Despite the use of anonymised identifiers in some cases, individuals can
+* Despite the use of anonymized identifiers in some cases, individuals can
   easily be re-identified by such systems — enabling mass surveillance at a
   level that’s never been possible before.
 
@@ -146,7 +145,7 @@ enough testing capacity. While the testing situation is improving, most
 countries are struggling with this, and it’d be unrealistic to expect everyone
 to get tested again and again on a regular basis.
 
-Thus, while first-degree contact tracing can help to prioritise healthcare
+Thus, while first-degree contact tracing can help to prioritize healthcare
 resources and reduce pressure, we can’t reasonably rely on it to contain
 epidemics in most parts of the world.
 
@@ -220,7 +219,7 @@ powerful tool in containing epidemics:
 
 ### What We’re Building
 
-We are defining a new standardised protocol for anyone to use. We are also
+We are defining a new standardized protocol for anyone to use. We are also
 making certain concrete implementations for others to use. Specifically:
 
 * A mobile app for Android and iOS that people can use to build up their
@@ -234,7 +233,7 @@ making certain concrete implementations for others to use. Specifically:
   could post test results in a user-friendly way.
 
 * Server software so that anyone can run a Node and add to the security of the
-  decentralised SafetyScore network.
+  decentralized SafetyScore network.
 
 ### How It Works
 
@@ -243,7 +242,7 @@ making certain concrete implementations for others to use. Specifically:
 We believe that the difference between SafetyScore and first-generation digital
 contact tracing efforts is a bit like the difference between the iPhone and the
 smartphones which predated it. They might sound like they have similar
-functionality, but the way they’ll used will be completely different.
+functionality, but the way they will be used will be completely different.
 
 Some aspects which set SafetyScore apart are:
 
@@ -253,14 +252,14 @@ Some aspects which set SafetyScore apart are:
 
 * *Tries to Address Social Stigma.*
 
-* *Full Decentralisation.* SafetyScore is fully decentralised. There are no
-  centralised servers. Anyone can run a Node. Strong User Incentive.
+* *Full Decentralization.* SafetyScore is fully decentralized. There are no
+  centralized servers. Anyone can run a Node. Strong User Incentive.
 
 ## Design Principles
 
 The design of SafetyScore has been guided by four key principles.
 
-### Privacy Maximisation
+### Privacy Maximization
 
 In times of crisis, some might feel that privacy should take a back seat. We
 believe otherwise. This is not an ideological position, but rather a pragmatic
@@ -270,7 +269,7 @@ Any proximity-based contact tracing solution that seeks to get global adoption
 must address privacy. The potential for mass surveillance by others is simply
 too great for countries to trust it otherwise.
 
-So as to minimise ambiguity, we specify privacy maximisation as needing to
+So as to minimize ambiguity, we specify privacy maximization as needing to
 satisfy the following criteria:
 
 * No personally identifiable information should be a part of the SafetyScore
@@ -279,14 +278,14 @@ satisfy the following criteria:
 
 * Passive observers should not be able to know anything more about individuals
   beyond what they’re already able to infer, e.g. tracking people through signal
-  strength correlation despite WiFi MAC randomisation.
+  strength correlation despite WiFi MAC randomization.
 
 * Active observers should not be able to surveil the population as a whole, and
   the cost to them knowing the detailed movements, social network, and
   interactions of individuals should be greater than the cost of existing means,
   e.g. using CCTV cameras, following people, online tracking, etc.
 
-We explicitly exclude potential for de-anonymisation in the following two
+We explicitly exclude potential for de-anonymization in the following two
 scenarios, as they’d be impossible to guarantee while satisfying our goal of
 epidemic control:
 
@@ -306,7 +305,7 @@ adversary with unlimited resources could circumvent it. While true, we don’t
 believe this achieves anything.
 
 Such an adversary would already have the resources to surveil individuals
-through existing means such as CCTV cameras and other centralised infrastructure
+through existing means such as CCTV cameras and other centralized infrastructure
 like ISPs, mobile operators, cloud infrastructure, banks, etc.
 
 Similarly, one could claim that any effort at collecting data for the purposes
@@ -316,7 +315,7 @@ of at risk contacts could reduce spread dramatically.
 
 We believe real-world design involves tradeoffs, and where we’ve made these,
 we’ve ensured that they are good enough to serve our dual goals of privacy
-maximisation and epidemic control.
+maximization and epidemic control.
 
 ### Fixed Scope
 
@@ -325,7 +324,7 @@ additional data points could be justified in terms of improving quality. But the
 same data points could enable individuals to be profiled more effectively.
 
 To avoid this, we will limit any changes to the SafetyScore protocol after the
-standardisation of version 1.0 to just security-related changes, e.g. adding
+standardization of version 1.0 to just security-related changes, e.g. adding
 support for post-quantum cryptographic algorithms.
 
 ### Open Source
@@ -476,7 +475,7 @@ follow this up with a more detailed Protocol Specification in the near future.
 
 ### Nodes
 
-The decentralised SafetyScore network is composed of Nodes that anyone can run.
+The decentralized SafetyScore network is composed of Nodes that anyone can run.
 Nodes serve two primary purposes:
 
 * They act as an API server for Clients like mobile apps.
@@ -487,49 +486,9 @@ Collectively, these Nodes form a peer-to-peer network. We will operate a highly
 available instance at `node.safetyscore.app` in order to help new Nodes discover
 each other.
 
-### Distributed Ledger
+### Distributed Ledger Entries
 
-The Distributed Ledger acts as a high-integrity, shared database without a
-central point of control. Since some elements of our protocol require us to be
-able to establish a global ordering to events, we use a design similar to
-blockchains [^Cha82a] [^Nak08] instead of using one based on DHTs (Distributed
-Hash Tables) [^BRS20].
-
-Each Node generates its own `Block` to persist data in a verifiable manner.
-
-```rust
-type Block {
-    BlockReferences
-    Entries
-    NodeID
-    Signature
-    Timestamp
-}
-```
-
-The data within these Blocks can be queried through a Query API which will take
-a list of Filters and return the matching `Entries`:
-
-```go
-interface API {
-    Query([]Filter, *Cursor) ([]Entry, *Cursor)
-}
-```
-
-Collectively, these Blocks form a DAG (Directed Acyclic Graph) which acts as the
-underlying representation of the Distributed Ledger.
-
-![](image/blockchain.svg)
-
-<figcaption>
-Illustration of how a Node's Block feeds into its next one.
-</figcaption>
-
-The `Block` headers will be arranged in such a way so that Clients can verify
-that an `Entry` is present without having to download the whole `Block`. This
-will be done with the aid of verified streaming that BLAKE3 provides.
-
-Each `Entry` looks like:
+The Distributed Ledger is made up of Blocks which contain Entries like:
 
 ```rust
 type Entry {
@@ -551,16 +510,17 @@ PositiveTestRecord
 ```
 
 We aggregate multiple `Records` from the same signing key into a single `Entry`
-so as to minimise the necessary computation for generating and verifying
+so as to minimize the necessary computation for generating and verifying
 signatures.
 
-Each `Entry` requires a matching “proof of work” [^Bac02] to be computed using
-the Argon2 [^BDK15] memory-hard hash function. This is a cryptograhic puzzle
-that is computationally intensive.
+Data on the Distributed Ledger can be queried through an API which will take a
+list of Filters and return the matching Entries:
 
-This serves as a layer of defence against resource exhaustion attacks as
-malicious Clients would have to expend resources to solve these puzzles and
-cannot simply flood the Distributed Ledger with random data.
+```go
+interface API {
+    Query([]Filter, *Cursor) ([]Entry, *Cursor)
+}
+```
 
 ### Link Chains
 
@@ -642,31 +602,33 @@ purposes of:
 
 * Verifying the authenticity of a contact.
 
-* Distributing Viral Tokens correctly through the historical interactions that
+* Distributing Risk Tokens correctly through the historical interactions that
   people have had.
 
 Broadcast Keys are limited to a `MaxBroadcastPeriod`, e.g. 15 minutes, and are
-rotated whenever a mobile device’s MAC address changes so as to maximise user’s
+rotated whenever a mobile device’s MAC address changes so as to maximize user’s
 privacy.
 
 The Broadcast Keys for a particular user are linked to each other using backward
 and forward Link Records. Each Client should generate enough Broadcast Keys
 ahead of time and have them pre-linked for at least a day's worth of use.
 
-### Viral Tokens
+### Risk Tokens
 
-An individual's risk of getting infected is reflected in the amount of Viral
-Tokens they have received on specific days. Each `ViralToken` has a certain unit
-value and is denominated to a particular disease, e.g. `300 COVID-19`, `145
-Ebola`, etc.
+An individual's risk of getting infected is reflected in the Risk Tokens they
+have received on specific days.
+
+Each `RiskToken` has a `ContactDegree` indicating the degree of contact away
+from a known infected person, `ExposureLevel` value and is denominated to a
+particular disease, e.g. `300 1st-degree COVID-19`, `145 2nd-degree Ebola`, etc.
 
 ```rust
-type ViralToken {
+type RiskToken {
+    ContactDegree
+    Date
+    ExposureLevel
     InfectiousDisease
-    IssueDate
-    MobilityFactor
     SerialNumber
-    Units
 }
 ```
 
@@ -685,12 +647,12 @@ enum InfectiousDisease {
 }
 ```
 
-`Units` will be limited to a `MaxPrecision`, e.g. 5, so as to limit the
-variability so that distributions of Viral Tokens can't be easily correlated by
+`ExposureLevel` will be limited to a `MaxPrecision`, e.g. 3, so as to limit the
+variability so that distributions of Risk Tokens can't be easily correlated by
 third-parties.
 
-For each disease, there will also be a corresponding `ViralDistribution`
-function that will map Viral Tokens received over a period of time to a
+For each disease, there will also be a corresponding `RiskDistribution`
+function that will map Risk Tokens received over a period of time to a
 `RiskProfile` that will reflect an individual's risk of being infectious.
 
 This will be based on factors like the incubation period, the potential
@@ -700,7 +662,7 @@ function for each disease will be regularly updated based on scientific data.
 ### Daily Risk Accounts
 
 Users have a `DailyRiskAccount` for each calendar day. These are used to
-accumulate Viral Tokens relating to interactions on that particular day. By
+accumulate Risk Tokens relating to interactions on that particular day. By
 segmenting the accounts into individual days, we are able to:
 
 * More accurately reflect the risk of exposure over a period of time.
@@ -741,18 +703,8 @@ Activity Keys are connected together using backward and forward links. Clients
 should generate Activity Keys ahead of time and have them pre-linked for at
 least a few days worth of use.
 
-The start key for a user's Activity Keys will be publicly associated with a
-Country via `CountryRecord`. This is purely for rough informative purposes
-regarding the adoption of SafetyScore:
-
-```rust
-type CountryRecord {
-    CountryCode
-}
-```
-
-The `ActivityKey` will also be explicitly connected to an `ActivityPeriod` using
-a one-way `LinkRecord` where the commitment is of the `ActivityPeriod` number.
+Each `ActivityKey` will be explicitly connected to an `ActivityPeriod` using a
+one-way `LinkRecord` where the commitment is of the `ActivityPeriod` number.
 
 ![](image/key-hierarchy.svg)
 
@@ -775,8 +727,8 @@ for the Activity Period 65.
 
 Since there's no fixed mapping of Broadcast Keys to Activity Keys, we only
 establish the links between them after the fact. This can happen any time after
-the Broadcast Key is first used, but must happen before any verification
-happens.
+the Broadcast Key is first used, but must happen before that `ActivityPeriod` is
+used for verification.
 
 For honest participants, this will also serve as an activity "heartbeat". We can
 use the difference in time between the corresponding `ActivityPeriod` and when
@@ -784,9 +736,73 @@ those Link Records are posted as a means of identifying periods when a user was
 inactive, e.g. due to Bluetooth being turned off, phone being out of battery,
 etc.
 
-### Bluetooth Proximity Detection
+Each `ActivityKey` will have an associated `DeviceRecord` which will include a
+commitment of `DeviceData` that is relevant to distance estimation, e.g.
+Bluetooth transmit power level, etc.
 
-We do proximity detection in a manner not too dissimilar to existing contact
+```rust
+type DeviceRecord {
+    Commitment<DeviceData>
+}
+```
+
+And, finally, all `Records` posted by an `ActivityKey` must be within an
+`ActivityDeadline`, e.g. 2 days, so as to limit any caching/processing that must
+be done by others when validating past activity.
+
+### Trusted Authority
+
+The start key of a user's Activity Key will be associated with an updateable
+`TrustedAuthorityRecord`:
+
+```rust
+type TrustedAuthorityRecord {
+    Authority
+}
+```
+
+This will define a Local Authority or Government Authority that will define the
+validity of Tokens received by the user, and that's acceptable to Verifiers from
+other places based on the trust relationships between them.
+
+The `TrustedAuthorityRecord` can only be updated to a different authority, e.g.
+when a user permanently moves to a different country, if the new authority
+explicitly trusts the previous one. Otherwise, the user will have to create a
+fresh identity that is valid for that authority.
+
+### Geo-Regions
+
+The transmission of certain diseases is highly dependent on environmental
+factors such as climate and population density. We use coarse-grained,
+non-overlapping Geo-Regions as a rough approximation of this, e.g. London,
+Alaska, Singapore, etc.
+
+These will be represented as polylines of latitude/longitude co-ordinates and
+will span in size from university campuses to entire countries. Users will be
+able to manually select a Geo-Region or have it set automatically based on their
+mobile device's GPS location.
+
+When users travel, they should update their Geo-Regions to match the region used
+by Verifiers in that location. Besides changing a setting on their local device,
+this will also post a `CurrentRegionRecord`:
+
+```rust
+type CurrentRegionRecord {
+    GeoRegion
+}
+```
+
+This will be posted from the Key relating to their current Daily Risk Account,
+and will be posted whenever a new Daily Risk Account becomes active or the
+user's current Geo-Region changes.
+
+The Geo-Region will also be reflected in some other aspects of the SafetyScore
+protocol, such as when Contact Records are posted, SafetyScore calculations are
+made, etc.
+
+### Bluetooth Contact Detection
+
+We do contact detection in a manner not too dissimilar to existing contact
 tracing efforts. The main difference is that instead of broadcasting a random
 ID, we broadcast data that includes cryptographic public keys, i.e. the
 Broadcast Keys.
@@ -799,9 +815,9 @@ type BroadcastData {
 }
 ```
 
-The `BroadcastData` also includes the `Altitude` reading from the mobile
-device's barometric pressure sensor. This will help us filter out potential
-false positives when the Bluetooth signal goes through floors.
+The `BroadcastData` includes the `Altitude` reading from the mobile device's
+barometric pressure sensor. This will help us filter out potential false
+positives when the Bluetooth signal goes through floors.
 
 The `BroadcastData` is segmented over multiple BLE (Bluetooth Low Energy)
 advertisement packets and will be updated when any of the values change, e.g.
@@ -814,11 +830,9 @@ Illustration of a user's journey as they interact with others.
 </figcaption>
 
 Devices will listen out for `BroadcastData` from other mobile devices and add
-these with a timestamp to its local `ContactLog` if it meets the following
-criteria:
-
-* The distance to the other device, as approximated from the RSSI (Received
-  Signal Strength Indicator) is within `MaxProximityDistance`, e.g. 3 metres.
+these to its local `ContactLog` with a timestamp and relevant `ProximityData`
+for doing distance estimation, e.g. Bluetooth radio signal strength readings, if
+it meets the following criteria:
 
 * The received `ActivityPeriod` matches the local `ActivityPeriod`.
 
@@ -848,8 +862,9 @@ stored in a local `EnvironmentLog` with the corresponding time window.
 ### Contact Establishment
 
 For each entry in its `ContactLog` where a `BroadcastKey` has been seen for at
-least `MinContactDuration`, e.g. 2 minutes, each party will try to establish a
-`ContactKey` for secure communications with the other party that it had seen.
+least `MinContactDuration`, e.g. 2 minutes, each party will try to detect those
+that were close enough and establish a `ContactKey` for secure communications in
+the future.
 
 For every applicable `BroadcastKey`, each party will perform Elliptic-Curve
 Diffie-Hellman using the corresponding Broadcast Keys it was using at that time.
@@ -866,15 +881,36 @@ Using the `TemporaryContactKey`, they will then send a `ContactProof`:
 ```rust
 type ContactProof {
     ActivityKey
-    CommitmentBlind
+    ContactData
+    DeviceCommitmentBlind
+    DeviceData
+    LinkCommitmentBlind
     Signature
 }
 ```
 
-This will include the `ActivityKey` corresponding to the `ActivityPeriod` when
-the contact happened, the secret blind used to post the `LinkRecord` connecting
-the sender's `BroadcastKey` and `ActivityKey`, and the signature generated by
-the `ActivityKey` when signed over the other party's `BroadcastKey`.
+This will include:
+
+* The `ActivityKey` corresponding to the `ActivityPeriod` when the contact
+  happened.
+
+* The `ContactData` including the `GeoRegion`, `LocalEnvironment`,
+  `ProximityData`, and contact duration relating to the other party's
+  `BroadcastKey`.
+
+* The secret blind used to post the `DeviceRecord` associated with the
+  `ActivityKey`.
+
+* The raw `DeviceData` that includes the metadata to do accurate distance
+  estimation.
+
+* The `GeoRegion` the device thought it was in at the point of contact.
+
+* The secret blind used to post the `LinkRecord` connecting the sender's
+  `BroadcastKey` and `ActivityKey`
+
+* The signature generated by the `ActivityKey` when signed over the other
+  party's `BroadcastKey`.
 
 The `ContactProof` will be encrypted using the `TemporaryEncryptionKey` and
 posted as part of a `ContactProofRecord`:
@@ -887,51 +923,47 @@ type ContactProofRecord {
 
 Since both parties can derive each other's `TemporaryContactKey` from the
 `SharedSecret`, they can listen out for the appropriate `Entry` from the other
-party over the Distributed Ledger. Once the corresponding `ContactProof` from
-the other party has been seen and validated, contact is considered as
-established.
+party over the Distributed Ledger.
 
-Since it's possible for contacts to have "seen" each other using multiple
-Broadcast Keys over the same `ActivityPeriod`, the various Contact Proofs that
-are received which reference the same `ActivityKey` are aggregated together.
+Once the corresponding `ContactProof` from the other party has been seen, each
+party will:
 
-For each `AggregatedContact`, a `ContactRecord` is posted by each party using
-their `ActivityKey`:
+* Ensure both parties were in the same Geo-Region.
 
-```rust
-type ContactRecord {
-    Commitment<ActivityKey>
-}
-```
+* Check that the signature over their `BroadcastKey` and the various commitment
+  blinds are valid.
 
-This commitment will be of the `ActivityKey` of the other party, and acts as a
-public signal that a contact has been established. Each party will also add an
-entry to their local `ExposureLog` by:
+* Process the device and proximity data to determine if they were within
+  `MaxProximityDistance`, e.g. 3 meters, of each other.
 
-* Aggregating together the total time it had seen the Broadcast Key or Keys of
-  the other party.
+If all the information checks out, then the other party is considered a close
+contact. Since close contacts might have seen each other using multiple
+Broadcast Keys during the same `ActivityPeriod`, these are then aggregated
+together for matching Activity Keys.
 
-* Using this as a parameter for the `ContactExposure` function, along with the
-  corresponding `LocalEnvironment` values for those time periods. We run this
-  function as exposure isn't necessarily linear, i.e. four minutes of exposure
-  doesn't necessarily equate to double the risk of two minutes of exposure.
+For every such `AggregatedContact`, each party will:
 
-* Taking the resulting `ExposureLevel` value and storing it with a randomly
-  generated `ContactKey` and `EncryptionKey` for the `ActivityPeriod`
-  corresponding to that contact.
+* Run both parties `ContactData` and distance estimation through a
+  `ContactExposure` function. We do this as transmission isn't necessarily
+  linear and will vary based on duration, proximity, and environment.
 
-These keys will be communicated by each party by posting a `ContactKeyRecord`
+* Taking the resulting `ExposureLevel` value and store it in a local
+  `ExposureLog` with a randomly generated `ContactKey` and `EncryptionKey` for
+  the `ActivityPeriod` corresponding to that contact.
+
+For contacts within the same `ActivityPeriod` with the highest Exposure Levels,
+up to a `MaxContacts` limit, e.g. 30, each party will post a `ContactKeyRecord`
 from any of the Temporary Contact Keys they'd already used for the other party:
 
 ```rust
 type ContactKeyRecord {
-    Encrypted<[ContactKey, EncryptionKey]>
+    Encrypted<[ContactKey, EncryptionKey, ExposureLevel]>
 }
 ```
 
-Once both parties have done this, they will have independent Contact Keys to use
-for communicating with the other party in the future — specifically for
-distributing Viral Tokens to each other.
+As long as this is done within the `ContactEstablishmentDeadline`, e.g. 12 hours
+from initial contact, both parties will have independent Contact Keys to use for
+communicating with the other party in the future.
 
 ![](image/contact-establishment.svg)
 
@@ -939,34 +971,23 @@ distributing Viral Tokens to each other.
 The process for establishing Contact Keys between person X and person Y.
 </figcaption>
 
-As there's a physical limit to the number of contacts a person could have at any
-given time, we will specify a `MaxContacts` limit, e.g. 30, for the number of
-contacts that can be made within an `ActivityPeriod`.
+Once contact has been established, a `ContactRecord` is posted by each party
+using their `ActivityKey`:
 
-When posting Contact Proofs to trigger contact establishment, Clients should
-ensure that this limit isn't exceeded, e.g. by only posting Contact Proofs for
-the longest contacts they've had within an `ActivityPeriod`.
+```rust
+type ContactRecord {
+    Commitment<ActivityKey>
+    GeoRegion
+}
+```
 
-### Geo-Regions
-
-The transmission of certain diseases is highly dependent on environmental
-factors such as climate and population density. We use coarse-grained,
-non-overlapping Geo-Regions as a rough approximation of this, e.g. London,
-Alaska, Singapore, etc.
-
-These will be represented as polylines of latitude/longitude co-ordinates and
-will span in size from individual cities to entire countries. Users will be able
-to manually select Geo-Regions or have them set automatically based on their
-mobile device's GPS location.
-
-The Geo-Regions selected by a user will only be used as a parameter for
-calculating and verifying SafetyScores and will not be passively observable by
-others. When users travel, they should temporarily update their Geo-Regions so
-as to include the region used by Verifiers in that location.
+This commitment will be of the `ActivityKey` of the other party, and acts as a
+public signal that a contact has been established. It also makes public the
+Geo-Region of the contact for determining uptake.
 
 ### Distributed Notaries
 
-Certain organisations will be able to run specialised Nodes that will act as a
+Certain organizations will be able to run specialized Nodes that will act as a
 Distributed Notary. These will perform similar roles to notaries in the real
 world who act as witnesses and ensure that documents are properly executed.
 
@@ -976,15 +997,15 @@ Specifically, the Distributed Notaries will serve two key functions:
   been proven to them, e.g. proof of non-adherence to protocol, relationships
   between entities, etc.
 
-* They will act as a mint for Viral Tokens.
+* They will act as a mint for Risk Tokens.
 
-The right to operate a Distributed Notary will be limited to organisations that
+The right to operate a Distributed Notary will be limited to organizations that
 have had a track record of working to preserve digital rights and freedoms, e.g.
 the Electronic Frontier Foundation, Mozilla Foundation, Open Rights Group, etc.
 
 We do this as the Distributed Notaries have access to certain confidential
 information, such as the link between two Activity Keys, and the operators
-should push back against subpoenas from parties looking to de-anonymise users.
+should push back against subpoenas from parties looking to de-anonymize users.
 
 The Distributed Notaries are represented by a set of threshold signature keys.
 This gives us various benefits:
@@ -1000,36 +1021,19 @@ This gives us various benefits:
   one jurisidiction to force the handover of confidential information, e.g.
   through the use of National Security Letters.
 
-### Mobility Profile
-
-The number of contacts that a user has over time, as established by the number
-of Contact Records associated with their linked Activity Keys, can be proven by
-to Distributed Notaries in order to receive a verified `MobilityProfile`:
-
-```rust
-enum MobilityProfile {
-    HIGH_MOBILITY
-    LOW_MOBILITY
-    NORMAL
-}
-```
-
-This will allow us to distinguish people who are potential super-spreaders from
-hermits when disseminating and calculating risk.
-
 ### Fraud Detection
 
 If a contact doesn't follow protocol, then Clients can reach out to the
 Distributed Notaries and present them with proof of protocol violation, e.g.
-when a contact doesn't post a valid `ContactKeyRecord` after establishing
-contact, or their number of Contact Records exceeds `MaxContacts`, etc.
+when a contact doesn't post a valid `ContactRecord` after establishing contact,
+or their number of Contact Records exceeds `MaxContacts`, etc.
 
 The Distributed Notaries can then check whether the claim is valid, and if so,
-sign an attestation of Bad Behaviour for the misbehaving `ActivityKey`. This can
-then be posted to the Distributed Ledger for everyone to see by the claimant:
+sign an attestation of Misbehavior for the misbehaving `ActivityKey`. This can
+then be posted to the Distributed Ledger for everyone to see:
 
 ```rust
-type MisbehaviourRecord {
+type MisbehaviorRecord {
     ActivityKey
     Reason
     Signature
@@ -1037,7 +1041,7 @@ type MisbehaviourRecord {
 ```
 
 These attestations factor into a user's `ActivityProfile`, and thus encourages
-adherence to protocol, as misbehaving Client implementations will get penalised
+adherence to protocol, as misbehaving Client implementations will get penalized
 and possibly even considered invalid — depending on the nature of the violation.
 
 ### Health Attestations
@@ -1050,18 +1054,24 @@ infected, a `PositiveTestRecord` is posted:
 type PositiveTestRecord {
     ActivityPeriod
     Commitment<ActivityKey>
-    Commitment<ActivityKeySignature<TestAuthorisationRequest>>
+    Commitment<ActivityKeySignature<TestAuthorizationRequest>>
     GeoLocation
     InfectionStartDate
     InfectiousDisease
-    ViralTokenUnits
+    RiskTokens
     TestMethod
 }
 ```
 
-The `InfectionStartDate` is an estimate by the Health Official of when the
-patient got infected. This must be within a time window that is specific to each
-disease and is defined by a `MinInfectionPeriod` and `MaxInfectionPeriod` range.
+The `InfectionStartDate` is derived from an estimate by the Health Official of
+when the patient got infected. This must be within a time window that is
+specific to each disease and is defined by a `MinInfectionPeriod` and
+`MaxInfectionPeriod` range.
+
+The estimate by the Health Official is automatically extended so as to enable
+bi-directional contact tracing [^BAHLE20], i.e. cover those who might have
+infected the individual, and not just those who the individual might have
+infected.
 
 The `GeoLocation` includes the Geo-Region as well as the latitude and longitude
 of the Health Center, e.g. hospital, where the Health Official is based. This
@@ -1081,10 +1091,10 @@ enum TestMethod {
 
 The `ActivityPeriod` reflects the time when the test was taken, or diagnosis
 made if done through clinical observation. The Health Official will present the
-patient with a `TestAuthorisationRequest`:
+patient with a `TestAuthorizationRequest`:
 
 ```rust
-type TestAuthorisationRequest {
+type TestAuthorizationRequest {
     ActivityPeriod
     CommitmentBlind
     InfectionStartDate
@@ -1099,39 +1109,51 @@ the public key for the Health Official, and the commitment blind that will be
 used to obscure the `ActivityKey` and `ActivityKeySignature` in the
 `PositiveTestRecord`.
 
-The patient can then review the diagnosis and, if they consent, sign the hash of
-the `TestAuthorisationRequest` with the `ActivityKey` corresponding to the
-specified `ActivityPeriod`.
+The patient can then review the diagnosis and consent by sending an authorized
+response:
 
 ```rust
-type TestAuthorisationResponse {
+type TestAuthorizationResponse {
     ActivityKey
     ActivityPeriodCommitmentBlind
+    Authority
+    AuthorityLinkProof
     DailyRiskAccounts
     DailyRiskAccountsCommitmentBlinds
-    InfectionStartActivityKey
+    RiskTokenDepositEncryptionKeys
     Signature
-    ViralTokenDepositEncryptionKeys
 }
 ```
 
-This will include various proofs, such as commitment blinds used for the
-`LinkRecord` between the `ActivityKey` and the corresponding `ActivityPeriod`,
-the link between the `ActivityKey` and the `DailyRiskAccount`, the links between
-the various Daily Risk Accounts since the `InfectionStartDate`, and the
-Encryption Keys used for any deposits of Viral Tokens within those Daily Risk
-Accounts.
+This will include:
 
-The Health Official can validate the response, anonymise the Viral Token
-deposits so as to only include the disease and unit value for each of the
-deposits, and post the related `PositiveTestRecord`.
+* Their `ActivityKey` corresponding to the `ActivityPeriod` specified in the
+  `TestAuthorizationRequest`, and the commitment blind used for the `LinkRecord`
+  between them.
 
-The sharing of the `ViralTokenUnits` provides a mechanism for the system to
-learn how effective it was at predicting the infection, and will be used to
-inform the parameters used in various functions within the system.
+* The user's trusted Local or Government `Authority`, and the proof that this is
+  linked to the `ActivityKey` that they've shared.
+
+* The Daily Risk Accounts for the period since the infection started, and the
+  commitment blinds used for the `LinkRecord` between each of them and to the
+  `ActivityKey`.
+
+* The Encryption Keys used to deposit Risk Tokens within those Daily Risk
+  Accounts.
+
+* A signature over the hash of the `TestAuthorizationRequest` using the
+  `ActivityKey`.
+
+The Health Official can validate the response, anonymize the Risk Tokens so as
+to only include the `Disease`, `ContactDegree`, and `ExposureLevel` for each of
+them, and post the related `PositiveTestRecord`.
+
+The sharing of the `RiskTokens` provides a mechanism for the system to learn how
+effective it was at predicting the infection, and will be used to improve the
+parameters used in various functions within the system.
 
 Similarly, if an individual is healthy and tests negative for a particular
-disease, then a `NegativeTestRecord` can be posted:
+disease, then a `NegativeTestRecord` is posted:
 
 ```rust
 type NegativeTestRecord {
@@ -1141,7 +1163,7 @@ type NegativeTestRecord {
     GeoLocation
     Immunity
     InfectiousDisease
-    ViralTokenUnits
+    RiskTokens
     TestMethod
 }
 ```
@@ -1159,132 +1181,202 @@ enum Immunity {
 ```
 
 All records posted by a Health Official are publicly auditable, and can be used
-by the corresponding Government Authority to detect any anomalous behaviour by
-any of the Health Officials they have certified.
+by the corresponding Local or Government Authority to detect any anomalous
+behavior by any of the Health Officials they have certified.
 
-### Minting Of Viral Tokens
+### Minting Of Risk Tokens
 
 The posting of a `PositiveTestRecord` by a certified Health Official triggers
-the minting and distribution of Viral Tokens. Distributed Notaries provide a few
+the minting and distribution of Risk Tokens. Distributed Notaries provide two
 API methods relating to this process:
 
 ```go
 interface API {
-    CreateMintToken()
-    Mint()
-    SplitMintTokens()
+    CreateMintToken(CreateMintRequest) MintToken
+    Mint(MintRequest) MintResponse
 }
 ```
 
-The `CreateMintToken` method is called by a Health Official with a reference to
-the `PositiveTestRecord`, the `InfectionStartDate`, the particular disease, and
-a blinded `SerialNumber`.
+The `CreateMintToken` method is called by a Health Official with:
+
+```rust
+type CreateMintRequest {
+    BlindedSerialNumber
+    PositiveTestRecordReference
+}
+```
 
 The Notary checks that the caller is a certified Health Official, validates the
 parameters, e.g. ensuring that it hasn't been called for the same reference
-previously, and creates a `MintToken` using the blinded `SerialNumber` it has
+previously, and creates a `MintToken` using the `BlindedSerialNumber` it has
 been given.
 
-Mint Tokens are similar in structure to Viral Tokens and will later be used to
-mint corresponding Viral Tokens:
+Mint Tokens are similar in structure to Risk Tokens and will later be used to
+mint corresponding Risk Tokens:
 
 ```rust
 type MintToken {
-    Flags
+    ContactDegree
+    Date
+    ExposureLevel
     InfectiousDisease
-    IssueDate
-    MobilityFactor
+    IssuingAuthority
     SerialNumber
-    Units
 }
 ```
+
+The only distinction is the inclusion of the `IssuingAuthority`, i.e. the Local
+or Government Authority that authorized the Health Official, and thus acts as
+the issuer for the resulting Risk Tokens.
 
 The Serial Numbers are made up of two 32-byte components. The first half is just
 a random 32-byte identifier generated by the caller, and the second half denotes
-the public key of a caller who is authorised to perform actions with it, such as
-calling `Mint` and `SplitMintTokens`.
+the public key of a caller who is authorized to call `Mint` with it.
 
 Notaries sign these Serial Numbers with blind signatures so that it can be
 anonymously passed from one contact to another. Once a Serial Number has been
-used, e.g. as part of a call to `SplitMintTokens`, it is marked as such and
-cannot be re-used again.
+used, i.e. as part of a call to `Mint`, it is marked as such and cannot be
+re-used again.
 
-The `MintToken` from the `CreateMintToken` will have the `RootFlag` set, and
-will use a `SerialNumber` authorised for the infected individual, who, once
-they've received it, can then use it as an `incoming` value to the `Mint` call:
+The `MintToken` from the `CreateMintToken` will have `ContactDegree` set to
+zero, `ExposureLevel` set to max, `InfectiousDisease` set to the one specified
+in the `PositiveTestRecord`, and will use a `SerialNumber` authorized for the
+infected individual, who, once they've received it, can then use it as part of a
+`Mint` call.
+
+For each source `MintToken`, the `Mint` call generates Mint Tokens to pass onto
+the caller's contacts, as well as a `RiskToken` to be deposited in the caller's
+Daily Risk Account. The call takes a `MintRequest` parameter:
 
 ```go
-Mint(
-  incoming []MintToken,
-  outgoing map[Date]MintValue,
-  mobility MobilityProfile
-  token    BlindedSerialNumber
-)
-```
-
-The value for the `outgoing` parameter is derived from the individual's
-`ExposureLog` and includes the aggregate units of Mint Tokens to produce for
-each day, so as to pass onto the individual's direct contacts:
-
-```rust
-type MintValue {
-    BlindedSerialNumber
-    Units
+type MintRequest {
+    Authority         AuthorityProof
+    Issue             map[MintToken]IssueRequest
+    RecentInfections  []RecentInfectionProof
+    RecentImmunity    []RecentImmunityProof
 }
 ```
 
-The aggregate units for each day are calculated by taking all contacts the
-individual has had since the `ActivityPeriod` corresponding to the `MintToken`,
-running the units of the `MintToken` through the `ViralDistribution` function,
-and then weighting the various `ExposureLevel` entries for each day against
-that.
+Which includes:
 
-In order to protect against Sybil attacks [^Dou02], that is the ability for
-malicious parties to create lots of fake accounts, the `outgoing` units cannot
-be greater than the units of the `incoming` Mint Token — preventing attackers
-from being able to amplify risk to others.
+* Proof of the individual's trusted `Authority`.
 
-Each contact is also limited by a `MaxTokenUnitsPerActivityPeriod` that is
-specific to the disease. This acts as a safeguard against someone passing on all
-the units to just a single contact.
+* The Mint Tokens that the individual had recently received, mapped to
+  `IssueRequest` structures:
 
-Once the `Mint` call has been made, the Distributed Notaries will validate the
-parameters, adjust the `outgoing` units based on the `Flags` of the incoming and
-the given `MobilityProfile`, generate a `ViralToken` for the caller using the
-presented `token` parameter, and a `MintToken` for each of the days in the
-`outgoing` parameter.
+  ```go
+  type IssueRequest {
+      Contacts        map[Date][]BlindedSerialNumber
+      DepositToken    BlindedSerialNumber
+      ExposureLevel   int
+      Nonce           []byte
+  }
+  ```
 
-The resulting `ViralToken` should be deposited in the `DailyRiskAccount` of the
-caller. If the `RootFlag` was set, this would be the one for the current day,
-otherwise it would be the one corresponding to the `ActivityPeriod` of the
-received `MintToken`.
+  This specifies:
 
-The generated Mint Tokens will have `Flags` and `MobilityFactor` set based on
-the given parameters, and the `MintToken` for each day can then be divided up
-into smaller tokens to pass onto contacts by calling `SplitMintTokens`.
+  * A mapping of Blinded Serial Numbers for contacts that the resulting Mint
+    Tokens should be distributed to, segmented by the dates the contact was
+    made.
 
-### Distribution Of Viral Tokens
+    This is only set if the `ContactDegree` of the source `MintToken` is less
+    than the `MaxContactDegree`, e.g. 3, for the specified `InfectiousDisease`.
 
-Viral Tokens flow from an infected individual to all of their contacts since
+  * A `BlindedSerialNumber` to use to mint the `RiskToken` that will eventually
+    be deposited into the caller's Daily Risk Account.
+
+  * The `ExposureLevel` for the contact the `MintToken` was received from, or if
+    it's from the Health Official to the infected individual, is automatically
+    inferred to be the max level.
+
+  * A 32-byte `Nonce` that will be signed by the Distributed Notaries as part of
+    the response so as to prevent contacts from being passed multiple Mint
+    Tokens from the same source token.
+
+    This is only set if the `Contacts` map has any entries.
+
+* Proof of any recent infections from `PositiveTestRecord` posts.
+
+* Proof of any recent `Immunity` from `NegativeTestRecord` posts.
+
+The `Mint` call will then validate the various inputs and, if appropriate,
+generate a `MintResponse`:
+
+```go
+type MintResponse {
+    Issue   map[MintToken]IssueResponse
+}
+```
+
+This will include a `IssueResponse` for each of the input Mint Tokens:
+
+```go
+type IssueResponse {
+    Contacts        map[Date][]MintIssue
+    DepositToken    BlindedRiskToken
+}
+```
+
+Which is, in turn, made up of:
+
+* A `MintIssue` corresponding to each contact:
+
+  ```go
+  type MintIssue {
+    Signature<[Nonce, BlindedMintTokenHash]>
+    BlindedMintToken
+  }
+  ```
+
+  This includes the `BlindedMintToken` that can be passed on by the caller to
+  their contact, which will have the following fields altered from the source
+  `MintToken`:
+
+  * The `ContactDegree` incremented by one.
+
+  * The `ExposureLevel` set to a factor of the source `MintToken` and the
+    `ExposureLevel` specified in the request for that contact.
+
+  The hash of this `BlindedMintToken` will be hashed together with the passed in
+  `Nonce` and signed by the Distributed Notaries. This signature is then passed
+  along as part of the `Distribution` from the caller to their contact.
+
+* The `BlindedRiskToken` that should stripped of the blinding to derive the
+  corresponding `RiskToken` which should then be deposited into the caller's
+  Daily Risk Account.
+
+  This `RiskToken` will have its `ExposureLevel` set to a factored value
+  combining the value from the source `MintToken` together with the level
+  specified in the `MintRequest` request.
+
+  If the `MintToken` was received from a Health Officieal, i.e. the individual
+  is infected, this deposit must take place in the individual's Daily Risk
+  Account for the day corresponding to the `PositiveTestRecord`.
+
+  Otherwise, the deposit must be in the Daily Risk Account corresponding to the
+  `ActivityPeriod` of the received `MintToken`.
+
+### Distribution Of Risk Tokens
+
+Risk Tokens flow from an infected individual to all of their contacts since
 `InfectionStartDate`, and from each of them to all the contacts they've had
 since, and so on.
 
 ![](image/distribution-flow.svg)
 
 <figcaption>
-The distribution of Viral Tokens from individuals A to B to E, based on the past
+The distribution of Risk Tokens from individuals A to B to E, based on the past
 contact between them.
 </figcaption>
 
-The infected individual starts out with `InitialTokenUnits`, e.g. 10000, for
-every day since the `InfectionStartDate`, and it gets split up at every level,
-and keeps getting passed along until it reaches a `MinTokenUnits` threshold,
-e.g. 20.
+The infected individual starts out with a `RiskToken` with `ContactDegree` of
+zero, and its keeps getting passed along until it reaches a `MaxContactDegree`
+threshold, e.g. 3.
 
 ![](image/distribution-tree.svg)
 
 <figcaption>
-The distribution of Viral Tokens over the network of interactions stemming from
+The distribution of Risk Tokens over the network of interactions stemming from
 an infected individual.
 </figcaption>
 
@@ -1293,7 +1385,7 @@ the Health Official:
 
 ```rust
 type DistributionStart {
-    MintTokens
+    MintToken
     PositiveTestRecordReference
 }
 ```
@@ -1313,11 +1405,11 @@ Diffie-Hellman on the Health Official's Key and the `ActivityKey` of the
 infected individual that was shared as part of the `PositiveTestRecord`.
 
 The `DistributionStart` includes a reference to the corresponding
-`PositiveTestRecord`, and the initial `MintToken` authorised by the Health
+`PositiveTestRecord`, and the initial `MintToken` authorized by the Health
 Official by making a call to `CreateMintToken` to the Distributed Notaries.
 
 The infected individual will then make a `Mint` call to the Distributed
-Notaries, with the received `MintToken`, deposit the resulting Viral Token into
+Notaries, with the received `MintToken`, deposit the resulting `RiskToken` into
 their `DailyRiskAccount`, and send on the resulting Mint Tokens to all of their
 contacts since the `InfectionStartDate`.
 
@@ -1327,7 +1419,7 @@ contacts since the `InfectionStartDate`.
 Illustration of the distribution process.
 </figcaption>
 
-Each contact runs through the following process for distributing Viral Tokens:
+Each contact runs through the following process for distributing Risk Tokens:
 
 1. They receive a `DistributionRecord` from an "upsteam" contact using a
    previously established `ContactKey` and corresponding `EncryptionKey`:
@@ -1338,31 +1430,40 @@ Each contact runs through the following process for distributing Viral Tokens:
    }
    ```
 
-   The included `Distribution` will contain a `MintToken` reflecting the
-   `ExposureLevel` of the two contacts, and will have its `SerialNumber`
-   suffixed with the `ContactKey` of the recipient authorising further minting.
+   The included `Distribution` will contain a `BlindedMintToken` reflecting the
+   `ExposureLevel` of the previous contact, and will have its `SerialNumber`
+   suffixed with the `ContactKey` of the recipient authorizing further minting.
 
    ```rust
    type Distribution {
        DistributionKey
-       MintToken
+       BlindedMintToken
+       BlindingFactor
+       MintSignature
+       Nonce
        Signature
    }
    ```
 
-   It will also have a `Signature` over the recipient's `ContactKey` from a
-   unique `DistributionKey` that identifies related Distributions sent by the
-   upstream contact across their various Contact Keys.
+   The recipient can check the `MintSignature` from the Distributed Notaries
+   over the hash of the `BlindedMintToken` together with the `Nonce` to validate
+   the Token before converting it into a `MintToken` by stripping the
+   `BlindingFactor`.
 
-   If the received `MintToken` is below `MinTokenUnits`, then the receiver can
-   end the process after validating the `Distribution` data.
+   The `Distribution` will also have a `Signature` over the recipient's
+   `ContactKey` from a unique `DistributionKey` that identifies related
+   Distributions sent by the upstream contact across their various Contact Keys.
+
+   If the `Date` on the received `MintToken` exceeds the `MaxDistributionPeriod`
+   for the corresponding `InfectiousDisease`, then the receiver can end the
+   process after validating the `Distribution` data
 
 2. They collate together all Distributions received from the same individual,
    i.e. using the same `DistributionKey`, and make Distribution Commitments
    using each of the corresponding Daily Risk Accounts.
 
-   This will be posted as a `DistributionCommitmentRecord` using a randomly
-   generated `EncryptionKey` per `DailyRiskAccount`:
+   This will be posted as a `DistributionCommitmentRecord` using a pre-generated
+   `EncryptionKey` for each `DailyRiskAccount`:
 
    ```rust
    type DistributionCommitmentRecord {
@@ -1383,52 +1484,62 @@ Each contact runs through the following process for distributing Viral Tokens:
    ```
 
    We specify `ExcludedPeriods` as we don't redistribute in the same Activity
-   Periods as Distributions were received, so as to minimise Distributions from
+   Periods as Distributions were received, so as to minimize Distributions from
    flowing back to the same upstream contact, e.g. via a mutual contact in the
    same `ActivityPeriod`.
 
    The included `SignatureHash` is the hash of the `Signature` received in the
-   `Distribution` relating to the `ActivityPeriod` immediately preceding the
-   `StartPeriod`.
+   first `Distribution` containing the same `DistributionKey` received on the
+   day corresponding to a particular Daily Risk Account.
 
    These Distribution Commitments can later be used as verifiable evidence if
    the receiver fails to honestly pass on Distributions to others.
 
 3. They call the `Mint` API method on Distributed Notaries using the Mint Tokens
-   from all the Distributions from the same `DistributionKey`, and calculate
-   `outgoing` from all the contacts they've had in the Activity Periods they
-   will be redistributing to.
+   they'd received within `MintWindow`, e.g. 3 hours.
 
-4. They process the response from the Distributed Notaries, and call the
-   `SplitMintTokens` API to split the `outgoing` Mint Tokens for each of their
-   contacts.
+   When the `ContactDegree` is less than the `MaxContactDegree`, they build the
+   `Contacts` for the `MintRequest` parameter by:
 
-5. They deposit the `ViralToken` that was returned from the `Mint` call to the
+   * Collating together all the contacts they've had in the Activity Periods
+     since the `InfectionStartDate` for a zero-degree `MintToken`.
+
+   * Collating together all the contacts they've had in the Activity Periods
+     since the `ActivityPeriod` corresponding to the `ContactKey` of the
+     `Distribution` — excluding contacts in any Activity Periods where the same
+     `DistributionKey` was received.
+
+4. They process the response from the Distributed Notaries. This will include
+   the `RiskToken` for them to deposit as well as the Blinded Mint Tokens for
+   them to distribute to their contacts.
+
+5. They deposit the `RiskToken` that was returned from the `Mint` call to the
    appropriate `DailRiskAccount`. This is done using a `DepositRecord` and using
-   the key of the `DailyRiskAccount`:
+   the key of the `DailyRiskAccount` and a generated `EncryptionKey`:
 
    ```rust
    type DepositRecord {
-       Encrypted<ViralToken>
+       Encrypted<RiskToken>
+       EncryptionKeyHash
    }
    ```
 
 6. For each of the contacts they will be redistributing to, they prepare a
    `Distribution` with a new randomly generated `DistributionKey` and include
-   the corresponding `MintToken`.
+   the corresponding `BlindedMintToken` and related fields.
 
-   For each contact, if the value of the `MintToken` that is passed along is
-   above `MinTokenUnits`, then the distributor will validate that they too had
-   followed a similar process like in step 7 below.
+   For each contact, the distributor will verify that the downstream contact had
+   followed protocol by waiting for a `DistributionProofRecord` from them and
+   validating the resulting data.
 
    A delay of up to `DistributionDeadline`, e.g. 12 hours, will be allowed for
    this, as mobile devices might be out of charge/reception while people are
-   sleeping/travelling.
+   sleeping/traveling.
 
-   If the downstream contact's actions cannot be validated, then the sender will
-   show proofs to the Distributed Notaries, by revealing their Contact Proof and
-   Distribution Records, resulting in a `MisbehaviourRecord` being attached to
-   the `ActivityKey` of the downstream contact.
+   If the downstream contact fails to provide proof, the sender will reveal the
+   breaking of protocol to the Distributed Notaries by sharing their Contact
+   Proof and Distribution Records, resulting in a `MisbehaviorRecord` being
+   attached to the `ActivityKey` of the downstream contact.
 
 7. They provide proofs to the upstream contact that they'd followed protocol by
    posting a `DistributionProofRecord`:
@@ -1441,16 +1552,16 @@ Each contact runs through the following process for distributing Viral Tokens:
 
    The included `DistributionProof` reveals the connection between their
    `ActivityKey` and their `DailyRiskAccount`, the `EncryptionKey` used to make
-   the deposit to their `DailyRiskAccount`, and the `EncryptionKey` used to make
-   all the Distribution Commitments for that day.
+   the deposit, and the `EncryptionKey` used to make all the Distribution
+   Commitments for that `DailyRiskAccount`.
 
    ```rust
    type DistributionProof {
+       ActivityKeyCommitmentBlind
        DailyRiskAccount
-       CommitmentBlind
-       CommitmentEncryptionKey
        DepositEncryptionKey
        DepositReference
+       DistributionCommitmentEncryptionKey
        RelatedContactKeys
        RelatedSignature
    }
@@ -1462,25 +1573,24 @@ Each contact runs through the following process for distributing Viral Tokens:
    `RelatedContactKeys` and a joint signature from all of them.
 
    The upstream contact can use the provided `DistributionProof` to ensure that
-   the receiver had converted the `MintToken` passed to them into a
-   `ViralToken`, that this had been deposited into the right `DailyRiskAccount`,
+   the receiver had converted the `BlindedMintToken` passed to them into a
+   `RiskToken`, that this had been deposited into the right `DailyRiskAccount`,
    and that they'd made the appropriate `DistributionCommitment`.
 
    They can also check for any other Distribution Commitments that are present,
    and check that they'd received any applicable Distributions relating to them,
-   and thus ensure that the contact was passing on Viral Tokens it had received.
+   and thus ensure that the contact was passing on Risk Tokens it had received.
 
-The distribution of Viral Tokens is only to existing contacts at the time a
+The distribution of Risk Tokens is only to existing contacts at the time a
 `Distribution` is received, and is not propagated to future contacts. This
 ensures that:
 
 * Certain classes of attacks aren't as feasible, e.g. stealing the mobile device
   of an infected individual to cause havoc at the local gym by setting off a
-  "Viral Bomb" and making everyone in the gym think they're at risk.
+  "Risk Bomb" and making everyone in the gym think they're at risk.
 
-* Infected individuals are turned into social pariahs as they walk down the
-  street due to others getting notified of a recent contact giving them some
-  Viral Tokens.
+* Infected individuals aren't turned into social pariahs as they walk down the
+  street, as others would notice their scores go down soon after.
 
 ### SafetyScore Calculation
 
@@ -1488,8 +1598,8 @@ Everyone starts out with a SafetyScore of zero, and gradually builds it up
 through interactions with the system. An individual's SafetyScore is calculated
 by running the `Aggregation` function over the following parameters:
 
-* The `RiskProfile` generated by running the Viral Token deposits in Daily Risk
-  Accounts through the `ViralDistribution` function. This is done for up to
+* The `RiskProfile` generated by running the Risk Token in the Daily Risk
+  Accounts through the `RiskDistribution` function. This is done for up to
   `RiskProfileDays` days, e.g. 28 days, and represents the risk of the
   individual being infectious for various diseases.
 
@@ -1497,15 +1607,20 @@ by running the `Aggregation` function over the following parameters:
   recent tests with a positive `Immunity` field will be given greater weighting,
   depending on the `Disease`.
 
-* The `ActivityProfile` of the individual reflecting the number of Bad
-  Behaviour, Contact, and Verified Records that are associated with every
-  `ActivityKey` for `ActivityProfileDays`, e.g. 45 days. Together with the Link
-  Records linking the `ActivityKey` to Broadcast Keys, these provide an activity
-  pattern for the individual that can be used to weight risks based on mobility
-  and penalise anomalous behaviour.
+* The `ActivityProfile` of the individual reflecting the number of Contact,
+  Misbehavior, and Verified Records that are associated with every `ActivityKey`
+  for `ActivityProfileDays`, e.g. 45 days.
 
-* Geo-Region. This determines the manner in which the `ActivityProfile` and
-  `RiskProfile` are interpreted.
+  Together with the Link Records linking the `ActivityKey` to Broadcast Keys,
+  these provide an activity pattern for the individual that can be used to
+  weight risks based on mobility and penalize anomalous behavior.
+
+* Geo-Regions associated with Contact Records, Daily Risk Accounts, and the
+  current Geo-Region. These determines the manner in which the elements of the
+  `ActivityProfile` and `RiskProfile` are interpreted.
+
+* The `Authority` trusted by the user so that Verifiers can check if it's an
+  Authority that is trusted by their trusted Authority.
 
 The function inverts a calculated `RiskScore` to generate a SafetyScore value
 between 0 and 99. We do this as most people tend to perceive a bigger number to
@@ -1528,6 +1643,7 @@ Distributed Notaries so as to provide an attestation of someone's SafetyScore:
 type SignedSafetyScore {
     ActivityKey
     ActivityPeriod
+    Authority
     GeoRegion
     Score
     Signature
@@ -1545,6 +1661,9 @@ subsets of the Notaries, so that no single one of them is privy to all of it:
   Notaries can certify that the pair of Activity Keys are connected, and this
   can in turn be used to prove a whole connected chain to other Notaries.
 
+* The current `Authority` associated with the start key of the user's Activity
+  Key through the `TrustedAuthorityRecord` can thus also be proved to a Notary.
+
 * A similar process can be used to prove that a chain of Daily Risk Accounts are
   all connected, and that a specific `ActivityKey` and `DailyRiskAccount` are
   connected.
@@ -1560,10 +1679,10 @@ subsets of the Notaries, so that no single one of them is privy to all of it:
   These partial attestations can then be combined into a complete
   `ActivityProfile` for the chain of Activity Keys.
 
-* Similarly, the Encryption Keys used to deposit Viral Tokens for a specific
-  `DailyRiskAccount` can be shared with Notaries so as to get them to attest to
-  a partial `RiskProfile` for that particular day for a specific count of
-  deposits.
+* Similarly, the Encryption Keys used to deposit Risk Tokens for a specific
+  `DailyRiskAccount` can be shared with Notaries along with the Current Region
+  Records so as to get them to attest to a partial `RiskProfile` for that
+  particular day for a specific count of deposits.
 
   These partial attestations can then be combined into a complete `RiskProfile`
   for the chain of Daily Risk Accounts.
@@ -1573,9 +1692,12 @@ corresponding Keys through blinding, and this is then passed to a subset of the
 Notaries who execute the `Aggregation` function and provide the individual with
 the resulting `SignedSafetyScore`.
 
+The code for the `Aggregation` function will be frequently updated based on
+improved modeling, scientific data, and SafetyScore activity.
+
 ### Verification
 
-During epidemics, it's likely that certain premises will gate-keep access by
+During epidemics, it's likely that certain premises will safeguard premises by
 verifying that someone's SafetyScore meets a necessary `SafetyLevel` before
 letting them in.
 
@@ -1664,7 +1786,8 @@ This will allow the Verifier to validate a number of factors:
   succession.
 
 * They can check that the given `SignedSafetyScore` is for the given
-  `ActivityKey`, matches the Geo-Region of the Verifier, that it was certified
+  `ActivityKey`, matches the Geo-Region of the Verifier, is for an `Authority`
+  that is trusted by the Verifier's trusted `Authority`, that it was certified
   by the Distributed Notaries, and meets the necessary `SafetyLevel`.
 
 Once verified, the individual can be granted access. We may modify this sequence
@@ -1733,19 +1856,28 @@ type ImageRecord {
 
 Clients can interpret these Notification Records and only display those that are
 pertinent to a user based on their local data. And through the use of a trusted
-server, they could even be presented as push notifications to the user's mobile
+server, they could even be presented as push notifications to a user's mobile
 device.
+
+### Local Authorities
+
+Local communities like university campuses can adopt SafetyScore before it's
+rolled out by their government. They can do this by setting up a validated Local
+Authority for a specific Geo-Region.
+
+These Local Authorities are represented by a set of threshold signature keys,
+and they can add/remove Health Officials, trust other Authorities, and set
+Safety Levels similar to Government Authorities.
+
+Unlike with Government Authorities where trust is binary, trust by Local
+Authorities is evaluated using attack-resistant trust metrics [^Lev04] —
+allowing for a network of Local Authorities to grow over time.
 
 ### Root Authority
 
-We introduce a single element of centralisation into the protocol to act as the
-trusted Root Authority for privileged participants like Government Authorities
-and the Distributed Notaries.
-
-We've set up a non-profit called "Broad Street Pump Foundation" to act as this
-Root Authority. This Foundation will also be used to standardise the SafetyScore
-protocol, and we hope the transparency and accountability that it brings will
-help drive adoption around the globe.
+We introduce a single element of centralization into the protocol to act as the
+trusted Root Authority for privileged participants like Government Authorities,
+Local Authorities, and the Distributed Notaries.
 
 The Root Authority will be represented by a set of threshold signature keys, and
 its function is to:
@@ -1755,8 +1887,17 @@ its function is to:
   `UpdateGovAuthorityRecord`. These associate specific Geo-Regions with the
   threshold signature keys for the corresponding Government Authority.
 
+  We've set up a non-profit called "Broad Street Pump Foundation" to perform
+  this function. We hope the transparency and accountability that this brings
+  will help drive adoption around the globe.
+
+* Add/Remove/Update Local Authorities. This is done by posting the corresponding
+  `AddLocalAuthorityRecord`, `RemoveLocalAuthorityRecord`, or
+  `UpdateLocalAuthorityRecord`. These associate specific Geo-Regions with the
+  threshold signature keys for the corresponding Local Authority.
+
 * Define Functions. There are a number of elements within the protocol such as
-  the `ContactExposure`, `RiskAggregation`, and `ViralDistribution` functions
+  the `ContactExposure`, `RiskAggregation`, and `RiskDistribution` functions
   that are specific to diseases or Geo-Regions. These need to be updated as our
   understanding evolves based on scientific data.
 
@@ -1796,10 +1937,26 @@ layer for requests between Clients, Nodes, and Notaries. This will be
 functionally similar to gRPC [^grpc] with some useful aspects from Cap’n Proto
 RPC [^capnproto-rpc].
 
-The main difference will be the additional requirement for Clients to include a
-valid proof of work — similar to the mechanism described in § 6.2. This will
-serve to help Nodes and Notaries defend themselves against potential resource
-exhaustion attacks.
+### Proof of Work
+
+Certain elements of the SafetyScore protocol will require a computationally
+intensive cryptographic puzzle to be first solved:
+
+* When an `Entry` is posted to the Distributed Ledger.
+
+* When an RPC call is made by a Client.
+
+This "proof of work" [^Bac02] will be computed using the Argon2 [^BDK15]
+memory-hard hash function and will serve as a layer of defence against resource
+exhaustion attacks against the system.
+
+Nodes will temporarily keep track of the IP addresses that have sent them
+requests, and will rapidly increase the "hardness" of the computations if
+requests from the same IP address exceeds a base rate limit.
+
+Clients will thus not be able to easily flood the Distributed Ledger with random
+data, and it will prove costly for them to maintain lots of fake identities over
+long periods of time.
 
 ### Trusted Nodes
 
@@ -1817,30 +1974,6 @@ themselves.
 
 We will run a public Node for others to use at `node.safetyscore.app`, but in an
 ideal world everyone would run their own.
-
-### Validators
-
-Nodes that can validate Blocks that have been published to the Distributed
-Ledger are known as Validator Nodes. This right is gradually earned by Nodes
-based on:
-
-* *Availability.* Validators should be highly available and operate with minimal
-  downtime.
-
-* *Reliability.* Validators should be reliable in storing and serving the data
-  that has been published to the Distributed Ledger.
-
-* *Distance.* Validators should be as far away from each other as possible so as
-  to increase the overall resilience of the network.
-
-Every `DiffusionInterval`, e.g. every week, a `DiffusionPortion`, e.g. 3%, of
-the `ValidatorRights` of existing Validator Nodes “diffuses” to other Nodes
-based on the three factors above.
-
-New Nodes can thus become Validator Nodes by simply operating reliably. The
-earned `ValidatorRights` decay over time if a Validator Node becomes inactive —
-enabling the continued functioning of the Distributed Ledger despite the
-inevitable churn of active Nodes.
 
 ### Delayed Publishing
 
@@ -1873,9 +2006,9 @@ attackers would have to actually run Nodes on distinct hardware in multiple
 locations — making it relatively expensive for them to observe and correlate
 user activity.
 
-### Anonymised Relaying
+### Anonymized Relaying
 
-While the use of a personal Node, would mask the IP address of a user from the
+While the use of a personal Node would mask the IP address of a user from the
 rest of the network, if the same Node was always used for publishing to the
 Distributed Ledger, then observers could use it to correlate distinct keys as
 belonging to the same set of people.
@@ -1901,7 +2034,7 @@ itself into one of two modes:
 
 If the Node is the entry point for a Publish call, then it will always act in
 relay mode. And if a relayed call doesn’t result in a published `Entry` within a
-given timeout period, Nodes will publish it directly themselves.
+given deadline, Nodes will publish it directly themselves.
 
 With this fairly simple approach, we can effectively mask the origin point from
 the rest of the network and help protect users. We use a similar mechanism for
@@ -1913,20 +2046,25 @@ All calculations relating to dates and time will be done in TAI (International
 Atomic Time). This allows us to keep these calculations simple and avoid the
 complexities of leap seconds and changing time zone definitions.
 
-To minimise errors caused by clock skew, Clients will use an RPC method that
-will mirror the Roughtime synchronisation protocol [^MLL20]. For time
-synchronisation amongst Nodes, we will also incorporate ideas from Huygens
+To minimize errors caused by clock skew, Clients will use an RPC method that
+will mirror the Roughtime synchronization protocol [^MLL20]. For time
+synchronization amongst Nodes, we will also incorporate ideas from Huygens
 [^GLY+18].
 
-## Distributed Consensus Algorithm
+## Distributed Ledger
 
-The need for verified records and causal ordering in the Distributed Ledger,
-e.g. for verifying Misbehaviour Records, suggests the use of a distributed
-consensus algorithm amongst Nodes when generating Blocks.
+The Distributed Ledger acts as a high-integrity, shared database without a
+central point of control. We provide a high-level overview of its architecture
+below.
 
-### Consensus Requirements
+### Consensus Algorithm
 
-Specifically, the consensus algorithm needs to be:
+Since some elements of our protocol require us to be able to establish a global
+ordering across Entries, we use a design similar to blockchains [^Cha82a]
+[^Nak08] instead of using one based on DHTs (Distributed Hash Tables) [^BRS20].
+
+The distributed consensus algorithm for establishing this global ordering needs
+to be:
 
 * *Scalable.* With potentially billions of users using SafetyScore, and making
   regular updates, the network needs to be able to support high throughput. Not
@@ -1937,14 +2075,42 @@ Specifically, the consensus algorithm needs to be:
   malicious parties running Nodes within the network [^LSP82].
 
 * *Permissionless.* That is, anyone should be able to start running a Node
-  without having to need approval from a centralised party.
+  without having to need approval from a centralized party.
 
 * *Accessible.* Following on from the previous point, people should be able to
   run Nodes and contribute to the network without needing to have million-dollar
   servers.
 
-We believe that we have a viable DAG-based approach called Kairos that can
+We believe that we have a viable consensus algorithm called Kairos that can
 satisfy these requirements.
+
+In it, each Node generates its own sequence of Blocks, and collectively the
+Blocks from all Nodes form a DAG (Directed Acyclic Graph) which acts as the
+underlying representation of the Distributed Ledger.
+
+### Validators
+
+Nodes that can validate Blocks that have been published to the Distributed
+Ledger are known as Validator Nodes. This right is gradually earned by Nodes
+based on:
+
+* *Availability.* Validators should be highly available and operate with minimal
+  downtime.
+
+* *Reliability.* Validators should be reliable in storing and serving the data
+  that has been published to the Distributed Ledger.
+
+* *Distance.* Validators should be as far away from each other as possible so as
+  to increase the overall resilience of the network.
+
+Every `DiffusionInterval`, e.g. every week, a `DiffusionPortion`, e.g. 2%, of
+the `ValidatorRights` of existing Validator Nodes “diffuses” to other Nodes
+based on the three factors above.
+
+New Nodes can thus become Validator Nodes by simply operating reliably. The
+earned `ValidatorRights` decay over time if a Validator Node becomes inactive —
+enabling the continued functioning of the Distributed Ledger despite the
+inevitable churn of active Nodes.
 
 ### Kairos
 
@@ -1961,7 +2127,7 @@ generation capacity of the network:
 * `TickInterval` — the interval at which Nodes produce new `Blocks`, e.g. every
   second.
 
-* `Epoch` — the date and time of the zeroth tick, e.g. midnight on April 23rd
+* `Epoch` — the date and time of the zeroth tick, e.g. midnight on July 1st
   2020.
 
 * `CommitWindow` — the deadline by which a `Block` can be marked as committed,
@@ -1977,6 +2143,26 @@ there are `2f+1` honest Validator Nodes.
 For every `TickInterval`, each Node can produce a `Block` comprised of `Entries`
 submitted to it by users, as well as `BlockReferences` to its previous `Block`
 and Blocks produced by other Nodes.
+
+```rust
+type Block {
+    BlockReferences
+    Entries
+    NodeID
+    Signature
+    Timestamp
+}
+```
+
+![](image/blockchain.svg)
+
+<figcaption>
+Illustration of how a Node's Block feeds into its next one.
+</figcaption>
+
+The `Block` headers will be arranged in such a way so that Clients can verify
+that an `Entry` is present without having to download the whole `Block`. This
+will be done with the aid of verified streaming that BLAKE3 provides.
 
 The `BlockReferences` include the key metadata fields relating to a `Block` as
 well as the first level of direct `BlockReferences` included in the referenced
@@ -1994,8 +2180,8 @@ type BlockReference {
 ```
 
 Nodes will only include a `BlockReference` after it has validated a `Block` and
-have seen all the Blocks that it has referenced — creating a DAG of the Blocks
-from the perspective of each Node.
+seen all the Blocks that it has referenced — creating a DAG of the Blocks from
+the perspective of each Node.
 
 ![](image/dag.svg)
 
@@ -2005,7 +2191,7 @@ referencing Blocks over 4 ticks.
 </figcaption>
 
 Once a `Block` has been generated, it is then broadcast to the other Nodes in
-the network. Blocks are only generated if there is any data that is needed to be
+the network. Blocks are only generated if there is any data that needs to be
 communicated with the rest of the network.
 
 ### Block Commit
@@ -2024,15 +2210,15 @@ The `Entries` for a tick are then fully ordered, first by the position of the
 `Block` within the `MetaBlock`, and then by the position of the `Entry` within
 that `Block`.
 
-### Handling Misbehaviour
+### Handling Misbehavior
 
 It's possible for Nodes to misbehave in a number of ways. This can be due to
 either malice or getting hacked in some way, e.g. by having their signing keys
 stolen.
 
-When generating Blocks, Nodes can include evidence of `Misbehaviour`, e.g. when
-receiving differing signed Blocks for the same tick. Once this has been seen by
-`2f+1` Validator Nodes, all new Blocks by that Node are ignored until it
+When generating Blocks, Nodes can include evidence of `NodeMisbehavior`, e.g.
+when receiving differing signed Blocks for the same tick. Once this has been
+seen by `2f+1` Validator Nodes, all new Blocks by that Node are ignored until it
 generates a new signing key by using it's secret `RevocationKey`.
 
 ### Implementation
@@ -2045,7 +2231,7 @@ Kairos.
 ## Active Considerations
 
 There are certain aspects of our design that we're still deliberating. We
-elaborate on some of these below and will have them finalised by the time we
+elaborate on some of these below and will have them finalized by the time we
 release the initial Protocol Specification.
 
 ### Self-Attestations
@@ -2057,12 +2243,12 @@ testing process.
 
 Unfortunately, this also opens up opportunities for malicious parties to cause
 potential panic by making false attestations. The situation is made worse by the
-potential for Sybil attacks.
+potential for Sybil attacks [^Dou02].
 
-We believe this could be addressed by adding an additional field on Viral Tokens
+We believe this could be addressed by adding an additional field on Risk Tokens
 to demarcate them as stemming from self-attestations. These could have a
 significantly lower weighting and could only be “valid” if a particular
-`DailyRiskAccount` also contains Viral Tokens stemming from Health Officials.
+`DailyRiskAccount` also contains Risk Tokens stemming from Health Officials.
 
 It could also be further tweaked by the `Aggregation` function depending on the
 Geo-Region — reflecting the current testing capacity for that area. Through
@@ -2087,18 +2273,17 @@ BlueTrace project has already started an open source repository for this data
 
 We can also improve the confidence of our distance estimation by doing
 statistical analysis over multiple RSSI readings of a `BroadcastKey` instead of
-relying on just a single reading, and possibly by also sharing the reciprocal
-RSSI levels during the contact establishment process.
+relying on just a single reading.
 
 ### Bluetooth Background Execution
 
-In order to conserve battery use and minimise security issues, iOS and recent
+In order to conserve battery use and minimize security issues, iOS and recent
 versions of Android limit Bluetooth activity when an app is in the background or
 when the device is locked — resulting in Broadcast Keys being potentially
 missed.
 
 Given Apple and Google's willingness to make changes to the base OS in response
-to the pandemic, and their support of decentralised systems, we're hopeful in
+to the pandemic, and their support of decentralized systems, we're hopeful in
 being able to have a productive conversation with them on this matter.
 
 In the meantime, the high levels of smartphone addiction, i.e. people's tendency
@@ -2107,7 +2292,7 @@ techniques like keep-alive connections to wake up sleeping devices.
 
 ### Fairness
 
-If SafetyScore is used to gate-keep access to spaces like restaurants and bars
+If SafetyScore is used to safeguard access to spaces like restaurants and bars
 during epidemics, then frontline workers such as healthcare workers and bus
 drivers will inevitably find themselves denied access to such spaces.
 
@@ -2118,11 +2303,16 @@ on a day-to-day basis.
 We believe that this should be addressed by governments at the policy level,
 perhaps through increased compensation for frontline staff or by allowing
 greater freedom for those who can prove that they’re in a job that takes
-precautions, e.g. by using some form of recognised ID.
+precautions.
 
-We could explicitly add support for this through an `ExemptionRecord` which
-Government Authorities could post. This could be associated with an individual's
-profile similar to Negative Test Records.
+Similarly, there might be particularly vulnerable segments of society such as
+the elderly who should not be denied access to basic amenities even if they have
+a low SafetyScore.
+
+We could explicitly add support for both of these cases through an
+`ExemptionRecord` which Government Authorities could post. This could have an
+encrypted `LegalName` field that Verifiers could check against some form of
+recognized photo ID.
 
 ### Fomite Detection
 
@@ -2156,15 +2346,15 @@ for users.
 While the contents of the data that is communicated across the network is
 protected by the Transport Layer security, observers at the network level would
 still be able to see that certain actions have happened, e.g. when activity
-spikes as disclosures are made.
+spikes when Risk Tokens are distributed.
 
 To protect against this, it could be useful to have cover traffic between
 Clients and Nodes, and even between Nodes. We’re evaluating using some aspects
-from Loopix [^PHEMD17] so as to maximise the anonymity and unobservability of
-Clients and Nodes.
+from Loopix [^PHEMD17] to maximize the anonymity and unobservability of Clients
+and Nodes.
 
 This may have to be an optional security feature, since it could easily use up
-the limited data plans that many users might be on.
+the limited data plans that some users might be on.
 
 ### Crypto Primitives
 
@@ -2180,81 +2370,83 @@ We’re finalising the decision on some of our cryptographic primitives:
 * Whether to use BLS [^BLS04] or Coconut [^SABMD18] for threshold signatures of
   the Distributed Notaries. Coconut gives us some additional functionality at
   the cost of increased complexity, e.g. ability to do selective disclosure of a
-  subset of attributes, re-randomisation of credentials, multiple unlinkable
+  subset of attributes, re-randomization of credentials, multiple unlinkable
   revelations, etc.
 
-### Serialisation Format
+### Serialization Format
 
-We will be using a typed, binary serialisation format with versioned fields for
+We will be using a typed, binary serialization format with versioned fields for
 encoding the Record data and the RPC messages. Since a lot of data involves
 signatures, this will need to be done in a way that doesn’t require copies to be
 kept in memory so as to conserve resources on mobile devices.
 
-The serialisation also needs to be deterministic so that signatures will always
+The serialization also needs to be deterministic so that signatures will always
 be valid across languages and even in the face of schema changes. We are
 currently evaluating using a subset of Protocol Buffers [^protobuf], Cap’n Proto
 [^capnproto], or FlatBuffers [^flatbuffers] to meet these purposes.
 
 ### Cycle Detection
 
-It's possible for someone to receive a portion of Viral Tokens that originally
-came from them. We avoid the most common occurence of this by only distributing
-Viral Tokens outside of the Activity Periods they were received.
+It's possible for someone to receive Risk Tokens that originally came from
+them. We avoid the most common occurence of this by only distributing Risk
+Tokens outside of the Activity Periods they were originally received.
 
 While this isn't particularly worrying, it would be useful to be able to detect
 such cycles and negate the additional deposits. Unfortunately, there doesn't
 seem to be an obvious way to do this without leaking information about people's
 interactions.
 
-### Managing Amplification
-
-The minting process enforces the restriction that users cannot pass on more
-Viral Tokens than they have received. While this limits the potential for
-amplification attacks, it doesn't reflect epidemiological reality where the
-human body does actively multiply the creation of pathogens.
-
-We've factored for this by introducing the `MobilityProfile` of individuals as a
-factor of Viral Tokens, which affects the manner in which the related risk is
-amplified or dampened. This needs detailed modelling so as to be able to find
-the right values for the related parameters.
-
 ### Remote Transmission Protection
 
-Viral Tokens can be transmitted remotely, e.g. by mirroring or by transferring
-through the use of virtual Activity Keys. Since Viral Tokens cannot being
-amplified, i.e. attackers can only pass on a portion of their risk and never
-increase it, such an attack is limited in its ability to cause mass panic.
+Risk Tokens can be transmitted remotely, e.g. by mirroring or by transferring
+through the use of virtual Activity Keys. We believe the negative impact of this
+to be manageable.
 
-While you could actively target someone by surrounding them with fake devices
-and transmitting risk to them, the moment their SafetyScore goes down, it simply
-prompts them to get tested. And if testing shows them to not be infected, then
-all you’ve done is cause them a few days of disruption while they self-isolated.
+For example, while you could actively target someone by surrounding them with
+lots of fake devices and transmitting risk to them, the moment their SafetyScore
+goes down, it simply prompts them to get tested.
+
+And if testing shows them to not be infected, then all you’ve done is cause them
+a few days of disruption while they self-isolate. Definitely not ideal, but not
+the end of the world either.
 
 But since this could take away valuable testing capacity from health services,
 we’re considering additional measures that could further limit the potential for
 such attacks.
 
 One such approach could be to add the origin country to the denomination of
-Viral Tokens. Then, tokens from a country other than your own could be weighted
+Risk Tokens. Then, tokens from a country other than your own could be weighted
 significantly lower by the `Aggregation` function — limiting corrupt Health
 Officials from somewhere like North Korea from falsely creating the perception
 of risk in other countries.
 
 We’re evaluating such approaches against the additional data this might reveal —
-which could be potentially used as a means of de-anonymising a specific
+which could be potentially used as a means of de-anonymizing a specific
 individual.
 
-### Optimisations
+### Weighting Precautions
 
-The protocol lends itself to optimisation on many fronts, e.g. using an XOF to
-deterministically derive keys so as to minimise the amount of data that Clients
+Some people might take precautions, e.g. by wearing masks, that could reduce
+their risk of getting infected. We could feasibly let people self-attest to
+this, and let it be confirmed/refuted by Verifiers.
+
+### Optimizations
+
+The protocol lends itself to optimization on many fronts, e.g. using an XOF to
+deterministically derive keys so as to minimize the amount of data that Clients
 have to store, using a Bloom filter for the signing keys so that Clients can
 check Blocks for relevant data without having to download it all, etc.
 
-In finalising these optimisations, we want to ensure that they don’t create
+In finalising these optimizations, we want to ensure that they don’t create
 potential side channels or cause unexpected data leakage.
 
-### MAC Randomisation
+### Reclaiming Tokens
+
+Since people might have distributed Risk Tokens and later received negative
+test results indicating they were immune during this period, we're considering
+adding a potential expunge & repudiate (P2) mechanism for such tokens.
+
+### MAC Randomization
 
 Mobile devices have MAC addresses for protocols like Bluetooth and WiFi. This is
 used to uniquely identify a particular device for communications over the
@@ -2286,9 +2478,9 @@ This could easily be avoided if the operating system provided a hook for when it
 was about to rotate the MAC address, e.g. `macAddressWillChange` and
 `macAddressDidChange`.
 
-Privacy-conscious protocols such as ours could then use this to synchronise
+Privacy-conscious protocols such as ours could then use this to synchronize
 changes to the `BroadcastKey`. In the meantime, we’re exploring ways in which a
-device can detect if its MAC address had changed, so it could minimise the
+device can detect if its MAC address had changed, so it could minimize the
 potential for such tracking.
 
 ### Backup
@@ -2314,7 +2506,7 @@ to the future. We elaborate on some of these below.
 ### Zero-Rated Data Usage
 
 We currently estimate the data usage of the SafetyScore mobile app to average
-out to about 20MB a day. We find this to be acceptable given that over the
+out to about 30MB a day. We find this to be acceptable given that over the
 course of a month this is still less data than a single Netflix movie.
 
 However, for the purposes of making it universally affordable, it might be
@@ -2331,19 +2523,19 @@ contact, sex-health-specific aggregation and verification functions, etc.
 
 ### Purpose-Made Devices
 
-Once the SafetyScore protocol is finalised, it could be interesting to see if a
+Once the SafetyScore protocol is finalized, it could be interesting to see if a
 purpose-made device/wearable makes sense. This could not only help in the poorer
 parts of the world where smartphone penetration is low, but could also provide
 greater security, e.g. through the use of purpose-built trusted execution
 environments, and improved user experience and battery life.
 
-### Decentralised Governance
+### Decentralized Governance
 
-While we’ll be running our non-profit as a traditional organisation, it would
-further reflect our philosophy of openness and decentralisation to use a DAO
-(Decentralised Autonomous Organisation) structure to decide on certain changes,
-e.g. updating the RiskDistribution function for a particular disease, protocol
-changes, etc.
+While we’ll be using traditional forms of governance to start, it would further
+reflect our philosophy of openness and decentralization to use a DAO
+(Decentralized Autonomous Organization) structure to decide on certain changes,
+e.g. updating the `RiskDistribution` function for a particular disease,
+protocol changes, etc.
 
 ### Trust Layer
 
@@ -2458,7 +2650,7 @@ Regarding passive observers over the internet:
 But their ability to know the raw data that is being communicated is limited by
 the security of our encrypted transport layer. Their ability to statistically
 correlate traffic to new records on the Distributed Ledger is frustrated by the
-random delays and anonymised publishing routes taken by Nodes.
+random delays and anonymized publishing routes taken by Nodes.
 
 While they can’t see the contents of the data, passive observers could see
 increased traffic to and from Clients at specific moments, e.g. when a new
@@ -2482,11 +2674,11 @@ Regarding passive observers of data on the Public Ledger:
 
 * They can see the country associated with the StartKey for an ActivityKey.
 
-* They can see certifications of Misbehaviour associated with Activity Keys.
+* They can see certifications of Misbehavior associated with Activity Keys.
 
 * They can see OfficialAttestations made by Health Officials.
 
-But since all of the data — besides the Misbehaviour certification, StartKey
+But since all of the data — besides the Misbehavior certification, StartKey
 country, and some of the fields of OfficialAttestations — are posted as hashed
 commitments or are encrypted, the ability for a passive observer to know the
 contents is limited by the security of our hash function and encryption.
@@ -2545,30 +2737,30 @@ increased risk, we believe we've made it costly enough for attackers to not to
 be able to do this on a constant basis.
 
 The devices would need to be in close enough proximity with users to establish a
-contact in the first place. And since the `ViralDistribution` function factors
-in the number of Viral Tokens that are minted, we can tweak this to limit the
+contact in the first place. And since the `RiskDistribution` function factors
+in the number of Risk Tokens that are minted, we can tweak this to limit the
 impact of such attacks and make them ever more expensive.
 
 ### Use of Crafted Clean Profiles
 
-It would be possible for there to be a black market which specialises in
+It would be possible for there to be a black market which specializes in
 crafting clean profiles. Infected people could use these to get into premises,
 and given the anonymous nature of our protocol, this would be impossible to
 completely prevent.
 
 We instead make it expensive for these profiles to be crafted in the first
 place, e.g. through needing to post regularly, have interactions which match
-"normal" behaviour, produce proof-of-work computations to publish each of those
+"normal" behavior, produce proof-of-work computations to publish each of those
 records, etc.
 
-And once a profile has been crafted, interactions with active verifiers require
-that the profile communicates disclosures according to protocol — thus making it
-difficult to maintain a clean profile in the face of an epidemic.
+And once a profile has been crafted, interactions with Verifiers require that
+the profile behaves according to protocol — thus making it difficult to maintain
+a clean profile in the face of an epidemic.
 
 ### Knowing a Personal Contact is Infected
 
 If a user had only met a single person in the previous week and then later
-receives a disclosure resulting in their SafetyScore going down significantly,
+receives a Risk Token resulting in their SafetyScore going down significantly,
 then they could know with fairly high confidence that this personal contact is
 infected.
 
@@ -2585,10 +2777,10 @@ Unfortunately, it'd still be possible for users to jail break their devices to
 circumvent the tamper detection and even install implementations of the protocol
 that makes this data directly available to them.
 
-While we recognise that knowing a personal contact is infected can lead to
-stigmatisation, we limit this stigmatisation in general through the use of
-non-binary scores and by limiting disclosures to only contacts you've had prior
-to a diagnosis.
+While we recognize that knowing a personal contact is infected can lead to
+stigmatization, we limit this stigmatization in general through the use of
+non-binary scores and by limiting distributions to only contacts you've had
+prior to a diagnosis.
 
 ### Compromised Binaries
 
@@ -2596,15 +2788,15 @@ Since apps are distributed in pre-compiled form, it's feasible that we might be
 compromised in some way, e.g. through a National Security Letter, to distribute
 a backdoor that violates user privacy.
 
-To protect against this, we will make sure our build systems are deterministic
+To protect against this, we can make sure our build systems are deterministic
 and reproducible. Interested parties can then generate builds for themselves
 from source and verify by comparing to the distributed app binaries.
 
 ### Phones Being Turned Off
 
 We partially mitigate against people purposefully turning off their phones by
-factoring in their ActivityProfile into their SafetyScore, i.e. number of
-contacts they’ve had over time, the start times of their ActivityKeys, etc.
+factoring in their `ActivityProfile` into their SafetyScore, i.e. number of
+contacts they’ve had over time, etc.
 
 Of course, there’s nothing stopping a user from turning off their phone only
 during high risk events such as football matches or music festivals. They’d have
@@ -2619,42 +2811,140 @@ charge.
 Instead, we can rely on the auto-corrective nature of SafetyScore. For example,
 if an occasionally misbehaving user does get infected, and ends up infecting
 others, then their SafetyScore will go down anyhow as some of those people make
-disclosures.
+distributions.
 
-## Model Validation [WORK IN PROGRESS]
+## Model Validation
 
-We did some basic modelling to test and validate our approach [^simulation]. As
-a baseline, we present a scenario where the epidemic is not contained and
-spreads through the population:
+In order to test our approach, we built a detailed stochastic ICM (Individual
+Contact Model) to explicitly represent individuals within a population and the
+contacts between them as unique, discrete events [^simulation].
 
-|insert-figure|
+The model accounts for over 40 different parameters: the effectiveness of
+isolation measures, the likelihood of an individual to be symptomatic, app
+installation, household distributions, imported infection risk, daily test
+capacity, etc.
 
-As can be seen, despite being parametrised with a low fatality risk of 0.6%, due
-to the foreign infection risk of |insert-percentage|, mildly symptomatic cases
-at |insert-percentage|, and reinfection risk of |insert-percentage|, the overall
-mortality ends up being higher at |insert-percentage|.
+Individuals are allocated to clusters which may represent their work, school,
+friends, family, etc. Over the course of a day, individuals may spend time in
+one of their own clusters or visit a "foreign" cluster, e.g. for a work meeting,
+or to go to a shop, etc.
 
-We then look at the same scenario but where a first-degree contact tracing app
-is used with |insert-percentage| uptake, |insert-percentage| effectiveness of
-isolation measures, and daily test capacity at |insert-percentage| of the
-population:
+Within these clusters, individuals are sampled into groups who interact with
+each other. Infectious individuals might infect others within a group, and may
+also end up infecting others within their own household when they return at the
+end of each day.
 
-|insert-figure|
+As the stochastic process yields slightly different results on each run, we use
+a threshold value Ω [^MLF20], similar to the significance threshold α for
+p-values, to auto-adapt the number of runs until the variance of the resulting
+healthy percentage of the population changes less than Ω.
 
-While the use of first-degree contact tracing helps to flatten the curve, we
-still end up with a high mortality of |insert-percentage|.
+As a baseline, we present a scenario where a respiratory disease like COVID-19
+is not contained and spreads freely through the population:
 
-However, when the same scenario is run using SafetyScore:
+![](image/simulation-free-movement.svg)
 
-|insert-figure|
+<figcaption>
+Simulation results for free movement.
+</figcaption>
 
-We see a much more positive result. The scenario shows the epidemic as
-successfully contained, and the overall mortality ends up being just
-|insert-percentage|. Thus suggesting that there is merit to our approach.
+This results in the curve familiar from mainstream media, and only 20% of the
+population remain uninfected by the end of the simulation. As some of the
+symptomatic individuals self-isolate, 4% of time is spent in isolation across
+the whole population.
 
-We fully recognise that no model can perfectly reflect the complexities of the
+If we run the same simulation again but using an Apple/Google-style contact
+tracing app, where contacts of those who test positive are notified and
+encouraged to self-isolate and get themselves tested, we see:
+
+![](image/simulation-apple-google.svg)
+
+<figcaption>
+Simulation results for Apple/Google-style contact tracing.
+</figcaption>
+
+Despite being parametrized with two-thirds of the population using the app,
+Apple/Google-style contact tracing only managed to keep 29% of the population
+healthy. A definite improvement over the baseline, but not as significant as one
+might have hoped.
+
+There are three main reasons for this. The first is that despite the two-thirds
+adoption, only about 44% of contacts are actually registered — leading to lots
+of infectious contacts being missed.
+
+Secondly, due to limited testing capacity and any delays in testing, by the time
+immediate contacts get tested, they've already infected others and the system is
+always playing "catch-up" to the next generation of infected indiviudals.
+
+And, finally, most of the privacy-preserving contact tracing efforts place an
+arbitrary time limit — often 14 days — for notifying contacts. This results in
+catching only those who someone might have infected, and often fails to capture
+those who might have infected them.
+
+In contrast, running the same simulation again using SafetyScore with two-thirds
+adoption stemming from two-thirds of the clusters being safeguarded, results in
+a significantly better outcome:
+
+![](image/simulation-safetyscore.svg)
+
+<figcaption>
+Simulation results for SafetyScore.
+</figcaption>
+
+We see that the epidemic has been successfully contained and 94% of the
+population remain uninfected by the end of the simulation. This speaks to the
+efficacy of SafetyScore and suggests that there is merit to our approach.
+
+Of particular interest, from looking at the raw data for each day, is that the
+number of individuals who are notified by the SafetyScore app to self-isolate
+closely tracks the number of infected individuals.
+
+This results in the population spending only 0.7% of the time in isolation. This
+seems to be close to optimal and suggests that SafetyScore can keep people safe
+while enabling society and economy to function productively.
+
+If we run the same scenario again but use lockdowns as the means of suppression,
+we see:
+
+![](image/simulation-lockdown.svg)
+
+<figcaption>
+Simulation results for lockdowns.
+</figcaption>
+
+The 94% of the population that remain uninfected at the end of the simulation is
+comparable to SafetyScore, but this comes at a high cost of keeping people
+isolated for 67% of the time.
+
+This underscores what we all know to be true, that lockdowns keep us safe but
+are not sustainable as a long-term solution given their devastating impact on
+society and the economy.
+
+![](image/simulation-healthy.svg)
+
+<figcaption>
+Comparison of the various simulations for the percentage of the population that
+remain uninfected.
+</figcaption>
+
+In summary, SafetyScore is able to keep people safe in a manner comparable to
+lockdowns, and is three times as effective as Apple/Google-style contact tracing
+despite having the same number of users.
+
+SafetyScore is able to achieve this with minimal disruption to society and costs
+almost two orders of magnitude less in terms of the percentage of time that
+people end up being isolated.
+
+![](image/simulation-isolated.svg)
+
+<figcaption>
+Comparison of the various simulations for the percentage of time that people are
+isolated.
+</figcaption>
+
+We fully recognize that no model can perfectly reflect the complexities of the
 real world — especially when there are so many unknowns to accurately
-parametrise models.
+parametrize models.
 
 From assumptions around the symptomatic reservoir, to the sensitivity of tests,
 the extent to which immunity is affected and long-lasting, transmission both
@@ -2662,14 +2952,14 @@ within and between households, there are so many facets for which data is only
 now starting to emerge.
 
 To this end, we are looking to bring together members from the broader open data
-and modelling communities to build the necessary datasets and develop richer
+and modeling communities to build the necessary datasets and develop richer
 models using the best methodologies available.
 
-By combining macroscopic mobility structure [^BH13] with the microscopic
-temporal contact structure [^SSL16], along with locale-specific demographic
+By combining macroscopic mobility structures [^BH13] with the microscopic
+temporal contact structures [^SSL16], along with locale-specific demographic
 data, testing/treatment capacity/effectiveness, environmental factors, social
-behaviour, and commute/hub topologies, we hope to further validate and inform
-our approach.
+behavior, and commute/hub topologies, we hope to further validate and inform our
+approach.
 
 ## Conclusions
 
@@ -2685,7 +2975,7 @@ Thus SafetyScore offers a viable alternative to lockdowns as a way of containing
 both current and future epidemics. Instead of having to choose between saving
 lives or livelihoods, we could do both.
 
-And, finally, the open and decentralised nature of the protocol allows it to be
+And, finally, the open and decentralized nature of the protocol allows it to be
 more easily adopted at an international level — letting countries reopen borders
 without putting their populations at massive risk.
 
@@ -2693,11 +2983,11 @@ without putting their populations at massive risk.
 
 We thank Krishna Kotecha for validating our approach with prototype code on iOS.
 We thank Joerg Baach, Alon Braun, Mamading Ceesay, Josef Davies-Coates, Huy
-Dinh, Chance Jiang, Laura Kahn, Anthony Leung, Hinesh Mandalia, Barney
-Mannerings, Alex McKinlay, Robert Mighall, Erik Moeller, Ramesh Nair, Samuele
-Poletto, Seyi Ogunyemi, William Pritchard, Ray Rafiq, Imtiaz Shams, David
-Spergel, Pierre-Antoine Tetard, Daniel Warner, and Yasmin Weaver for extremely
-valuable conversations on SafetyScore's design and its philosophy.
+Dinh, Nina Fefferman, Chance Jiang, Laura Kahn, Anthony Leung, Hinesh Mandalia,
+Barney Mannerings, Alex McKinlay, Robert Mighall, Erik Moeller, Ramesh Nair,
+Samuele Poletto, Seyi Ogunyemi, William Pritchard, Ray Rafiq, Imtiaz Shams,
+David Spergel, Pierre-Antoine Tetard, Daniel Warner, and Yasmin Weaver for
+extremely valuable conversations on SafetyScore's design and its philosophy.
 
 ## References
 
@@ -2721,7 +3011,7 @@ valuable conversations on SafetyScore's design and its philosophy.
 
 [^safetyscore]: [SafetyScore GitHub Repository](https://github.com/safetyscore/safetyscore).
 
-[^simulation]: [SafetyScore Simulation](https://safetyscore.app/simulation).
+[^simulation]: [SafetyScore Simulation](https://simulation.safetyscore.app).
 
 [^tcn]: [TCN Protocol](https://github.com/TCNCoalition/TCN).
 
@@ -2734,6 +3024,11 @@ Counter-Measure](http://www.hashcash.org/papers/hashcash.pdf). 2002.
 
 [^Ber06]: Daniel J. Bernstein. [Curve25519: new Diffie-Hellman speed
 records](https://cr.yp.to/ecdh/curve25519-20060209.pdf). 2006.
+
+[^BAHLE20]: William J. Bradshaw, Ethan C. Alley, Jonathan H. Huggins, Alun L.
+Lloyd, and Kevin M. Esvelt. [Bidirectional contact tracing is required for
+reliable COVID-19
+control](https://www.medrxiv.org/content/10.1101/2020.05.06.20093369v1). 2020.
 
 [^BBB+18]: Benedikt Bünz, Jonathan Bootle, Dan Boneh, Andrew Poelstra, Pieter
 Wuille, and Greg Maxwell. [Bulletproofs: Short Proofs for Confidential
@@ -2867,6 +3162,12 @@ epidemic](https://dash.harvard.edu/handle/1/42638988). 2020.
 [^LSP82]: Leslie Lamport, Robert Shostak, and Marshall Pease. [The Byzantine
 Generals Problem](https://dl.acm.org/doi/10.1145/357172.357176). In *ACM
 Transactions on Programming Languages and Systems*, 4(3):387–389, 1982.
+
+[^Lev04]: Raph Levien. [Attack Resistant Trust
+Metrics](http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.83.9266). 2004.
+
+[^MLF20]: Kellen Myers, Eric Lofgren, and Nina Fefferman. The Ω-test for
+certainty in Monte Carlo simulations. In review. 2020.
 
 [^MLL20]: Aanchal Malhotra, Adam Langley, and Watson Ladd.
 [Roughtime](https://tools.ietf.org/html/draft-ietf-ntp-roughtime-01). 2020.
