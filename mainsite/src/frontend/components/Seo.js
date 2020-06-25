@@ -20,6 +20,9 @@ const Seo = ({ title, description }) => (
         },
       ]
     }}
+    twitter={{
+      cardType: 'summary_large_image',
+    }}
   />
 )
 
