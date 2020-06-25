@@ -192,7 +192,7 @@ const FundPageContent = () => {
 
   return (
     <Layout>
-      <Seo title='Fund us' />
+      <Seo title='Fund us' description='Help fund our ongoing work' />
       <ContentWrapper>
         <Container>
           <H1>Fund us</H1>

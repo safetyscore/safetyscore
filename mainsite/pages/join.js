@@ -89,7 +89,7 @@ const SlackPage = () => {
 
   return (
     <Layout>
-      <Seo title='Join our Slack' />
+      <Seo title='Join our Slack' description='Join our Slack community and chat with us' />
       <FundUs />
       <ContentWrapper>
         <Container>
