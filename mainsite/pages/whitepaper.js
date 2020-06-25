@@ -19,7 +19,6 @@ const WhitepaperPage = () => {
   return (
     <Layout>
       <Seo title='SafetyScore: Containing Epidemics through Privacy-Preserving Network-Level Tracing' description='The SafetyScore whitepaper'/>
-      <FundUs />
       <ContentWrapper>
         <Markdown
           getImage={getImage}
