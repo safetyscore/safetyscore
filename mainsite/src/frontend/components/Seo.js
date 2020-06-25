@@ -14,8 +14,8 @@ const Seo = ({ title, description }) => (
       images: [
         {
           url: 'https://safetyscore.app/socialcard-bg.png',
-          width: 422,
-          height: 77,
+          width: 560,
+          height: 300,
           alt: 'SafetyScore',
         },
       ]
