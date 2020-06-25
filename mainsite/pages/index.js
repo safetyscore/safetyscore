@@ -96,6 +96,7 @@ const HomePage = () => {
             pic="https://ca.slack-edge.com/T02611AQD-U0118DUF325-14ae2ed0d7cd-512"
             bio="Ex-head of Data Science at Google, Tech Entrepreneur."
             resume="SpaceX, Impossible foods, UC Berkeley, Harvard."
+            twitter="lvrzhn"
           />
           <StyledTeamMember
             name="Dr. Luke Robinson"
@@ -108,12 +109,14 @@ const HomePage = () => {
             pic="https://pbs.twimg.com/profile_images/845703224309026818/VJxnSxm9_400x400.jpg"
             bio="Director at Health Foundry. Top 100 Women in Social Enterprise."
             resume="Architect 00, Mayor's Design Advocate, Impact Hub."
+            twitter="00alice"
           />
           <StyledTeamMember
             name="Tom Salfield"
             pic="https://media-exp1.licdn.com/dms/image/C4D03AQGLNp_0N-XIpg/profile-displayphoto-shrink_200_200/0?e=1598486400&v=beta&t=RsZSg9jZ_BE3_CIM4cAHa4ug6xvOxzr6iecCjZGsYtU"
             bio="Social-tech entepreneur, collaborative sytems designer."
             resume="Wikifactory, Impact Hub, Opencoin, Imperial, LSE."
+            twitter="tsalfield"
           />
           <StyledTeamMember
             name="Huy Dinh"
@@ -132,6 +135,7 @@ const HomePage = () => {
             pic="https://media-exp1.licdn.com/dms/image/C5603AQGUEi9BcamjCw/profile-displayphoto-shrink_800_800/0?e=1598486400&v=beta&t=t6mTH0Y-azeO5apdrZUqR-s5y4APCRSD37vYhx2O3ec"
             bio="Co-founder at One Health Initiative. Public health expert, physician, science and global security scholar."
             resume="Princeton."
+            twitter="laurakahn1"
           />
           <StyledTeamMember
             name="Krishna Kotecha"
@@ -140,7 +144,7 @@ const HomePage = () => {
           />
           <StyledTeamMember
             name="Anthony Leung"
-            bio="Senior finance treasury and strategy executive."
+            bio="Senior finance, treasury, and strategy executive."
             resume="Tesco, Credit Suisse, Morgan Stanley, LSE."
           />
           <StyledTeamMember
@@ -148,6 +152,7 @@ const HomePage = () => {
             pic="https://d1hbpr09pwz0sk.cloudfront.net/profile_pic/hinesh-mandalia-ae111ea1"
             bio="Senior full-stack engineer, fintech."
             resume="G-Research, Lloyds Banking Group, Logica, Imperial."
+            twitter="hineshmandalia"
           />
           <StyledTeamMember
             name="Alex McKinlay"
@@ -163,9 +168,10 @@ const HomePage = () => {
             twitter="hiddentao"
           />
           <StyledTeamMember
-            name="Seyi Ogunymi"
+            name="Seyi Ogunyemi"
             bio="Senior full-stack engineer, graphic designer, UX specialist, fintech."
             resume="Civic, Espians, Coca-Cola, Daigeo."
+            twitter="micrypt"
           />
           <StyledTeamMember
             name="William Pritchard"
@@ -178,12 +184,14 @@ const HomePage = () => {
             pic="https://ca.slack-edge.com/T02611AQD-U010JKBQCJ0-6cbf2b336a3b-512"
             bio="AI entrepreneur, non-profit builder, fundraising."
             resume="Post Urban Ventures, Charities: Think & Faith to Fathless, LSE."
+            twitter='imtishams'
           />
           <StyledTeamMember
             name="Dr. David Spergel"
             pic="https://media-exp1.licdn.com/dms/image/C4E03AQGC0hAb_6tM2A/profile-displayphoto-shrink_800_800/0?e=1598486400&v=beta&t=aSdB4hTKqrBpJYe71rPq2PID3KaLZb3hG6DsQ2IIgsk"
             bio="Director at Simons Foundation. Computational astrophysicist. Breakthrough prize winner."
             resume="Princeton, NASA, Harvard."
+            twitter="davidspergel"
           />
         </ItemList>
       </ContentBlock>
