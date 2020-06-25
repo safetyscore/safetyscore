@@ -80,7 +80,6 @@ const HomePage = () => {
           A Permanent Solution to Pandemics.
         </TagLine>
       </TopBlock>
-      <FundUs />
       <ContentBlock>
         <h2>Team</h2>
         <ItemList>
