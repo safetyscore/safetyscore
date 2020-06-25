@@ -1,0 +1,30 @@
+<?xml-stylesheet type="text/css" href="../graph.css"?>
+<svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="0 0 450 320" width="100%">
+    <rect fill="#fff" height="320" width="450" x="0" y="0"/>
+    <text alignment-baseline="middle" font-size="12px" text-anchor="end" x="40" y="47">100</text>
+    <rect x="48" y="45" width="5" height="1"/>
+    <text alignment-baseline="middle" font-size="12px" text-anchor="end" x="40" y="94">80</text>
+    <rect x="48" y="92" width="5" height="1"/>
+    <text alignment-baseline="middle" font-size="12px" text-anchor="end" x="40" y="141">60</text>
+    <rect x="48" y="139" width="5" height="1"/>
+    <text alignment-baseline="middle" font-size="12px" text-anchor="end" x="40" y="188">40</text>
+    <rect x="48" y="186" width="5" height="1"/>
+    <text alignment-baseline="middle" font-size="12px" text-anchor="end" x="40" y="235">20</text>
+    <rect x="48" y="233" width="5" height="1"/>
+    <text alignment-baseline="middle" font-size="12px" text-anchor="end" x="40" y="282">0</text>
+    <rect x="48" y="280" width="5" height="1"/>
+    <rect x="53" y="45" width="1" height="236"/>
+    <text alignment-baseline="middle" font-size="12px" text-anchor="middle" x="235" y="305">% Isolated</text>
+    <rect fill="#8bb4b8" height="10" width="50" x="95" y="271"/>
+    <text alignment-baseline="middle" font-size="11px" text-anchor="middle" x="120" y="259">Free Movement</text>
+    <text alignment-baseline="middle" font-size="11px" text-anchor="middle" x="120" y="242">4.06%</text>
+    <rect fill="#ff3945" height="21" width="50" x="175" y="260"/>
+    <text alignment-baseline="middle" font-size="11px" text-anchor="middle" x="200" y="248">Apple/Google</text>
+    <text alignment-baseline="middle" font-size="11px" text-anchor="middle" x="200" y="231">8.87%</text>
+    <rect fill="#009d51" height="2" width="50" x="255" y="279"/>
+    <text alignment-baseline="middle" font-size="11px" text-anchor="middle" x="280" y="267">SafetyScore</text>
+    <text alignment-baseline="middle" font-size="11px" text-anchor="middle" x="280" y="250">0.66%</text>
+    <rect fill="#444444" height="158" width="50" x="335" y="123"/>
+    <text alignment-baseline="middle" font-size="11px" text-anchor="middle" x="360" y="111">Lockdown</text>
+    <text alignment-baseline="middle" font-size="11px" text-anchor="middle" x="360" y="94">66.80%</text>
+</svg>
