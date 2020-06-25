@@ -25,13 +25,25 @@ const TwitterLink = styled.a`
   margin-top: 0.5rem;
 `
 
+const Bio = styled.div`
+  margin-top: 0.5rem;
+`
 
-const HowItWorks = ({ className, name, pic, title, twitter }) => {
+const Resume = styled.div`
+  margin-top: 0.4rem;
+  font-size: 80%;
+  font-style: italic;
+`
+
+
+const HowItWorks = ({ className, name, pic, bio, resume, twitter }) => {
   return (
     <Container className={className}>
       <Pic src={pic} />
       <Name>{name}</Name>
-      <TwitterLink href={`https://twitter.com/${twitter}`}>@{twitter}</TwitterLink>
+      <Bio>{bio}</Bio>
+      <Resume>{resume}</Resume>
+      {twitter ? <TwitterLink href={`https://twitter.com/${twitter}`}>@{twitter}</TwitterLink> : null}
     </Container>
   )
 }

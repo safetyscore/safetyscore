@@ -267,4 +267,3 @@ const FundPage = () => {
 
 export default withApollo(FundPage)
 
-
