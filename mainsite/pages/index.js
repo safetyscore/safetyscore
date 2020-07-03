@@ -1,18 +1,18 @@
-import React from 'react'
-import styled from '@emotion/styled'
-import { flex } from 'emotion-styled-utils'
+import React from "react"
+import styled from "@emotion/styled"
+import {flex} from "emotion-styled-utils"
 
-import { withApollo } from '../src/frontend/hoc'
-import { headerHeight } from '../src/frontend/components/Header'
-import Layout from '../src/frontend/components/Layout'
-import Seo from '../src/frontend/components/Seo'
-import ContentWrapper from '../src/frontend/components/ContentWrapper'
-import FundUs from '../src/frontend/components/FundUs'
-import TeamMember from '../src/frontend/components/page/home/TeamMember'
+import {withApollo} from "../src/frontend/hoc"
+import {headerHeight} from "../src/frontend/components/Header"
+import Layout from "../src/frontend/components/Layout"
+import Seo from "../src/frontend/components/Seo"
+import ContentWrapper from "../src/frontend/components/ContentWrapper"
+import FundUs from "../src/frontend/components/FundUs"
+import TeamMember from "../src/frontend/components/page/home/TeamMember"
 
 const TopBlock = styled.div`
   height: calc(80vh - ${headerHeight});
-  ${flex({ direction: 'column', justify: 'center', align: 'center' })};
+  ${flex({direction: "column", justify: "center", align: "center"})};
   padding: 1rem;
 `
 
@@ -22,7 +22,7 @@ const TagLine = styled.p`
   line-height: 1.2em;
   padding: 0 2rem;
 
-  ${({ theme }) => theme.media.when({ minW: 'mobile' })} {
+  ${({theme}) => theme.media.when({minW: "mobile"})} {
     font-size: 4rem;
   }
 `
@@ -36,7 +36,12 @@ const ContentBlock = styled(ContentWrapper)`
 `
 
 const ItemList = styled.div`
-  ${flex({ direction: 'row', justify: 'space-around', align: 'flex-start', wrap: 'wrap' })};
+  ${flex({
+    direction: "row",
+    justify: "space-around",
+    align: "flex-start",
+    wrap: "wrap",
+  })};
 `
 
 const StyledTeamMember = styled(TeamMember)`
@@ -44,7 +49,7 @@ const StyledTeamMember = styled(TeamMember)`
   width: 100%;
   max-width: 300px;
 
-  ${({ theme }) => theme.media.when({ minW: 'mobile' })} {
+  ${({theme}) => theme.media.when({minW: "mobile"})} {
     width: 25%;
   }
 `
@@ -76,9 +81,7 @@ const HomePage = () => {
     <Layout>
       <Seo />
       <TopBlock>
-        <TagLine>
-          A Permanent Solution to Pandemics.
-        </TagLine>
+        <TagLine>A Permanent Solution to Pandemics.</TagLine>
       </TopBlock>
       <ContentBlock>
         <h2>Team</h2>
@@ -101,7 +104,7 @@ const HomePage = () => {
             name="Dr. Luke Robinson"
             pic="https://media-exp1.licdn.com/dms/image/C5603AQGNJP77TF3yWg/profile-displayphoto-shrink_200_200/0?e=1598486400&v=beta&t=Klg_aFS9QIFVEAo39XFeISHV6UxZhoIg902pJKPnRUk"
             bio="Deep-tech entrepreneur, quantum physicist."
-            resume="Post Urban Ventures, Hazy, Alan Turing Institute, Cambridge."
+            resume="Post Urban Ventures, Hazy, Cambridge."
           />
           <StyledTeamMember
             name="Alice Fung"
@@ -126,7 +129,7 @@ const HomePage = () => {
           <StyledTeamMember
             name="Dr. Nina Fefferman"
             pic="https://sites.tufts.edu/naumovalabs/files/2019/10/peopleFefferman2-6.jpg"
-            bio="Infectious diseases modelling expert. Professor in ecology, Evolution & Maths at UT Knoxville."
+            bio="Infectious diseases modelling expert. Professor in Ecology, Evolution & Maths at UT Knoxville."
             resume="Rutgers, Tufts, Princeton."
           />
           <StyledTeamMember
@@ -183,7 +186,7 @@ const HomePage = () => {
             pic="https://ca.slack-edge.com/T02611AQD-U010JKBQCJ0-6cbf2b336a3b-512"
             bio="AI entrepreneur, non-profit builder, fundraising."
             resume="Post Urban Ventures, Charities: Think & Faith to Fathless, LSE."
-            twitter='imtishams'
+            twitter="imtishams"
           />
           <StyledTeamMember
             name="Dr. David Spergel"
@@ -199,5 +202,3 @@ const HomePage = () => {
 }
 
 export default withApollo(HomePage)
-
-
